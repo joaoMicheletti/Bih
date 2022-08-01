@@ -1,0 +1,20 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "api_cantinho_da_bih",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js",
+    "test": ""
+  },
+  "author": "João Micheletti",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "knex": "^2.1.0",
+    "nodemon": "^2.0.18",
+    "sqlite3": "^5.0.8"
+  }
+}

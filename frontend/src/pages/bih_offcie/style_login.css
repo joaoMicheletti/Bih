@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Form_Container h1 {
+    text-align: center;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.Form_Container h3 {
+    color: red;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.Form_Container .Conteudo_form{
+    margin-top: 60px;
+    justify-content: center;
+    display: flex;
+}
+.Form_Container .Conteudo_form img {
+    width: 380px;
+    border-radius: 50%;
+}
+.Form_Container .Conteudo_form .Form {
+    padding: 80px;
+}
+
+.Painel_s_Container .Cabeçalho .Logo {
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 50%;
+    width: 200px;
+}
+.Painel_s_Container .Cabeçalho .Menu {
+    margin-top: 20px;
+    padding: 20px;
+    float: right;
+}
+
+
+.Produtos_Container header nav {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.Produtos_Container .Forms_Container {
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+}
+.Produtos_Container .Forms_Container form {
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 40px;
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif; 
+      
+}
+.Produtos_Container .Forms_Container form h2{
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.Produtos_Container .Forms_Container form input {
+    margin-bottom: 10px;
+    height: 35px;
+    width: 200px;
+}
+.Produtos_Container .Forms_Container form  button {
+    width: 100px;
+    height: 40px;
+    margin-left: 30px;
+    background-color: rgb(224, 35, 107);
+    border: none;
+    cursor: pointer;
+}
+.Produtos_Container .Forms_Container form button:hover {
+    background-color: rgba(224, 35, 107, 0.514);
+}
+#Cabeçalho {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+    text-align: center;
+}
+#Lk {
+    padding-left: 30px;
+}
+#Pedidos_Container {
+    margin-top: 50px;
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    color: white;
+}
+#Pedidos_Container ul {
+    width: 100%;
+}
+#Pedidos_Recebidos {
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+#Pedidos_Enviados {
+    width: 40%;
+    margin-left: 5%;
+}
+#Pedidos_Enviados ul {
+    background-color: rgb(247, 0, 164);
+}

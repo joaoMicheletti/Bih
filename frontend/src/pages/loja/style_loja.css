@@ -1,0 +1,119 @@
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+ .Loja_Container .Cabeçalho{
+    width: 100%;
+ }
+ .Loja_Container .Cabeçalho .Logo {
+    width: 100px;
+    border-radius: 50%;
+    margin-top: 5px;
+    margin-left: 5px;
+ }
+ .Loja_Container .Cabeçalho .Menu {
+    margin-top: 50px;
+    float: right;
+    margin-right: 5px;
+}
+.Loja_Container .Cabeçalho .Menu a {
+    margin-left: 8px;
+}
+.Conteudo_Loja {
+    margin-bottom: 30px;
+}
+.Propaganda {
+    margin-top: 60px;
+    display: flex;
+    margin-left: 10%;
+    width: 80%;
+}
+.Propaganda .Txt_Propaganda {
+    font-size: 18px;
+    width: 50%;
+    max-height: 200px;
+    color: white;
+    margin-right: 10%;
+}
+.Propaganda .Img_Propaganda img {
+    max-height: 200px;
+    width: 200px;
+}
+.Itens_Loja {
+    margin-top: 30px;
+    height: auto;
+    max-width: 80%;
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+ul {
+    text-align: center;
+    width: 280px;
+    background-color: rgba(0, 0, 0, 0.37);
+    margin-bottom: 30px;
+
+}
+li {
+    list-style: none;
+    color: white;
+}
+ul li img {
+    width: 150px;
+    height: 150px;
+}
+
+.Loja_btn button {
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 70px;
+    height: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 6px;
+    border-color: transparent;
+}
+.Loja_btn button:hover {
+    background-color: rgba(0, 0, 0, 0.37);
+}
+.pedido{
+    background-color: antiquewhite;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}.pedido label {
+    margin-right: 25px;
+}.pedido p {
+    margin-right: 25px;
+}.pedido button {
+    width: 90px;
+    background-color: rgb(209, 17, 91);
+    color: white;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+}
+@media (max-width: 700px){
+    .Loja_Container .Cabeçalho .Menu {
+        margin-top: 10px;
+    }
+    .Loja_Container .Cabeçalho .Menu a {
+        font-size: 18px;
+        margin-right: 0px;
+        margin-left: 5px;
+    }
+    
+    .Propaganda .Txt_Propaganda {
+        font-size: 15px;
+        width: 60%;
+        max-height: 200px;
+        color: white;
+        margin-right: 5px;
+    }
+    .Propaganda .Img_Propaganda img {
+        max-height: 200px;
+        width: 100px;
+    }
+}
