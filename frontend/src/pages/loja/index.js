@@ -45,17 +45,7 @@ function Loja(){
                         </li>
                     </ul>
 
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>produto: exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
+                   
 
                     
                 </div>

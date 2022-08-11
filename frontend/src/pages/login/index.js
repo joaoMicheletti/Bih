@@ -1,20 +1,44 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate} from 'react-router-dom';
+import api from '../../services/api';
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
 import Bolo from '../assets/bolinho1.png';
 
 function Login(){
+    const hystory = useNavigate();
     const [Phone, setPhone] = useState('');
     const [Pass, setPass] = useState('');
-    const Logar = (e) => {
+    const Logar = async (e) => {
         e.preventDefault();
         const Data = {
             Phone,
             Pass
         }
-        console.log(Data)
+        if(Phone.length === 0){
+            document.querySelector('#response').innerHTML = 'Preencha o campo "CELULAR"';
+
+        } else if (Pass.length === 0){
+            document.querySelector('#response').innerHTML = 'Preencha o campo "SENHA"';
+        } else {
+            try{
+            
+                const response = await api.post('user/log/login', Data);
+    
+                if(response.data !=  'Erro: Falha no Login!'){
+                    localStorage.setItem('user', response.data);
+                    hystory('/loja');
+                } else {
+                    alert(response.data);
+                    hystory('/login');
+                }
+    
+    
+            } catch (err){
+                alert('erro');
+            }
+        }
+        
     }
     
     return(
@@ -29,6 +53,7 @@ function Login(){
             </header>
 
             <h1>Login</h1>
+            <h4 id='response'></h4>
     
             <div className='Conteudo_Form'>
                 <form  className='Form' onSubmit={Logar}>

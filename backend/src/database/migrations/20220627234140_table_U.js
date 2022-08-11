@@ -4,9 +4,9 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('user', function(table){
-        
-        table.string('phone');
-        table.string('pass');
+        table.string('id').primary();
+        table.string('phone').notNullable();
+        table.string('pass').notNullable();
     });
   
 };

@@ -4,7 +4,7 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('pedidos', function(table){
-        table.increments();
+        table.string('id').primary();
         table.string('product_name').notNullable();
         table.string('claint_name').notNullable();
         table.string('addreas').notNullable();

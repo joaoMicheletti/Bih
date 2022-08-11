@@ -4,7 +4,7 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('prop', function(table){
-        table.increments();
+        table.string('id').primary();
         table.string('txt').notNullable();
         table.blob('image').notNullable();
     });

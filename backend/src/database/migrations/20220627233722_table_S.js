@@ -5,7 +5,7 @@
 exports.up = function(knex) {
     
     return knex.schema.createTable('salgados', function(table){
-        table.increments();
+        table.string('id').primary();
         table.blob('image').notNullable();
         table.string('name').notNullable();
         table.string('value').notNullable();

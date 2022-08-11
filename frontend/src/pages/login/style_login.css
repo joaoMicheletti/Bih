@@ -66,6 +66,9 @@ h4 {
     height: 240px;
     margin-left: 50px;
 }
+#response {
+    color: red;
+}
 @media(max-width: 700px){
     .Form_Container .Navigation .Menu a {
         font-size: 20px;

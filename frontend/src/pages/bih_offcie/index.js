@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import api from '../../services/api';
 
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
@@ -6,17 +7,23 @@ import Logo from '../assets/Logo.jpg';
 function Login(){
     const [Phone, setPhone] = useState('');
     const [Pass, setPass] = useState('');
-    const Logar = (e) => {
+    const Logar = async (e) => {
         e.preventDefault();
         const Data = {
             Phone,
             Pass
         }
         if(Data.Pass === '' || Data.Phone === '') {
-            document.querySelector('.Erro').innerHTML += 'ERROR: Preencha os campos a baixo!';
+            document.querySelector('.Erro').innerHTML = 'ERROR: Preencha os campos a baixo!';
 
         } else {
-            console.log(Data);
+            try {
+                const response = await api.post('/adm_log_login', Data);
+                alert(response);
+
+            } catch (err){
+                console.log('erro catch');
+            }
         }
     }
     

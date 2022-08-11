@@ -14,6 +14,7 @@ function Register(){
 
     const Registrar = async (e)  => {
         e.preventDefault();
+       
         const Data = {
             Phone,
             Pass,
@@ -22,16 +23,16 @@ function Register(){
         try {
             
             if(Data.Pass === Data.Cpass ) {
+    
+                const response = await api.post('create_user', Data);
                 
-                const Headers = {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
+                alert(response.data);
+                
+                if (response.data === 'Número já cadastrado!!!'){
+                    history('/register');
+                } else {
+                    history('/login')
                 }
-                console.log(Data, Headers);
-                const response = await api.post('/create_user', Data, Headers);
-                alert(`Seu usuario é: ${response.data.phone}`);
-                history('/login')
 
             } else {
                 document.querySelector('#Result').innerHTML = "As senhas não batem";
@@ -39,6 +40,7 @@ function Register(){
 
         } catch (err){
             alert('Erro! ao se Cadastrar!!!')
+            history('/register');
         }
          
 
