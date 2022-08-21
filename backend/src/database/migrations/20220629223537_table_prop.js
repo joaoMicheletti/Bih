@@ -7,7 +7,7 @@ exports.up = function(knex) {
         table.string('id').primary();
         table.string('txt').notNullable();
         table.blob('image').notNullable();
-    });
+    }); 
   
 };
 

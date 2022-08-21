@@ -1,16 +1,19 @@
 import React, {useState} from 'react';
+import  {useNavigate} from 'react-router-dom';
 import api from '../../services/api';
 
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
 
 function Login(){
-    const [Phone, setPhone] = useState('');
+    const history = useNavigate();
+    const [User, setUser] = useState('');
     const [Pass, setPass] = useState('');
     const Logar = async (e) => {
         e.preventDefault();
+                
         const Data = {
-            Phone,
+            User,
             Pass
         }
         if(Data.Pass === '' || Data.Phone === '') {
@@ -19,10 +22,18 @@ function Login(){
         } else {
             try {
                 const response = await api.post('/adm_log_login', Data);
-                alert(response);
+                alert(response.data);
+                if (response.data === 'erro no login'){
+                    alert('if');
+                } else {
+                    localStorage.setItem('adm', response.data);
+                    alert('else');
+                    history('/p_salgados');
+                }
+
 
             } catch (err){
-                console.log('erro catch');
+                console.log('erro catch'); 
             }
         }
     }
@@ -41,7 +52,7 @@ function Login(){
                 <input type={'text'} className='Phone'
                 placeholder='Celular EX: 119322235' 
                 name='Phone' 
-                onChange={(e) => setPhone(e.target.value)}/>
+                onChange={(e) => setUser(e.target.value)}/>
 
                 <label>PassWord:</label>
                 <input type={'password'} className='Senha' 

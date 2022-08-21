@@ -9,9 +9,9 @@ export default function Pedidos(){
             <header id='Cabeçalho'>
 
                 <nav id='Menu'>
-                    <Link id='Lk' to="p_salgados">Painel_Salgados</Link>
-                    <Link id='Lk' to="p_produtos">Painel_Produtos</Link>
-                    <Link id='Lk' to="">Log uot</Link>
+                    <Link id='Lk' to="p_salgados">Painel_Salgados : </Link>
+                    <Link id='Lk' to="p_produtos">Painel_Produtos : </Link>
+                    <Link id='Lk' to="">EXIT</Link>
                 </nav>
             </header>
             <div id="Pedidos_Container">

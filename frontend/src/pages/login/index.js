@@ -25,7 +25,7 @@ function Login(){
             
                 const response = await api.post('user/log/login', Data);
     
-                if(response.data !=  'Erro: Falha no Login!'){
+                if(response.data !==  'Erro: Falha no Login!'){
                     localStorage.setItem('user', response.data);
                     hystory('/loja');
                 } else {

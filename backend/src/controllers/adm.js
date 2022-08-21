@@ -24,6 +24,7 @@ module.exports = {
 
         const C_User = await connection('adm').where('user', User).select('user');
         const C_Pass = await connection('adm').where('user', User).select('pass');
+        console.log(C_User.length);
 
         if (C_User.length === 0 ){
 
@@ -31,10 +32,9 @@ module.exports = {
 
         } else if (C_Pass[0].pass === Pass ){
 
-            return response.json(C_Pass);
+            return response.json(C_Pass[0].pass);
         } else {
             return response.json('erro no login');
-        }    
-              
+        }      
     }
 }      

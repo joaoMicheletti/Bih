@@ -10,9 +10,9 @@ function Painel_d(){
             <header className='Cabeçalho'>
                     <img className='Logo' id="Logo" src={Logo} alt="Logo"/>
                     <nav className='Menu'>
-                        <Link to="p_salgados">Painel_Salgados</Link>
-                        <Link to="p_produtos">Painel_Produtos</Link>
-                        <Link to="">Log uot</Link>
+                        <Link to="p_salgados">Painel_Salgados : </Link>
+                        <Link to="p_produtos">Painel_Produtos : </Link>
+                        <Link to="">EXIT</Link>
                     </nav>
                 </header>
         

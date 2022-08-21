@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './style_login.css';
 import { Link } from "react-router-dom";
+import api from '../../services/api';
 
 export default function Painel_p(){
     // var of Salgados... end doces
@@ -11,8 +12,7 @@ export default function Painel_p(){
     const [Status, setStatus] = useState('');
     //var of propaganda
     const [Texto, setTexto] = useState('');
-    const [Image_p , setImage_p] = useState('');
-
+    const [Image_p, setImage_p] = useState('');
     
     const Salgados = (e) => {
         e.preventDefault();
@@ -24,7 +24,7 @@ export default function Painel_p(){
             Status
         }
         console.log(Data);
-        console.log(Data.Image[0]);
+        console.log(Image_p);
     };
 
     const Doces = (e) => {
@@ -38,16 +38,28 @@ export default function Painel_p(){
         }
         console.log(Data);
         console.log(Data.Image[0]);
+        
     };
 
-    const Propaganda = (e) => {
+    const Propaganda = async (e) => {
         e.preventDefault();
         const Data = {
             Texto,
-            Image_p
+            Image_p,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+              }
         }
-        console.log(Data);
         console.log(Data.Image_p[0]);
+
+        try {
+            const response = await api.post('/prop_c');
+            alert(response);
+
+
+        } catch (err) {
+            alert('Erro catch');
+        }
     };
 
 
@@ -107,9 +119,9 @@ export default function Painel_p(){
                     <button type="submit">Criar</button>
                 
 
-                </form>
+                </form >
                 
-                <form className="Form_Propaganda" onSubmit={Propaganda}>
+                <form className="Form_Propaganda" onSubmit={Propaganda} enctype="multipart/form-data">
                 <h2>Propaganda</h2>
                 <p>Selecione a imagem</p>
                     <input type="file"
