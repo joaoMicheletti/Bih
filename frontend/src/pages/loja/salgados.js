@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 import './style_loja.css';
 
-function Salgados() {
+class Salgados extends Component {
+    render(){
         return(
             <div className='Loja_Container'>
                 <header className='Cabeçalho'>
@@ -136,5 +137,6 @@ function Salgados() {
                    
             </div>
         );
-}
+    };
+};
 export default Salgados;

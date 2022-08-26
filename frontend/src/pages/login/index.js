@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 import api from '../../services/api';
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
 import Bolo from '../assets/bolinho1.png';
 
-function Login(){
-    const hystory = useNavigate();
-    const [Phone, setPhone] = useState('');
-    const [Pass, setPass] = useState('');
-    const Logar = async (e) => {
+class Login extends Component{
+    render(){
+        const hystory = useNavigate();
+        const [Phone, setPhone] = useState('');
+        const [Pass, setPass] = useState('');
+        const Logar = async (e) => {
         e.preventDefault();
         const Data = {
             Phone,
@@ -40,9 +41,8 @@ function Login(){
         }
         
     }
-    
-    return(
-        <div className='Form_Container' >
+        return(
+            <div className='Form_Container' >
                 
             <header className='Navigation'>                    
                 <img clasName='Logo' alt='Logo' src={Logo} />
@@ -70,7 +70,7 @@ function Login(){
 
                
         </div>
-    );
-    
-}
+        );
+    };    
+};
 export default Login;

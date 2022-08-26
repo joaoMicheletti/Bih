@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, Component} from "react";
 import './style_login.css';
 import { Link } from "react-router-dom";
 import api from '../../services/api';
 
-export default function Painel_p(){
-    // var of Salgados... end doces
+export default class Painel_p extends Component{
+    render(){
+        // var of Salgados... end doces
     const [Image, setImage] = useState('');
     const [Name, setName] = useState('');
     const [Description, setDescription] = useState('');
@@ -61,10 +62,8 @@ export default function Painel_p(){
             alert('Erro catch');
         }
     };
-
-
-    return(
-        <div className="Produtos_Container">
+        return(
+            <div className="Produtos_Container">
             <header>
                 <nav>
                     <Link to='p_salgados'>Painel_Salgados</Link>
@@ -136,5 +135,6 @@ export default function Painel_p(){
                 </form>
             </div>
         </div>
-    );
-}
+        );
+    };
+};

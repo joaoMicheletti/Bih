@@ -1,9 +1,10 @@
-import React  from 'react';
+import React, {Component}  from 'react';
 import {Link} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 import './style_loja.css';
 
-function Loja(){ 
+class Loja extends Component{
+    render(){
         return(
             <div className='Loja_Container'>
                 <header className='Cabeçalho'>
@@ -55,6 +56,7 @@ function Loja(){
                     <button type='button'>finalizar</button>
                 </div>
             </div>
-        )
+        );
+    };
 }
 export default Loja; 

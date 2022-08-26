@@ -1,15 +1,16 @@
-import React, {useState} from 'react';
+import React, {useState, Component} from 'react';
 import  {useNavigate} from 'react-router-dom';
 import api from '../../services/api';
 
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
 
-function Login(){
-    const history = useNavigate();
-    const [User, setUser] = useState('');
-    const [Pass, setPass] = useState('');
-    const Logar = async (e) => {
+class Login extends Component{
+    render(){
+        const history = useNavigate();
+        const [User, setUser] = useState('');
+        const [Pass, setPass] = useState('');
+        const Logar = async (e) => {
         e.preventDefault();
                 
         const Data = {
@@ -37,7 +38,6 @@ function Login(){
             }
         }
     }
-    
     return(
         <div className='Form_Container' >
             <h1>Adiministrador</h1>
@@ -67,7 +67,8 @@ function Login(){
             </div>                 
                                
         </div>
+
     );
-    
+    }
 }
 export default Login;

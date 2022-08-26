@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link, navigate } from 'react-router-dom';
 import './style_home.css';
 import Logo from '../assets/Logo.jpg';
 
-function Home() { 
+class Home extends Component { 
+    render(){
         return(
             <div className='Home_Container' >
 
@@ -33,5 +34,6 @@ function Home() {
                 
             </div>
         );
-}
+    };
+};
 export default Home;
