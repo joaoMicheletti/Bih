@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import Rota from './routes';
+import React from 'react';
+import Rotas from './routes';
 
-class App extends Component{
-  render(){
-    return(
-      <Rota/>
-    );
-  };
+function App() {
+  return (
+    <Rotas/>    
+  );
 }
+
 export default App;

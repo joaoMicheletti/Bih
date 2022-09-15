@@ -1,13 +1,11 @@
-import React, {Component} from "react";
+import React from 'react';
 import {Link} from 'react-router-dom';
 import './style_login.css';
 
-export default class Pedidos extends Component{
-    render(){
-        const pedido = 30;
-        
-        return(
-            <div className="Pedidos_Container">
+function Pedidos(){
+    const pedido = 30;
+    return(
+        <div className="Pedidos_Container">
             <header id='Cabeçalho'>
 
                 <nav id='Menu'>
@@ -50,9 +48,7 @@ export default class Pedidos extends Component{
 
             </div>
         </div>
+    );
 
-        );
-    };
-   
-        
 }
+export default Pedidos;

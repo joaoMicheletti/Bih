@@ -1,21 +1,22 @@
-import React, {Component, useState} from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import api from '../../services/api';
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
 import Bolo from '../assets/bolinho1.png';
 
-class Login extends Component{
-    render(){
-        const hystory = useNavigate();
-        const [Phone, setPhone] = useState('');
-        const [Pass, setPass] = useState('');
-        const Logar = async (e) => {
+
+function Login(){
+    const hystory = useNavigate();
+    const [Phone, setPhone] = useState('');
+    const [Pass, setPass] = useState('');
+    const Logar = async (e) => {
         e.preventDefault();
         const Data = {
             Phone,
             Pass
-        }
+        };
+
         if(Phone.length === 0){
             document.querySelector('#response').innerHTML = 'Preencha o campo "CELULAR"';
 
@@ -37,12 +38,13 @@ class Login extends Component{
     
             } catch (err){
                 alert('erro');
-            }
-        }
+            };
+        };
         
-    }
-        return(
-            <div className='Form_Container' >
+    };
+
+    return(
+        <div className='Form_Container' >
                 
             <header className='Navigation'>                    
                 <img clasName='Logo' alt='Logo' src={Logo} />
@@ -67,10 +69,8 @@ class Login extends Component{
                 </form>
                 <img src={Bolo} className='Bolo_Img' alt='img'></img>
             </div>
-
-               
         </div>
-        );
-    };    
-};
+    );
+}
+
 export default Login;

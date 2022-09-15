@@ -1,20 +1,20 @@
-import React, {useState, Component} from "react";
+import React, {useState} from 'react';
 import './style_login.css';
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 import api from '../../services/api';
 
-export default class Painel_p extends Component{
-    render(){
+function Painel_p(){
+
         // var of Salgados... end doces
     const [Image, setImage] = useState('');
     const [Name, setName] = useState('');
     const [Description, setDescription] = useState('');
     const [Preço, setPreço] = useState('');
     const [Status, setStatus] = useState('');
-    //var of propaganda
+        //var of propaganda
     const [Texto, setTexto] = useState('');
     const [Image_p, setImage_p] = useState('');
-    
+
     const Salgados = (e) => {
         e.preventDefault();
         const Data = {
@@ -62,8 +62,10 @@ export default class Painel_p extends Component{
             alert('Erro catch');
         }
     };
-        return(
-            <div className="Produtos_Container">
+
+    return(
+
+        <div className="Produtos_Container">
             <header>
                 <nav>
                     <Link to='p_salgados'>Painel_Salgados</Link>
@@ -97,8 +99,8 @@ export default class Painel_p extends Component{
                 </form>
 
                 <form className="Form_Doces" onSubmit={Doces}>
-                <h2>Doces</h2>
-                <p>Selecione a imagem</p>
+                    <h2>Doces</h2>
+                    <p>Selecione a imagem</p>
                     <input type="file"
                     id="avatar" name="avatar"
                     accept="image/png, image/jpeg"
@@ -121,8 +123,8 @@ export default class Painel_p extends Component{
                 </form >
                 
                 <form className="Form_Propaganda" onSubmit={Propaganda} enctype="multipart/form-data">
-                <h2>Propaganda</h2>
-                <p>Selecione a imagem</p>
+                    <h2>Propaganda</h2>
+                    <p>Selecione a imagem</p>
                     <input type="file"
                     accept="image/png, image/jpeg"
                     onChange={(e) => setImage_p(e.target.files)}></input>
@@ -135,6 +137,6 @@ export default class Painel_p extends Component{
                 </form>
             </div>
         </div>
-        );
-    };
-};
+    );
+}
+export default Painel_p;

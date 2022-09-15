@@ -1,142 +1,69 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 import './style_loja.css';
 
-class Salgados extends Component {
-    render(){
-        return(
-            <div className='Loja_Container'>
-                <header className='Cabeçalho'>
-                    <img className='Logo' src={Logo} alt="Logo"/>
-                    <nav className='Menu'>
-                        <Link to="/">Home</Link>
-                        <Link to="loja">Doces</Link>
-                        <Link to="">Log uot</Link>
-                    </nav>
-                </header>
+function Salgado(){
+    return(
+
+        <div className='Loja_Container'>
+            <header className='Cabeçalho'>
+                <img className='Logo' src={Logo} alt="Logo"/>
+                <nav className='Menu'>
+                    <Link to="/">Home</Link>
+                    <Link to="loja">Doces</Link>
+                    <Link to="">Log uot</Link>
+                </nav>
+            </header>
         
-                    <div className='Prop_Loja'>
-                        <div className='Propaganda'>
-                            <div className='Txt_Propaganda'>
-                                <p>texto para a propaganda texto para a propaganda
-                                texto para a propaganda texto para a propaganda
-                                texto para a propaganda texto para a propaganda
-                                texto para a propaganda texto para a propaganda
-                                </p>
-                            </div>
-                            <div className='Img_Propaganda'>
-                                <img src={Logo} alt="prop"/>
-                            </div>
-                        </div>
+            <div className='Prop_Loja'>
+                <div className='Propaganda'>
+                    <div className='Txt_Propaganda'>
+                        <p>texto para a propaganda texto para a propaganda
+                            texto para a propaganda texto para a propaganda
+                            texto para a propaganda texto para a propaganda
+                            texto para a propaganda texto para a propaganda
+                        </p>
                     </div>
 
-                    <div className='Itens_Loja'>
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
-
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
-                    
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <div className='Loja_btn'>
-                                <button>+</button>
-                                <button>-</button>
-                            </div>
-                        </li>
-                    </ul>
+                    <div className='Img_Propaganda'>
+                        <img src={Logo} alt="prop"/>
+                    </div>
                 </div>
 
-                <div className='pedido'>
+                </div>
+            <div className='Itens_Loja'>
+                <ul>
+                    <li>
+                        <img src={Logo} alt='logo'/>
+                            <p>Descriptiom : exempolo</p>
+                            <p>Preço: $200,00</p>
+                        <div className='Loja_btn'>
+                            <button>+</button>
+                            <button>-</button>
+                        </div>
+                    </li>
+                </ul>
+
+                 <ul>
+                    <li>
+                        <img src={Logo} alt='logo'/>
+                        <p>Descriptiom : exempolo</p>
+                        <p>Preço: $200,00</p>
+                        <div className='Loja_btn'>
+                            <button>+</button>
+                            <button>-</button>
+                        </div>
+                    </li>
+                </ul>
+
+                 <div className='pedido'>
                     <label>Valor de pedido:</label>
                     <p>200,00</p>
                     <button type='button'>finalizar</button>
-                </div>
-                   
+                </div>     
             </div>
-        );
-    };
-};
-export default Salgados;
+        </div>
+    );
+}
+export default Salgado;

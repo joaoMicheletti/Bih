@@ -1,12 +1,12 @@
-import React, {Component} from "react";
+import React from 'react';
 import './style_login.css';
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 
-class Painel_s extends Component{
-    render(){
-        return(
-            <div className="Painel_s_Container">
+function Painel_s(){
+
+    return(
+        <div className="Painel_s_Container">
             
             <header className='Cabeçalho'>
                     <img className='Logo' id="Logo" src={Logo} alt="Logo"/>
@@ -47,7 +47,6 @@ class Painel_s extends Component{
                     </ul>
                 </div>    
         </div>
-        );
-    };
-};
+    );
+}
 export default Painel_s;

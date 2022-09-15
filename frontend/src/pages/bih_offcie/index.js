@@ -1,53 +1,51 @@
-import React, {useState, Component} from 'react';
-import  {useNavigate} from 'react-router-dom';
+import React, {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import api from '../../services/api';
 
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
 
-class Login extends Component{
-    render(){
-        const history = useNavigate();
-        const [User, setUser] = useState('');
-        const [Pass, setPass] = useState('');
-        const Logar = async (e) => {
+function Login() {
+    const history = useNavigate();
+    const [User, setUser] = useState('');
+    const [Pass, setPass] = useState('');
+    
+    const Logar = async (e) => {
         e.preventDefault();
-                
         const Data = {
             User,
             Pass
-        }
-        if(Data.Pass === '' || Data.Phone === '') {
-            document.querySelector('.Erro').innerHTML = 'ERROR: Preencha os campos a baixo!';
+        };
+        if (Data.Pass === '' || Data.Phone === ''){
+            document.querySelector('.Erro').innerHTML = "Erro: Preencha todos os CAMPOS!!!"
 
         } else {
             try {
                 const response = await api.post('/adm_log_login', Data);
                 alert(response.data);
                 if (response.data === 'erro no login'){
-                    alert('if');
+                    alert('erro no try > if');
                 } else {
                     localStorage.setItem('adm', response.data);
-                    alert('else');
+                    alert('ok try > else');
                     history('/p_salgados');
+
                 }
-
-
-            } catch (err){
-                console.log('erro catch'); 
+            } catch (err) {
+                console.log('Erro catch');
             }
         }
     }
     return(
-        <div className='Form_Container' >
-            <h1>Adiministrador</h1>
+        <div className='Form_Container'>
+            <h1>ADIMINISTRADOR</h1>
             <h3 className='Erro'></h3>
-            
-            <div className='Conteudo_form'>
-                
-                <img clasName='Logo' src={Logo} alt='Logo'/>
 
-                <form  className='Form' onSubmit={Logar}>
+            <div className='Conteudo_form'>
+
+                <img className='Logo' src={Logo} alt='Logo'/>
+
+                <form className='Form' onSubmit={Logar}>
                 <label>USER:</label>
                 <input type={'text'} className='Phone'
                 placeholder='Celular EX: 119322235' 
@@ -62,13 +60,10 @@ class Login extends Component{
 
 
                 <button type='submit' className='Btn_Form'>Login</button>
-             </form>
 
-            </div>                 
-                               
+                </form>
+            </div>
         </div>
-
     );
-    }
 }
 export default Login;
