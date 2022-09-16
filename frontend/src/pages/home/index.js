@@ -11,8 +11,8 @@ function Home(){
                 <img className='Logo' id='Logo' alt='Logo' src={Logo}/>
                 <nav className='Menu' id='Menu'>
                     <Link to='loja' onClick={() => Navigate('loja')}>Loja</Link>
-                    <Link to='register' onClick={() => Navigate('register')}>Registrar-se</Link>
-                    <Link to='login' onClick={() => Navigate('login')}>Login</Link>
+                    <Link to='register'>Registrar-se</Link>
+                    <Link to='login' >Login</Link>
 
                 </nav>
             </header>
@@ -22,6 +22,7 @@ function Home(){
                     <p>Testo propaganda para as datas comemorativas
                         dia dos namorados, maes, pai, avos, etc....
                     </p>
+                    <button className='Btn'><Link to='loja'>Nossa Loja</Link></button>
                 </div>
                 <div className='Img_Box' id='Img_Box'>
                     <img src={Logo} alt='Imagem da propaganda'/>

@@ -42,8 +42,9 @@ function Login() {
             <h3 className='Erro'></h3>
 
             <div className='Conteudo_form'>
-
+        
                 <img className='Logo' src={Logo} alt='Logo'/>
+            
 
                 <form className='Form' onSubmit={Logar}>
                 <label>USER:</label>

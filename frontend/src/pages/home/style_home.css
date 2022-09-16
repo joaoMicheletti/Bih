@@ -53,6 +53,7 @@ body {
     color: white;
 }
 .Conteudo .Txt_Box .Btn {
+    cursor: pointer;
     background-color: rgb(224, 35, 107);
     text-align: center;
     width: 200px;

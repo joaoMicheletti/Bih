@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 import './style_loja.css';
 
@@ -9,9 +9,8 @@ function Loja(){
             <header className='Cabeçalho'>
                 <img className='Logo' src={Logo} alt="Logo"/>
                 <nav className='Menu'>
-                    <Link to="/" >Home</Link>
+                    <Link onClick={() => Navigate('/')} to="/" >Home</Link>
                     <Link to="salgados">Salgados</Link>
-                    <Link to="">Log uot</Link>
                 </nav>
             </header>
 
@@ -32,8 +31,10 @@ function Loja(){
 
                 </div>
             </div>
+            <h3>Doces</h3>
                 
             <div className='Itens_Loja'>
+                
                 <ul>
                     <li>
                         <img src={Logo} alt='logo'/>

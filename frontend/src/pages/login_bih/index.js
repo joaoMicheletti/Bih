@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from '../assets/Logo.jpg';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import './style_login.css';
 import Bolo from '../assets/bolinho1.png';
 
@@ -11,7 +11,7 @@ function Login_Bih(){
             <header className='Navigation'>                    
                 <img clasName='Logo' alt='Logo' src={Logo} />
                 <nav className='Menu'>
-                    <a className='A' ><Link to='/'>Home</Link></a>
+                    <a className='A' ><Link onClick={() => Navigate('/')}>Home</Link></a>
                     <a className='A'> <Link to='register'>Registrar-se</Link></a>
                 </nav> 
             </header>

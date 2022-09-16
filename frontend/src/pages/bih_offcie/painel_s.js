@@ -1,6 +1,6 @@
 import React from 'react';
 import './style_login.css';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 
 function Painel_s(){
@@ -11,12 +11,12 @@ function Painel_s(){
             <header className='Cabeçalho'>
                     <img className='Logo' id="Logo" src={Logo} alt="Logo"/>
                     <nav className='Menu'>
-                        <Link to="p_doces">Painel_Doces : </Link>
-                        <Link to="p_produtos">Painel_Produtos : </Link>
+                        <Link to='p_doces'>Painel_Doces : </Link>
+                        <Link  to="p_produtos">Painel_Produtos : </Link>
                         <Link to="">EXIT</Link>
                     </nav>
                 </header>
-        
+         
                     <div className='Prop_Loja'>
                         <div className='Propaganda'>
                             <div className='Txt_Propaganda'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 import './style_loja.css';
 
@@ -10,9 +10,8 @@ function Salgado(){
             <header className='Cabeçalho'>
                 <img className='Logo' src={Logo} alt="Logo"/>
                 <nav className='Menu'>
-                    <Link to="/">Home</Link>
-                    <Link to="loja">Doces</Link>
-                    <Link to="">Log uot</Link>
+                    <Link onClick={() => Navigate('/')} to="/">Home</Link>
+                    <Link  to="loja">Doces</Link>
                 </nav>
             </header>
         
@@ -31,7 +30,9 @@ function Salgado(){
                     </div>
                 </div>
 
-                </div>
+            </div>
+            
+            <h3><br/>Salgados</h3>
             <div className='Itens_Loja'>
                 <ul>
                     <li>

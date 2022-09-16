@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate, Navigate} from 'react-router-dom';
 import './style_register.css';
 import Logo from '../assets/Logo.jpg';
 import Bolo from '../assets/bolinho1.png';
@@ -48,8 +48,8 @@ function Register(){
         <header className='Navigation'>                    
             <img clasName='Logo' alt='Logo' src={Logo} />
             <nav className='Menu'>
-            <Link to='/'>Home</Link>
-            <Link to='login'>Login</Link>
+            <Link onClick={() => Navigate('/')} to='/'>Home</Link>
+            <Link to='/loja/login'>Login</Link>
             </nav>
         </header> 
 

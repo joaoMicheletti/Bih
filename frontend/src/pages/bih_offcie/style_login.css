@@ -112,3 +112,19 @@
 #Pedidos_Enviados ul {
     background-color: rgb(247, 0, 164);
 }
+
+@media(max-width: 700px){
+    h1 {
+        font-size: 25px;
+    }
+    nav {
+        font-size: 18px;
+    }
+    .Form_Container .Conteudo_form {
+        display: flow-root;
+    }
+    .Form_Container .Conteudo_form .Logo {
+        height: 180px;
+        width: 180px;
+    }
+}

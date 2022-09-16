@@ -3,6 +3,12 @@
     padding: 0;
     box-sizing: border-box;
  }
+ h3 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: 18px;
+ }
  .Loja_Container .Cabeçalho{
     width: 100%;
  }
@@ -18,7 +24,8 @@
     margin-right: 5px;
 }
 .Loja_Container .Cabeçalho .Menu a {
-    margin-left: 8px;
+    
+    margin-right: 40px;
 }
 .Conteudo_Loja {
     margin-bottom: 30px;
@@ -54,7 +61,7 @@ ul {
     width: 280px;
     background-color: rgba(0, 0, 0, 0.37);
     margin-bottom: 30px;
-
+ 
 }
 li {
     list-style: none;
@@ -101,7 +108,7 @@ ul li img {
     }
     .Loja_Container .Cabeçalho .Menu a {
         font-size: 18px;
-        margin-right: 0px;
+        margin-right: 40px;
         margin-left: 5px;
     }
     

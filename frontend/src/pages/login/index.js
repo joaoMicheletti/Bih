@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import {Link, useNavigate, Navigate} from 'react-router-dom';
 import api from '../../services/api';
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
@@ -49,7 +49,7 @@ function Login(){
             <header className='Navigation'>                    
                 <img clasName='Logo' alt='Logo' src={Logo} />
                 <nav className='Menu'>
-                    <Link to='/'>Home</Link>
+                    <Link to='/' onClick={() => Navigate('/')}>Home</Link>
                     <Link to='register'>Registrar-se</Link>
                 </nav> 
             </header>

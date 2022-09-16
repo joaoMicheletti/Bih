@@ -19,11 +19,17 @@ class Rotas extends Component {
         return(
             <Router>
                 <Routes>
-                    <Route path='/' element={<Home />} />
+                    <Route path='/'  element={<Home />} />
                     <Route path='loja' element={<Loja/>}/>
+                    <Route path='salgados' element={<Salgados/>} /> 
+                    <Route path='loja/salgados' element={<Salgados/>}/>
+                    <Route path='loja/salgados/loja' element={<Loja/>}/>
                     <Route path='login' element={<Login/>}/>
+                    <Route path='login/register' element={<Register/>}/>
+                    <Route path='loja/login' element={<Login/>}/>
                     <Route path='register' element={<Register/>}/>
-                    <Route path='salgados' element={<Salgados/>} />                  
+                    <Route path='loja/login/register' element={<Register/>}/>
+                                     
 
                     <Route path='cbia' element={<Cbia/>}/>
                     <Route path='p_salgados' element={<SSalgados/>} />
