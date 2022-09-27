@@ -1,6 +1,6 @@
 import React from 'react';
 import './style_login.css';
-import {Link, Navigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 
 function Painel_s(){
