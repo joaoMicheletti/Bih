@@ -19,28 +19,32 @@ function Register(){
             Pass,
             Cpass
         };
-        try {
-            
-            if(Data.Pass === Data.Cpass ) {
-    
-                const response = await api.post('create_user', Data);
-                
-                alert(response.data);
-                
-                if (response.data === 'Número já cadastrado!!!'){
-                    history('/register');
-                } else {
-                    history('/login')
-                };
 
+        if(Data.Phone === ''){
+            document.querySelector('#Result').innerHTML = 'Preencha o campo Celular!';
+        
+        } else if(Data.Pass === ''){
+            document.querySelector('#Result').innerHTML = 'Preencha o campo Senha!';
+
+        } else if(Data.Cpass === '') {
+            document.querySelector('#Result').innerHTML = 'preencha o campo Confirmar!';
+
+        } else if(Data.Pass === Data.Cpass) {
+
+            const response = await api.post('create_user', Data);
+            alert(response.data);
+            
+            if (response.data === 'Número já cadastrado!!!'){
+                history('/register');
             } else {
-                document.querySelector('#Result').innerHTML = "As senhas não batem";
+                history('/login')
             };
 
-        } catch (err){
-            alert('Erro! ao se Cadastrar!!!')
-            history('/register');
-        };
+        } else {
+            document.querySelector('#Result').innerHTML = 'As senhas não batem!';
+        }
+   
+        
     };
     return(
         <div className='Form_Container' >
@@ -49,7 +53,7 @@ function Register(){
             <img clasName='Logo' alt='Logo' src={Logo} />
             <nav className='Menu'>
             <Link onClick={() => Navigate('/')} to='/'>Home</Link>
-            <Link to='/loja/login'>Login</Link>
+            <Link to='/login'>Login</Link>
             </nav>
         </header> 
 

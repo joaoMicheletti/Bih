@@ -11,8 +11,8 @@ function Painel_s(){
             <header className='Cabeçalho'>
                     <img className='Logo' id="Logo" src={Logo} alt="Logo"/>
                     <nav className='Menu'>
-                        <Link to='p_doces'>Painel_Doces : </Link>
-                        <Link  to="p_produtos">Painel_Produtos : </Link>
+                        <Link to='/p_doces'>Painel_Doces : </Link>
+                        <Link  to="/p_propaganda">Cadastrar : </Link>
                         <Link to="">EXIT</Link>
                     </nav>
                 </header>

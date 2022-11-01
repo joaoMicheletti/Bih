@@ -50,7 +50,7 @@ function Login(){
                 <img clasName='Logo' alt='Logo' src={Logo} />
                 <nav className='Menu'>
                     <Link to='/' onClick={() => Navigate('/')}>Home</Link>
-                    <Link to='register'>Registrar-se</Link>
+                    <Link to='/register'>Registrar-se</Link>
                 </nav> 
             </header>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './style_login.css';
-import {Link, Navigate} from 'react-router-dom';
-import {Logo} from '../assets/Logo.jpg';
+import {Link} from 'react-router-dom';
+import Logo from '../assets/Logo.jpg';
 
 function Painel_d(){
     return(
@@ -10,8 +10,8 @@ function Painel_d(){
             <header className='Cabeçalho'>
                 <img className='Logo' src={Logo} alt='Logo'/>
                 <nav className='Menu'>
-                    <Link onClick={() => Navigate('p_salgados')}>Painel-Salgados : </Link>
-                    <Link to='p_produtos'>Painel-produtos : </Link>
+                    <Link to='/p_salgados'>Painel-Salgados : </Link>
+                    <Link to='/p_propaganda'>Cadastrar : </Link>
                     <Link to=''>EXIT</Link> 
                 </nav>
             </header>

@@ -8,9 +8,9 @@ import Register from './pages/register/index'; //registro de usuarios
 import Login from './pages/login/index'; // login de usuarios 
 //adm imports 
 import Cbia from './pages/bih_offcie/index';//logind to adm
-import SSalgados from  './pages/bih_offcie/painel_s'; //painel de salgados
 import Doces from './pages/bih_offcie/painel_d'; //painel de doces
 import Propaganda from './pages/bih_offcie/painel_p'; //painel de propaganda
+import SSalgados from  './pages/bih_offcie/painel_s'; //painel de salgados
 import Pedidos from './pages/bih_offcie/pedidos'; //painel de pedidos
 
 
@@ -22,19 +22,14 @@ class Rotas extends Component {
                     <Route path='/'  element={<Home />} />
                     <Route path='loja' element={<Loja/>}/>
                     <Route path='salgados' element={<Salgados/>} /> 
-                    <Route path='loja/salgados' element={<Salgados/>}/>
-                    <Route path='loja/salgados/loja' element={<Loja/>}/>
                     <Route path='login' element={<Login/>}/>
-                    <Route path='login/register' element={<Register/>}/>
-                    <Route path='loja/login' element={<Login/>}/>
                     <Route path='register' element={<Register/>}/>
-                    <Route path='loja/login/register' element={<Register/>}/>
                                      
 
-                    <Route path='cbia' element={<Cbia/>}/>
-                    <Route path='p_salgados' element={<SSalgados/>} />
+                    <Route path='login_bia' element={<Cbia/>}/>
                     <Route path='p_doces' element={<Doces/>} />
-                    <Route path='p_produtos' element={<Propaganda/>}/>
+                    <Route path='p_propaganda' element={<Propaganda/>}/>
+                    <Route path='p_salgados' element={<SSalgados/>} />
                     <Route path='pedidos' element={<Pedidos/>} />
 
 

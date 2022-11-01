@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './style_login.css';
-import {Link, Navigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import api from '../../services/api';
 
 function Painel_p(){
@@ -67,10 +67,10 @@ function Painel_p(){
 
         <div className="Produtos_Container">
             <header>
-                <nav>
-                    <Link onClick={() => Navigate('p_salgados')}>Painel_Salgados</Link>
-                    <Link to='p_doces' >Painel_Doces</Link>
-                    <Link to='' >Log_out</Link>
+                <nav id='Cadastro_itens'>
+                    <Link to='/p_salgados'>Painel_Salgados</Link>
+                    <Link to='/p_doces' >Painel_Doces</Link>
+                    <Link to='' >Exit</Link>
                 </nav>                
             </header>
             <div className="Forms_Container">

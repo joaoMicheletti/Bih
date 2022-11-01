@@ -3,7 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+#Cadastro_itens {
+    margin-bottom: 50px;
+}
 .Form_Container h1 {
     text-align: center;
     color: white;
