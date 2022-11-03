@@ -9,7 +9,7 @@ import Login from './pages/login/index'; // login de usuarios
 //adm imports 
 import Cbia from './pages/bih_offcie/index';//logind to adm
 import Doces from './pages/bih_offcie/painel_d'; //painel de doces
-import Propaganda from './pages/bih_offcie/painel_p'; //painel de propaganda
+import Cadastro from './pages/bih_offcie/painel_p'; //painel de cadastro
 import SSalgados from  './pages/bih_offcie/painel_s'; //painel de salgados
 import Pedidos from './pages/bih_offcie/pedidos'; //painel de pedidos
 
@@ -28,7 +28,7 @@ class Rotas extends Component {
 
                     <Route path='login_bia' element={<Cbia/>}/>
                     <Route path='p_doces' element={<Doces/>} />
-                    <Route path='p_propaganda' element={<Propaganda/>}/>
+                    <Route path='p_cadastro_itens' element={<Cadastro/>}/>
                     <Route path='p_salgados' element={<SSalgados/>} />
                     <Route path='pedidos' element={<Pedidos/>} />
 

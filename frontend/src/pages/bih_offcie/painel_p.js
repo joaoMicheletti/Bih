@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './style_login.css';
 import {Link} from 'react-router-dom';
+import Api from '../../services/api';
 import api from '../../services/api';
 
 function Painel_p(){
@@ -15,17 +16,48 @@ function Painel_p(){
     const [Texto, setTexto] = useState('');
     const [Image_p, setImage_p] = useState('');
 
-    const Salgados = (e) => {
+    var img_Salgado = '';
+
+ // enviando img dos salgasos para o backend.
+    const Img_Salgado = async (e) => {
         e.preventDefault();
+        
+        const formadata = new FormData();
+        formadata.append('image', Image); 
+
+        console.log(formadata);
+        const headers = {
+            'headers': {
+                'content-Type': 'aplication/json',
+            }
+        }
+        
+        const response1 = await api.post('/create_img_s', formadata, headers );
+        img_Salgado = response1;
+        
+    };
+    //enviando descrições dos salgados para o backend.
+    const Salgados = async (e) => {
+        e.preventDefault();
+
         const Data = {
-            Image,
             Name,
             Description,
             Preço,
-            Status
-        }
-        console.log(Data);
-        console.log(Image_p);
+            Status,
+            img_Salgado
+        };
+
+        const response0 = await Api.post('/create_product_s', Data)
+        try{
+            console.log(response0);
+            if(response0.data === 'cadastrado'){
+                alert('Dados cadastrados');
+            } 
+
+        }catch(err){
+            alert('Erro: ao cadastrar as informações, tente mais tarde!');
+        };
     };
 
     const Doces = (e) => {
@@ -38,7 +70,6 @@ function Painel_p(){
             Status
         }
         console.log(Data);
-        console.log(Data.Image[0]);
         
     };
 
@@ -54,7 +85,7 @@ function Painel_p(){
         console.log(Data.Image_p[0]);
 
         try {
-            const response = await api.post('/prop_c');
+            const response = await Api.post('/prop_c');
             alert(response);
 
 
@@ -76,12 +107,18 @@ function Painel_p(){
             <div className="Forms_Container">
 
                 <form className="Form_Salgados" onSubmit={Salgados}>
-                    <h2>Salgados</h2>
-                    <p>Selecione a imagem</p>
+                    <h2>Salgados</h2><br/>
+
+                    <div id='Img_salgado'>
+
+                    <p>anexar uma imagem</p>
                     <input type="file"
-                    id="avatar" name="avatar"
-                    accept="image/png, image/jpeg"
-                    onChange={(e) => setImage(e.target.files)}></input>
+                    id="Img_Salgado" 
+                    onChange={(e) => setImage(e.target.files[0])}></input>
+                    <button type='submit' onClick={Img_Salgado}>anexar</button>
+                    </div>
+
+                    
                     <p>Nome Do produto:</p>
                     <input type='text' placeholder="Nome do produto"
                     onChange={(e) => setName(e.target.value)}/>
@@ -122,7 +159,7 @@ function Painel_p(){
 
                 </form >
                 
-                <form className="Form_Propaganda" onSubmit={Propaganda} enctype="multipart/form-data">
+                <form className="Form_Propaganda" onSubmit={Propaganda} >
                     <h2>Propaganda</h2>
                     <p>Selecione a imagem</p>
                     <input type="file"

@@ -16,12 +16,13 @@ function Login() {
             User,
             Pass
         };
+        console.log(Data);
         if (Data.Pass === '' || Data.Phone === ''){
             document.querySelector('.Erro').innerHTML = "Erro: Preencha todos os CAMPOS!!!"
 
         } else {
             try {
-                const response = await api.post('/adm_log_login', Data);
+                const response = await api.post('/adm_login', Data);
                 alert(response.data);
                 if (response.data === 'erro no login'){
                     alert('erro no try > if');
@@ -48,19 +49,22 @@ function Login() {
 
                 <form className='Form' onSubmit={Logar}>
                 <label>USER:</label>
-                <input type={'text'} className='Phone'
+                <input type={'text'} 
+                className='Phone'
                 placeholder='Celular EX: 119322235' 
                 name='Phone' 
                 onChange={(e) => setUser(e.target.value)}/>
 
                 <label>PassWord:</label>
-                <input type={'password'} className='Senha' 
+                <input type={'password'} 
+                className='Senha' 
                 placeholder='Senha' 
                 name='Pass' 
                 onChange={(e) => setPass(e.target.value)} />
 
 
-                <button type='submit' className='Btn_Form'>Login</button>
+                <button type='submit' 
+                className='Btn_Form'>Login</button>
 
                 </form>
             </div>

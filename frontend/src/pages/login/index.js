@@ -25,7 +25,7 @@ function Login(){
         } else {
             try{
             
-                const response = await api.post('user/log/login', Data);
+                const response = await api.post('user_login', Data);
     
                 if(response.data !==  'Erro: Falha no Login!'){
                     localStorage.setItem('user', response.data);
@@ -59,7 +59,7 @@ function Login(){
     
             <div className='Conteudo_Form'>
                 <form  className='Form' onSubmit={Logar}>
-                    Celular: <input type={'text'} className='Phone'
+                    Celular: <input type='number' className='Phone'
                     placeholder='Celular EX: 119322235' 
                     name='Phone' onChange={(e) => setPhone(e.target.value)}/>
                     Senha: <input type={'password'} className='Senha' 

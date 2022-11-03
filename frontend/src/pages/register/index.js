@@ -30,10 +30,9 @@ function Register(){
             document.querySelector('#Result').innerHTML = 'preencha o campo Confirmar!';
 
         } else if(Data.Pass === Data.Cpass) {
-
             const response = await api.post('create_user', Data);
-            alert(response.data);
-            
+            console.log(response);
+                        
             if (response.data === 'Número já cadastrado!!!'){
                 history('/register');
             } else {
@@ -58,11 +57,11 @@ function Register(){
         </header> 
 
        <h1>Registrar-se</h1>
-       <h3 id='Result'></h3>
+       <p id='Result'></p>
        <div className='Conteudo_Form'>
             <form  className='Form' onSubmit={Registrar}>
-                Celular: <input type={'text'} 
-                className='Phone' 
+                Celular: <input type='number' 
+                className='Phone'
                 placeholder='Celular EX: 119322235' 
                 name="Phone" onChange={(e) => setPhone(e.target.value)} />
 

@@ -4,7 +4,7 @@ module.exports = {
         const {User, Pass} = request.body;
         const Confirmation = await connection('adm').where('user', User).select('user');
         
-       
+    
         if(Confirmation.length === 0 ){
             await connection('adm').insert({
                 User,
@@ -24,7 +24,7 @@ module.exports = {
 
         const C_User = await connection('adm').where('user', User).select('user');
         const C_Pass = await connection('adm').where('user', User).select('pass');
-        console.log(C_User.length);
+        console.log(C_User);
 
         if (C_User.length === 0 ){
 
@@ -36,5 +36,10 @@ module.exports = {
         } else {
             return response.json('erro no login');
         }      
+    },
+
+    async Index_adm(request, response) {
+        const Data =  await connection('adm').select('*');
+        return response.json(Data);
     }
 }      

@@ -11,7 +11,7 @@ function Painel_d(){
                 <img className='Logo' src={Logo} alt='Logo'/>
                 <nav className='Menu'>
                     <Link to='/p_salgados'>Painel-Salgados : </Link>
-                    <Link to='/p_propaganda'>Cadastrar : </Link>
+                    <Link to='/p_cadastro_itens'>Cadastrar : </Link>
                     <Link to=''>EXIT</Link> 
                 </nav>
             </header>

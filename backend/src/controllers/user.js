@@ -5,6 +5,7 @@ module.exports = {
     async register_user(request, response){
 
         const {Phone, Pass } = request.body;
+        console.log(Phone, Pass);
         const Confirmation = await connection('user').where('phone', Phone).select('*')
         if (Confirmation.length === 0 ) {
             await connection('user').insert({
@@ -23,6 +24,7 @@ module.exports = {
 
         const User = await connection('user').where('phone', Phone).select('phone');
         const C_Pass = await connection('user').where('phone', Phone).select('pass');
+        console.log(C_Pass[0].pass);
 
         if (User.length === 0){
 
