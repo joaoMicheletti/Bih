@@ -3,13 +3,16 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable('doce', function(table){
-        table.string('id').primary();
-        table.blob('image').notNullable();
+    return knex.schema.createTable('doces', function(table){
+
+        table.increments();        
         table.string('name').notNullable();
-        table.string('value').notNullable();
-        table.string('stoque').notNullable();
         table.string('description').notNullable();
+        table.string('preço').notNullable();  
+        table.string('status').notNullable();      
+        table.string('img_doce').notNullable();
+        
+        
     });
   
 };

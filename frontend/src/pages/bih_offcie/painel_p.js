@@ -26,19 +26,22 @@ function Painel_p(){
         formadata.append('image', Image); 
 
         console.log(formadata);
-        const headers = {
+        const headers = { 
             'headers': {
                 'content-Type': 'aplication/json',
             }
         }
         
         const response1 = await api.post('/create_img_s', formadata, headers );
-        img_Salgado = response1;
+        img_Salgado = response1.data;
+        console.log(img_Salgado);
+        return img_Salgado = response1.data;
         
     };
     //enviando descrições dos salgados para o backend.
     const Salgados = async (e) => {
         e.preventDefault();
+        console.log(img_Salgado);
 
         const Data = {
             Name,
@@ -60,38 +63,74 @@ function Painel_p(){
         };
     };
 
-    const Doces = (e) => {
+
+    //enviando a img do produto do tipo Doce!
+    var img_Doce = '';
+    const Doce_img = async (e) => {
+        e.preventDefault();
+
+        const formadata = new FormData();
+        formadata.append('image', Image);
+
+        const headers = {
+            'headers' :{
+                'content-type': 'aplication/json',
+            } 
+        }
+        console.log(formadata);
+        console.log('ola ');
+
+        const response = await Api.post('/create_img_d', formadata, headers);
+        return img_Doce = response.data;
+
+    };
+    // enviando  descrição dos doces para o backebd!
+    
+    const Doces = async (e) => {
         e.preventDefault();
         const Data = {
-            Image,
             Name,
             Description,
             Preço,
-            Status
+            Status,
+            img_Doce
         }
         console.log(Data);
+
+        const response = await Api.post('/create_product_d', Data)
+        alert(response.data);
         
     };
 
+
+    //enviando a imagem da propaganda !
+    var img_propaganda = '';
+    const Propaganda_Img = async (e) => {
+        e.preventDefault();
+
+        const formadata = new FormData();
+        formadata.append('image', Image_p);
+
+        const headers = {
+            'headers': {
+                'content-type': 'aplication/json',
+            }
+        };
+        const response = await Api.post('/propaganda_img', formadata, headers);
+        return img_propaganda = response.data;
+    }
+
+    // enviando descrição da propaganda dos produtos!
     const Propaganda = async (e) => {
         e.preventDefault();
         const Data = {
             Texto,
-            Image_p,
-            headers: {
-                'Content-Type': 'multipart/form-data'
-              }
-        }
-        console.log(Data.Image_p[0]);
-
-        try {
-            const response = await Api.post('/prop_c');
-            alert(response);
-
-
-        } catch (err) {
-            alert('Erro catch');
-        }
+            img_propaganda
+        };
+        console.log(Data);
+        const response = await Api.post('/prop_c', Data);
+        alert(response.data);
+        
     };
 
     return(
@@ -137,11 +176,16 @@ function Painel_p(){
 
                 <form className="Form_Doces" onSubmit={Doces}>
                     <h2>Doces</h2>
-                    <p>Selecione a imagem</p>
+
+                    <div id='Img_salgado'>
+
+                    <p>anexar uma imagem</p>
                     <input type="file"
-                    id="avatar" name="avatar"
-                    accept="image/png, image/jpeg"
-                    onChange={(e) => setImage(e.target.files)}></input>
+                    id="Img_Salgado" 
+                    onChange={(e) => setImage(e.target.files[0])}></input>
+                    <button type='submit' onClick={Doce_img}>anexar</button>
+                    </div>                    
+
                     <p>Nome Do produto:</p>
                     <input type='text' placeholder="Nome do produto"
                     onChange={(e) => setName(e.target.value)}/>
@@ -161,15 +205,20 @@ function Painel_p(){
                 
                 <form className="Form_Propaganda" onSubmit={Propaganda} >
                     <h2>Propaganda</h2>
-                    <p>Selecione a imagem</p>
+
+                    <div id='Img_salgado'>
+
+                    <p>anexar uma imagem</p>
                     <input type="file"
-                    accept="image/png, image/jpeg"
-                    onChange={(e) => setImage_p(e.target.files)}></input>
+                    id="Img_Salgado" 
+                    onChange={(e) => setImage_p(e.target.files[0])}></input>
+                    <button type='submit' onClick={Propaganda_Img}>anexar</button>
+                    </div>
+
                     <p>Texto da propaganda:</p>
                     <input type='test' placeholder="Texto da propaganda"
                     onChange={(e) => setTexto(e.target.value)}/>
                     <button type="submit">Criar</button>
-                    <button type="submit">Editar</button>
                     
                 </form>
             </div>

@@ -5,12 +5,14 @@
 exports.up = function(knex) {
     
     return knex.schema.createTable('salgados', function(table){
-        table.string('id').primary();
-        table.blob('image').notNullable();
+
+
+        table.increments();        
         table.string('name').notNullable();
-        table.string('value').notNullable();
-        table.string('stoque').notNullable();
         table.string('description').notNullable();
+        table.string('preço').notNullable();        
+        table.string('img_salgado').notNullable();
+        table.string('status').notNullable();
     });
   
 };

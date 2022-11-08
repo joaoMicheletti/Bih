@@ -3,10 +3,10 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable('prop', function(table){
-        table.string('id').primary();
-        table.string('txt').notNullable();
-        table.blob('image').notNullable();
+    return knex.schema.createTable('propaganda', function(table){
+        table.increments();
+        table.string('Texto').notNullable();
+        table.string('img_propaganda').notNullable();
     }); 
   
 };
