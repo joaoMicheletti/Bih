@@ -66,8 +66,10 @@ function Painel_p(){
             Status,
             img_Salgado
         };
-
-        if (Image === '') {
+        if (img_Salgado === ''){
+            document.querySelector('#Alerta').innerHTML = '1° anexe a (imagem) !!!@';
+            
+        } else  if (Image === '') {
             document.querySelector('#Alerta').innerHTML = "Selecione uma (imagen)@";
         } else if (Name === ''){
             document.querySelector('#Alerta').innerHTNL = "Preencha o Campo (Nome)@";
@@ -138,8 +140,9 @@ function Painel_p(){
             img_Doce
         }
         console.log(Data);
-
-        if (Image === '') {
+        if (img_Doce === ''){
+            document.querySelector('#Alerta_Doce').innerHTML = '1° anexe a (imagem) !!!@';
+        } else if (Image === '') {
             document.querySelector('#Alerta_Doce').innerHTML = "Selecione uma (imagen)@";
         } else if (Name === ''){
             document.querySelector('#Alerta_Doce').innerHTNL = "Preencha o Campo (Nome)@";
@@ -197,7 +200,9 @@ function Painel_p(){
             Texto,
             img_propaganda
         };
-        if (Image_p === '') {
+        if (img_propaganda === ''){
+            document.querySelector('#Alerta_Prop').innerHTML = '1° anexe a (imagem) !!!@';   
+        } else if (Image_p === '') {
             document.querySelector('#Alerta_Prop').innerHTML = "Selecione uma imagen!!!@";
         } else if (Texto === ''){
             document.querySelector('#Alerta_Prop').innerHTML = 'Preencha o campo (texto da propaganda)@ ';
