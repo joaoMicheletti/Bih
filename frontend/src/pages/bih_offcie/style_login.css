@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+#Alerta {
+    font-size: 28px;
+    color: red;
+}
 #Cadastro_itens {
     margin-bottom: 50px;
 }

@@ -21,6 +21,7 @@ module.exports = {
     // salvando a imagem do salgado
     async create_img_s(request, response){
         const Image = request.file;
+        console.log(Image);
         return response.json(Image.filename);
     },
 

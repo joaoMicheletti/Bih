@@ -30,12 +30,27 @@ function Painel_p(){
             'headers': {
                 'content-Type': 'aplication/json',
             }
-        }
+        };
         
-        const response1 = await api.post('/create_img_s', formadata, headers );
-        img_Salgado = response1.data;
-        console.log(img_Salgado);
-        return img_Salgado = response1.data;
+
+        if (Image === '') {
+            document.querySelector('#Alerta').innerHTML = "Selecione uma (imagen)@";
+        } else if (Name === ''){
+            document.querySelector('#Alerta').innerHTNL = "Preencha o Campo (Nome)@";
+        }  else if (Description === ''){
+            document.querySelector('#Alerta').innerHTML = "Preencha o campo (Descrição)@";
+        } else if (Preço === '') {
+            document.querySelector('#Alerta').innerHTML = "Preencha o campo (Preço)@";
+        } else if (Status === '') {
+            document.querySelector('#Alerta').innerHTML = "preencha o campo (Status)@";
+        } else {
+            const response1 = await api.post('/create_img_s', formadata, headers );
+            img_Salgado = response1.data;
+            console.log(img_Salgado);
+            return img_Salgado = response1.data;
+
+        };
+        
         
     };
     //enviando descrições dos salgados para o backend.
@@ -50,17 +65,32 @@ function Painel_p(){
             Status,
             img_Salgado
         };
-
-        const response0 = await Api.post('/create_product_s', Data)
-        try{
-            console.log(response0);
-            if(response0.data === 'cadastrado'){
+        
+        if (Image === '') {
+            document.querySelector('#Alerta').innerHTML = "Selecione uma (imagen)@";
+        } else if (Name === ''){
+            document.querySelector('#Alerta').innerHTNL = "Preencha o Campo (Nome)@";
+        }  else if (Description === ''){
+            document.querySelector('#Alerta').innerHTML = "Preencha o campo (Descrição)@";
+        } else if (Preço === '') {
+            document.querySelector('#Alerta').innerHTML = "Preencha o campo (Preço)@";
+        } else if (Status === '') {
+            document.querySelector('#Alerta').innerHTML = "preencha o campo (Status)@";
+        } else {
+            const response0 = await Api.post('/create_product_s', Data)
+            try{
+                console.log(response0);
+                if(response0.data === 'cadastrado'){
                 alert('Dados cadastrados');
-            } 
+                };
 
-        }catch(err){
-            alert('Erro: ao cadastrar as informações, tente mais tarde!');
+            }catch(err){
+                alert('Erro: ao cadastrar as informações, tente mais tarde!');
+            };
+
         };
+
+        
     };
 
 
@@ -147,6 +177,7 @@ function Painel_p(){
 
                 <form className="Form_Salgados" onSubmit={Salgados}>
                     <h2>Salgados</h2><br/>
+                    <p id="Alerta"></p>
 
                     <div id='Img_salgado'>
 
