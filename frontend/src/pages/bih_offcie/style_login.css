@@ -7,9 +7,15 @@
     font-size: 28px;
     color: red;
 }
+
+#Alerta_Doce {
+    font-size: 28px;
+    color: red;
+}
 #Cadastro_itens {
     margin-bottom: 50px;
 }
+
 .Form_Container h1 {
     text-align: center;
     color: white;

@@ -14,8 +14,9 @@ module.exports = {
             Status,
             img_Salgado
         };
+        console.log(Data);
         await connection('salgados').insert(Data);
-        return console.log(Data);
+        return response.json('Dados cadastrados');
         
     },
     // salvando a imagem do salgado

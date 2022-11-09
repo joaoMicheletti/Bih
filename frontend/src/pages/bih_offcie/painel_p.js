@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import './style_login.css';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import Api from '../../services/api';
 import api from '../../services/api';
 
 function Painel_p(){
+
+    const Navigate = useNavigate('');
 
         // var of Salgados... end doces
     const [Image, setImage] = useState('');
@@ -49,8 +51,7 @@ function Painel_p(){
             console.log(img_Salgado);
             return img_Salgado = response1.data;
 
-        };
-        
+        };        
         
     };
     //enviando descrições dos salgados para o backend.
@@ -65,7 +66,7 @@ function Painel_p(){
             Status,
             img_Salgado
         };
-        
+
         if (Image === '') {
             document.querySelector('#Alerta').innerHTML = "Selecione uma (imagen)@";
         } else if (Name === ''){
@@ -80,17 +81,15 @@ function Painel_p(){
             const response0 = await Api.post('/create_product_s', Data)
             try{
                 console.log(response0);
-                if(response0.data === 'cadastrado'){
+                if(response0.data === 'Dados cadastrados'){
                 alert('Dados cadastrados');
                 };
+                Navigate('/p_salgados');
 
             }catch(err){
                 alert('Erro: ao cadastrar as informações, tente mais tarde!');
             };
-
-        };
-
-        
+        };        
     };
 
 
@@ -110,8 +109,21 @@ function Painel_p(){
         console.log(formadata);
         console.log('ola ');
 
-        const response = await Api.post('/create_img_d', formadata, headers);
-        return img_Doce = response.data;
+        if (Image === '') {
+            document.querySelector('#Alerta_Doce').innerHTML = "Selecione uma (imagen)@";
+        } else if (Name === ''){
+            document.querySelector('#Alerta_Doce').innerHTNL = "Preencha o Campo (Nome)@";
+        }  else if (Description === ''){
+            document.querySelector('#Alerta_Doce').innerHTML = "Preencha o campo (Descrição)@";
+        } else if (Preço === '') {
+            document.querySelector('#Alerta_Doce').innerHTML = "Preencha o campo (Preço)@";
+        } else if (Status === '') {
+            document.querySelector('#Alerta_Doce').innerHTML = "preencha o campo (Status)@";
+        } else {
+
+            const response = await Api.post('/create_img_d', formadata, headers);
+            return img_Doce = response.data;
+        };
 
     };
     // enviando  descrição dos doces para o backebd!
@@ -127,8 +139,28 @@ function Painel_p(){
         }
         console.log(Data);
 
-        const response = await Api.post('/create_product_d', Data)
-        alert(response.data);
+        if (Image === '') {
+            document.querySelector('#Alerta_Doce').innerHTML = "Selecione uma (imagen)@";
+        } else if (Name === ''){
+            document.querySelector('#Alerta_Doce').innerHTNL = "Preencha o Campo (Nome)@";
+        }  else if (Description === ''){
+            document.querySelector('#Alerta_Doce').innerHTML = "Preencha o campo (Descrição)@";
+        } else if (Preço === '') {
+            document.querySelector('#Alerta_Doce').innerHTML = "Preencha o campo (Preço)@";
+        } else if (Status === '') {
+            document.querySelector('#Alerta_Doce').innerHTML = "preencha o campo (Status)@";
+        } else {
+            const response = await Api.post('/create_product_d', Data)
+            try{
+                if(response.data === 'iten cadastrado!'){
+                    alert(response.data);
+                };
+                Navigate('/p_doces');
+
+            } catch(err){
+
+            };
+        };
         
     };
 
@@ -146,9 +178,17 @@ function Painel_p(){
                 'content-type': 'aplication/json',
             }
         };
-        const response = await Api.post('/propaganda_img', formadata, headers);
-        return img_propaganda = response.data;
-    }
+    
+        if (Image_p === '') {
+            document.querySelector('#Alerta_Prop').innerHTML = "Selecione uma imagen!!!@";
+        } else if (Texto === ''){
+            document.querySelector('#Alerta_Prop').innerHTML = 'Preencha o campo (texto da propaganda)@ ';
+        } else {
+            const response = await Api.post('/propaganda_img', formadata, headers);
+            return img_propaganda = response.data;
+        };
+        
+    };
 
     // enviando descrição da propaganda dos produtos!
     const Propaganda = async (e) => {
@@ -157,9 +197,20 @@ function Painel_p(){
             Texto,
             img_propaganda
         };
-        console.log(Data);
-        const response = await Api.post('/prop_c', Data);
-        alert(response.data);
+        if (Image_p === '') {
+            document.querySelector('#Alerta_Prop').innerHTML = "Selecione uma imagen!!!@";
+        } else if (Texto === ''){
+            document.querySelector('#Alerta_Prop').innerHTML = 'Preencha o campo (texto da propaganda)@ ';
+        } else {
+            const response = await Api.post('/prop_c', Data)
+            try{
+                alert(response.data);
+                Navigate('/p_doces');
+            } catch(err){
+                alert('Erro no cadastro ! tente mais tarde ');
+            };
+
+        };
         
     };
 
@@ -208,6 +259,8 @@ function Painel_p(){
                 <form className="Form_Doces" onSubmit={Doces}>
                     <h2>Doces</h2>
 
+                    <p id="Alerta_Doce"></p>
+
                     <div id='Img_salgado'>
 
                     <p>anexar uma imagem</p>
@@ -236,6 +289,7 @@ function Painel_p(){
                 
                 <form className="Form_Propaganda" onSubmit={Propaganda} >
                     <h2>Propaganda</h2>
+                    <p id="Alerta_Prop"></p>
 
                     <div id='Img_salgado'>
 
