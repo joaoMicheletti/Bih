@@ -17,10 +17,18 @@
     font-size: 28px;
     color: red;
 }
+#Ul_prop{
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    display: flex;
+}
 #Cadastro_itens {
     margin-bottom: 50px;
 }
-
+.Img_Propaganda {
+    margin-top: -60px;
+}
 .Form_Container h1 {
     text-align: center;
     color: white;
@@ -97,6 +105,9 @@
 }
 .Produtos_Container .Forms_Container form button:hover {
     background-color: rgba(224, 35, 107, 0.514);
+}
+#itens{
+    margin-top: 60px;
 }
 #Cabeçalho {
     width: 80%;
