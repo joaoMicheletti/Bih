@@ -17,18 +17,12 @@
     font-size: 28px;
     color: red;
 }
-#Ul_prop{
-    background-color: transparent;
-    width: auto;
-    height: auto;
-    display: flex;
-}
+
 #Cadastro_itens {
     margin-bottom: 50px;
 }
-.Img_Propaganda {
-    margin-top: -60px;
-}
+
+
 .Form_Container h1 {
     text-align: center;
     color: white;
@@ -66,6 +60,30 @@
     float: right;
 }
 
+
+.Prop_Loja {
+    width: 90%;
+    max-height: 500px;
+    margin-left: 5%;
+}
+#Ul_prop{
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    display: flex;
+}
+.Img_Propaganda {
+    width: 300px;
+}
+.Img_Propaganda img {
+    width: 300px;
+}
+#IMG_Prop {
+    width: 280px;
+}
+.Itens_Loja {
+    margin-top: 50px;
+}
 
 .Produtos_Container header nav {
     margin-top: 40px;
@@ -147,6 +165,9 @@
     }
     nav {
         font-size: 18px;
+    }
+    .Prop_Loja {
+        margin-top: 130px;
     }
     .Form_Container .Conteudo_form {
         display: flow-root;

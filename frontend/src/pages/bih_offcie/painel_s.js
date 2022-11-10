@@ -25,9 +25,9 @@ function Painel_s(){
             <header className='Cabeçalho'>
                     <img className='Logo' id="Logo" src={Logo} alt="Logo"/>
                     <nav className='Menu'>
-                        <Link to='/p_doces'>Painel_Doces : </Link>
-                        <Link  to="/p_cadastro_itens">Cadastrar : </Link>
-                        <Link to="">EXIT</Link>
+                        <Link to='/p_doces'>P_Doces  </Link>
+                        <Link  to="/p_cadastro_itens">Cadastrar  </Link>
+                        <Link to="">Log-out</Link>
                     </nav>
                 </header> 
                 
@@ -49,7 +49,7 @@ function Painel_s(){
                                         <p>{iten.Texto}</p>
                                     </div>
                                     <div className='Img_Propaganda'>
-                                        <img src={url + iten.img_propaganda} alt={iten.img_propaganda}/>
+                                        <img id="IMG_Prop" src={url + iten.img_propaganda} alt={iten.img_propaganda}/>
                                     </div>
                                 </ul>
                                 )})}
@@ -57,19 +57,19 @@ function Painel_s(){
                     </div>
 
                     <div className='Itens_Loja'>
-                    <ul id='itens'>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Produto: ???</p>
-                            <p>Description: exempolo</p>
-                            <p>Preço: $200,00</p>
-                            <p>Status: on / off</p>
-                            <div className='Loja_btn'>
+                        <ul id='itens'>
+                            <li>
+                                <img src={Logo} alt='logo'/>
+                                <p>Produto: ???</p>
+                                <p>Description: exempolo</p>
+                                <p>Preço: $200,00</p>
+                                <p>Status: on / off</p>
+                                <div className='Loja_btn'>
                                 <button>Editar</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>    
+                                </div>
+                            </li>
+                        </ul>
+                    </div>    
         </div>
     );
 }
