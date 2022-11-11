@@ -24,8 +24,8 @@ function Painel_d(){
             <header className='Cabeçalho'>
                 <img className='Logo' src={Logo} alt='Logo'/>
                 <nav className='Menu'>
-                    <Link to='/p_salgados'>P_Salgados : </Link>
-                    <Link to='/p_cadastro_itens'>Cadastrar : </Link>
+                    <Link to='/p_salgados'>P_Salgados  </Link>
+                    <Link to='/p_cadastro_itens'>Cadastrar  </Link>
                     <Link to=''>Log_out</Link> 
                 </nav>
             </header>

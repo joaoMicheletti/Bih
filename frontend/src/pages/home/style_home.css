@@ -38,19 +38,19 @@ body {
 .Home_Container .Navigation .Menu a:hover {
     color: rgb(104, 101, 101);    
 }
-.Conteudo {
+.Conteudo  {
+    width: 100%;
     display: flex;
-    margin-top: 80px;
-    margin-left: 20%;
-    max-width: 800px;
+    margin-top: 30px;
 }
-.Conteudo .Txt_Box {
-    margin-top: 10px;
-    max-width: 400px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 25px;
-    line-height: 30px;
-    color: white;
+
+
+
+.Txt_Box {
+    margin-left: 10%;
+    width: 50%;
+    color: wheat;
+  
 }
 .Conteudo .Txt_Box .Btn {
     cursor: pointer;
@@ -70,10 +70,11 @@ body {
     background-color: rgba(225, 34, 101, 0.815);;
 }
 .Conteudo .Img_Box img{
-    margin-left: 100px;
-    width: 300px;
+    margin-left: 3px;
+    width: 395px;
+    max-height: 400px;
 }
-@media(max-width: 600px){
+@media(max-width: 750px){
     .Home_Container .Navigation img {
         margin-left: 35%;
     }
@@ -86,11 +87,11 @@ body {
         font-size: 20px;
     }
     .Conteudo {
-        margin-top: 80px;
-         margin-left: 5%;
+        margin-top: 100px;
     }
     .Conteudo .Txt_Box {
-        font-size: 15px;
+        font-size: 12px;
+        width: 80%;
     }
     .Conteudo .Img_Box {
         display: none;
