@@ -1,9 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
-import './style_loja.css';
+import './style_loja.css'; 
+import Api from '../../services/api';
 
 function Loja(){
+    const [Prop, setProp] = useState([]);
+    useEffect(() => {
+        Api.get('index_prop')
+        .then((Response) => {
+            setProp(Response.data);
+        }).catch(() => {
+            console.log('erro');
+        });
+    }, []);
     return(
         <div className='Loja_Container'>
             <header className='Cabeçalho'>
@@ -14,22 +24,24 @@ function Loja(){
                 </nav>
             </header>
 
-            <div className='Conteudo_Loja'>
-                <div className='Propaganda'>
+            <div className='Conteudo_Prop'>
+                
+                    {Prop.map((iten, key) =>{
+                        const url = 'http://localhost:3001/files/';
+                        return(
+                            <div className='Propaganda'>
 
-                    <div className='Txt_Propaganda'>
-                        <p>texto para a propaganda texto para a propaganda
-                            texto para a propaganda texto para a propaganda
-                            texto para a propaganda texto para a propaganda
-                            texto para a propaganda texto para a propaganda
-                        </p>
-                    </div>
+                                <div key={iten.div} className='Txt_Propaganda'>
+                                    <p>{iten.Texto}</p>
+                                    
+                                </div>
+                                <div className='Img_Propaganda'>
+                                    <img src={url + iten.img_propaganda} alt="prop"/>                                
+                                </div>
+                            </div>
 
-                    <div className='Img_Propaganda'>
-                        <img src={Logo} alt="prop"/>                                
-                    </div>
-
-                </div>
+                        )
+                    })}
             </div>
             <h3>Doces</h3>
                 

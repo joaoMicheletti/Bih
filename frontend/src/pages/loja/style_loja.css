@@ -27,25 +27,32 @@
     
     margin-right: 40px;
 }
-.Conteudo_Loja {
+.Conteudo_Prop {
+    height: 300px;
     margin-bottom: 30px;
 }
 .Propaganda {
-    margin-top: 60px;
-    display: flex;
-    margin-left: 10%;
-    width: 80%;
+   display: flex;
+   width: 80%;
+   height:  300px;
+   margin-left: 10%;
 }
 .Propaganda .Txt_Propaganda {
+    display: flex;
+    width: 60%;
+    height: auto;
+    margin-right: 50px;
     font-size: 18px;
-    width: 50%;
     max-height: 200px;
     color: white;
-    margin-right: 10%;
 }
-.Propaganda .Img_Propaganda img {
-    max-height: 200px;
-    width: 200px;
+.Img_Propaganda { 
+    width: 350px;
+    height: 300px;
+}
+.Img_Propaganda img {
+    height: 300px;
+    width: 350px;
 }
 .Itens_Loja {
     margin-top: 30px;
