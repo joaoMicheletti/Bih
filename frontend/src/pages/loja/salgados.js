@@ -8,12 +8,22 @@ function Salgado(){
     const [Prop, setProp] = useState([]);
     useEffect(() => {
         Api.get('index_prop')
-        .then((Response) =>{
-            setProp(Response.data);
+        .then((Response_Prop) =>{
+            setProp(Response_Prop.data);
         }).catch(() => {
             console.log('Erro');
         })
     }, []);
+    const [Salgados, setSalgados] = useState([]);
+    useEffect(() => {
+        Api.get('/index_salgados')
+        .then((Response_Salgados) => {
+            setSalgados(Response_Salgados.data);
+            console.log(Response_Salgados.data);
+        }).catch(() => {
+            console.log('Erro');
+        })
+    },[]);
     return(
 
         <div className='Loja_Container'>
@@ -51,29 +61,28 @@ function Salgado(){
             
             <h3><br/>Salgados</h3>
             <div className='Itens_Loja'>
-                <ul>
-                    <li>
-                        <img src={Logo} alt='logo'/>
-                            <p>Descriptiom : exempolo</p>
-                            <p>Preço: $200,00</p>
-                        <div className='Loja_btn'>
-                            <button>+</button>
-                            <button>-</button>
-                        </div>
-                    </li>
-                </ul>
-
-                 <ul>
-                    <li>
-                        <img src={Logo} alt='logo'/>
-                        <p>Descriptiom : exempolo</p>
-                        <p>Preço: $200,00</p>
-                        <div className='Loja_btn'>
-                            <button>+</button>
-                            <button>-</button>
-                        </div>
-                    </li>
-                </ul>
+                    {Salgados.map((iten, key) => {
+                        const url = 'http://localhost:3001/files/';
+                        return(
+                            <ul  key={iten.id}>                                
+                                <li>
+                                    <img src={url + iten.img_salgado} alt='logo'/>
+                                    <br/>
+                                    <p>Produto: {iten.name}</p>
+                                    <br/>
+                                    <p>Descrição: {iten.description}</p>
+                                    <br/>
+                                    <p>Preço: {iten.preço}R$</p>
+                                    <br/>
+                                    <div className='Loja_btn'>
+                                        <button>+</button>
+                                        <button>-</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        );
+                    })}
+                    
 
                  <div className='pedido'>
                     <label>Valor de pedido:</label>
