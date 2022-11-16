@@ -26,12 +26,12 @@ function Loja(){
 
             <div className='Conteudo_Prop'>
                 
-                    {Prop.map((iten, key) =>{
+                    {Prop.map((iten, key) => {
                         const url = 'http://localhost:3001/files/';
                         return(
                             <div className='Propaganda'>
 
-                                <div key={iten.div} className='Txt_Propaganda'>
+                                <div key={iten.id} className='Txt_Propaganda'>
                                     <p>{iten.Texto}</p>
                                     
                                 </div>
