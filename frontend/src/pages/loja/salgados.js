@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import api from '../../services/api';
 import Logo from '../assets/Logo.jpg';
 import './style_loja.css';
 import Api from '../../services/api';

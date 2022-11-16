@@ -7,6 +7,7 @@ import Api from '../../services/api';
 function Painel_s(){
 
     const [itens, setItens] = useState([]);
+    const [Salgado, setSalgado] = useState([]);
     useEffect(() => {
         Api.get('/index_prop')
         .then((Response) => {
@@ -15,9 +16,24 @@ function Painel_s(){
         })
         .catch(() => {
             console.log('erro')
+        });
+        
+
+    }, []);
+
+    useEffect(() => {
+        Api.get('/index_salgados')
+        .then((Salgado) => {
+            setSalgado(Salgado.data)
+            console.log(Salgado.data);
+                    
         })
-    }, [])
-    console.log(itens)
+        .catch(() => {
+            console.log('erro')
+        });
+        
+
+    }, []);
 
     return(
         <div className="Painel_s_Container">
@@ -57,18 +73,27 @@ function Painel_s(){
                     </div>
 
                     <div className='Itens_Loja'>
-                        <ul id='itens'>
-                            <li>
-                                <img src={Logo} alt='logo'/>
-                                <p>Produto: ???</p>
-                                <p>Description: exempolo</p>
-                                <p>Preço: $200,00</p>
-                                <p>Status: on / off</p>
-                                <div className='Loja_btn'>
-                                <button>Editar</button>
-                                </div>
-                            </li>
-                        </ul>
+                        {Salgado.map((iten, key) => {
+                            const url = 'http://localhost:3001/files/';
+                            return(
+                                <ul key={iten.id} id='itens'>
+                                    <li>
+                                        <img src={url + iten.img_salgado} alt='logo'/>
+                                        <p>Produto: {iten.name}</p>
+                                        <br/>
+                                        <p>{iten.description}</p>
+                                        <br/>
+                                        <p>Preço: {iten.preço} R$</p>
+                                        <br/>
+                                        <p>Status: {iten.status}</p>
+                                        <div className='Loja_btn'>
+                                        <button>Editar</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            );
+                        })}
+                        
                     </div>    
         </div>
     );
