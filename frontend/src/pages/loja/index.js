@@ -5,6 +5,7 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Loja(){
+    const url = 'http://localhost:3001/files/';
     const [Prop, setProp] = useState([]);
     useEffect(() => {
         Api.get('index_prop')
@@ -14,6 +15,16 @@ function Loja(){
             console.log('erro');
         });
     }, []);
+    const [Doces, setDoces] = useState([]);
+    useEffect(() => {
+
+        Api.get('/index_doces')
+        .then((Response_Doces) => {
+            setDoces(Response_Doces.data);
+        }).catch(() => {
+            console.log('Erro');
+        });
+    },[]);
     return(
         <div className='Loja_Container'>
             <header className='Cabeçalho'>
@@ -27,7 +38,6 @@ function Loja(){
             <div className='Conteudo_Prop'>
                 
                     {Prop.map((iten, key) => {
-                        const url = 'http://localhost:3001/files/';
                         return(
                             <div className='Propaganda'>
 
@@ -46,18 +56,27 @@ function Loja(){
             <h3>Doces</h3>
                 
             <div className='Itens_Loja'>
+                {Doces.map((iten, key) => {
+                    return(
+                        <ul key={iten.id}>
+                            <li>
+                                <img src={url + iten.img_doce} alt='logo'/>
+                                <p>produto: {iten.name}</p>
+                                <br/>
+                                <p>Descrição: {iten.description}</p>
+                                <br/>
+                                <p>Preço: {iten.preço}R$</p>
+                                <br/>
+                                <div className='Loja_btn'>
+                                    <button>+</button>
+                                    <button>-</button>
+                                </div>
+                            </li>
+                        </ul> 
+                    );
+                })}
                 
-                <ul>
-                    <li>
-                        <img src={Logo} alt='logo'/>
-                        <p>produto: exempolo</p>
-                        <p>Preço: $200,00</p>
-                        <div className='Loja_btn'>
-                            <button>+</button>
-                            <button>-</button>
-                        </div>
-                    </li>
-                </ul> 
+                
             </div>
             <div className='pedido'>
                 <label>Valor de pedido:</label>
