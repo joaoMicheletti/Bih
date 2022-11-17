@@ -76,8 +76,9 @@ li {
     color: white;
 }
 ul li img {
-    width: 150px;
-    height: 150px;
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
 }
 
 .Loja_btn button {

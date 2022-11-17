@@ -10,14 +10,23 @@ function Painel_d(){
     useEffect(() => {
         Api.get('/index_prop')
         .then((Response) => {
-            setItens(Response.data)
-                    
+            setItens(Response.data);
         })
         .catch(() => {
             console.log('erro')
         })
-    }, [])
-    console.log(itens)
+    }, []);
+
+    const [Doces, setDoces] = useState([]);
+    useEffect(() => {
+        Api.get('/index_doces')
+        .then((Response_Doces) => {
+            setDoces(Response_Doces.data);            
+        }).catch(() => {
+            console.log('Erro');
+        })
+    }, []);
+
     return(
 
         <div className='Painel_s_Container'>
@@ -34,7 +43,7 @@ function Painel_d(){
                         <div className='Propaganda'>
                             {itens.map((iten, key) =>{
                             const url = 'http://localhost:3001/files/';
-                            console.log(url)
+                            
                                                 
                         
                             return(
@@ -51,18 +60,29 @@ function Painel_d(){
                     </div>
 
             <div className='Itens_Loja'>
-                <ul>
-                    <li>
-                        <img src={Logo} alt='logo'/>
-                        <p>Produto: ???</p>
-                        <p>Description: exempolo</p>
-                        <p>Preço: $200,00</p>
-                        <p>Status: on / off</p>
-                        <div className='Loja_btn'>
-                            <button>Editar</button>
-                        </div>
-                    </li>
-                </ul>
+                {Doces.map((iten, key) => {
+                    const url = 'http://localhost:3001/files/';
+                    return(
+                        <ul key={iten.id}>
+                            <li>
+                                <img src={url + iten.img_doce} alt='logo'/>
+                                <br/>
+                                <p>Produto: {iten.name}</p>
+                                <br/>
+                                <p>Description: {iten.description}</p>
+                                <br/>
+                                <p>Preço: {iten.preço}R$</p>
+                                <br/>
+                                <p>Status: {iten.status}</p>
+                                <br/>
+                                <div className='Loja_btn'>
+                                    <button>Editar</button>
+                                </div>
+                            </li>
+                        </ul>
+                    );
+                })}
+                
             </div>
         </div>
     );
