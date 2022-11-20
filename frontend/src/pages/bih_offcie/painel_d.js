@@ -26,6 +26,7 @@ function Painel_d(){
             console.log('Erro');
         })
     }, []);
+    
 
     return(
 
@@ -44,8 +45,6 @@ function Painel_d(){
                             {itens.map((iten, key) =>{
                             const url = 'http://localhost:3001/files/';
                             
-                                                
-                        
                             return(
                                 <ul id="Ul_prop" key={iten.id}>
                                     <div className='Txt_Propaganda'>
@@ -54,8 +53,10 @@ function Painel_d(){
                                     <div className='Img_Propaganda'>
                                         <img id="IMG_Prop" src={url + iten.img_propaganda} alt={iten.img_propaganda}/>
                                     </div>
+                                    
                                 </ul>
-                                )})}
+                            )})}
+                            
                         </div>
                     </div>
 

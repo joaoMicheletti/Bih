@@ -200,22 +200,49 @@ function Painel_p(){
             Texto,
             img_propaganda
         };
-        if (img_propaganda === ''){
-            document.querySelector('#Alerta_Prop').innerHTML = '1° anexe a (imagem) !!!@';   
-        } else if (Image_p === '') {
-            document.querySelector('#Alerta_Prop').innerHTML = "Selecione uma imagen!!!@";
-        } else if (Texto === ''){
-            document.querySelector('#Alerta_Prop').innerHTML = 'Preencha o campo (texto da propaganda)@ ';
-        } else {
-            const response = await Api.post('/prop_c', Data)
+        const Edit_or_no =  await Api.get('/index_prop')
+        if (Edit_or_no.data.length > 0){
+            console.log("maior");
+
+            const Res_UP = await Api.put('/prop_u', Data)
             try{
-                alert(response.data);
-                Navigate('/p_doces');
+                if (Res_UP.data === 'ok'){
+                    alert("Propaganda atualizada com sucesso!!!");
+                    Navigate('/p_doces');
+
+                } else {
+                    alert('Erro ao atualizar a Propaganda!')
+                    Navigate('/p_doces');
+                };
+                
             } catch(err){
-                alert('Erro no cadastro ! tente mais tarde ');
+                alert('Algo não saiu como esperado, tente mais tarde!');
             };
 
+        } else {
+            if (img_propaganda === ''){
+                document.querySelector('#Alerta_Prop').innerHTML = '1° anexe a (imagem) !!!@';   
+            } else if (Image_p === '') {
+                document.querySelector('#Alerta_Prop').innerHTML = "Selecione uma imagen!!!@";
+            } else if (Texto === ''){
+                document.querySelector('#Alerta_Prop').innerHTML = 'Preencha o campo (texto da propaganda)@ ';
+            } else {
+                const response = await Api.post('/prop_c', Data)
+                try{
+                    alert(response.data);
+                    Navigate('/p_doces');
+                } catch(err){
+                    alert('Erro no cadastro ! tente mais tarde ');
+                };
+    
+            };
         };
+        
+
+
+
+        /**/
+        
         
     };
 
@@ -293,7 +320,7 @@ function Painel_p(){
                 </form >
                 
                 <form className="Form_Propaganda" onSubmit={Propaganda} >
-                    <h2>Propaganda</h2>
+                    <h2>Propaganda / editar</h2>
                     <p id="Alerta_Prop"></p>
 
                     <div id='Img_salgado'>
@@ -308,7 +335,7 @@ function Painel_p(){
                     <p>Texto da propaganda:</p>
                     <input type='test' placeholder="Texto da propaganda"
                     onChange={(e) => setTexto(e.target.value)}/>
-                    <button type="submit">Criar</button>
+                    <button type="submit">Criar / Editar</button>
                     
                 </form>
             </div>

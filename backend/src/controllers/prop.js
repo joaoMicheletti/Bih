@@ -31,7 +31,14 @@ module.exports = {
         return response.json(Data);
     },
     //update on prop
-    async update_prop(){
-        return console.log('update_prop');
+    async update_prop(request, response){
+        const {Texto, img_propaganda} = request.body;
+        const Data  = {
+            Texto,
+            img_propaganda
+        };
+        await connection('propaganda').select('Texto').update('Texto', Texto);
+        await connection('propaganda').select('img_propaganda').update('img_propaganda', img_propaganda);
+        return response.json('ok');
     }
 }

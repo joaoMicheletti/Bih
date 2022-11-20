@@ -23,9 +23,9 @@ const routes = express.Router();
 //routes#
 //routes of adiministrator!.
 routes.post('/prop_c', prop.create_prop); //create a propaganda
-routes.put('/prop_u', prop.update_prop); //update a propaganda
 routes.post('/propaganda_img', multer(multerConfig).single("image"), prop.Img_prop);// salvando a imagem da propaganda! 
 routes.get('/index_prop', prop.get_prop_img); // listando propaganda
+routes.put('/prop_u', prop.update_prop); //update a propaganda
 
 //rotas #salgados
 routes.post('/create_product_s', create_products.create_product_s); //create a products salgados
