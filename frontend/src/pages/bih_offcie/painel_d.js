@@ -5,6 +5,8 @@ import Logo from '../assets/Logo.jpg';
 import Api from '../../services/api';
 
 function Painel_d(){
+    // url das imagems
+    const url = 'http://localhost:3001/files/';
 
     const [itens, setItens] = useState([]);
     useEffect(() => {
@@ -13,7 +15,7 @@ function Painel_d(){
             setItens(Response.data);
         })
         .catch(() => {
-            console.log('erro')
+    
         })
     }, []);
 
@@ -43,7 +45,6 @@ function Painel_d(){
             <div className='Prop_Loja'>
                         <div className='Propaganda'>
                             {itens.map((iten, key) =>{
-                            const url = 'http://localhost:3001/files/';
                             
                             return(
                                 <ul id="Ul_prop" key={iten.id}>
@@ -62,7 +63,40 @@ function Painel_d(){
 
             <div className='Itens_Loja'>
                 {Doces.map((iten, key) => {
-                    const url = 'http://localhost:3001/files/';
+                    
+
+                    const Update_Doces = async () => {
+                        console.log('Update_Doces');
+                        const id = iten.id;
+                        const Name = window.prompt("Novo Nome Do Produto:...");
+                        const Description = window.prompt("Nova Descrição do produto: ...");
+                        const Preço = window.prompt("Novo Preço do produto: ...");
+                        const Status = window.prompt("Novo Status do Produto = [ON / OFF]");
+
+                        const Data = {
+                            id,
+                            Name,
+                            Description,
+                            Preço,
+                            Status
+                        };
+
+                        const response = await Api.put('/update_product_d', Data)
+
+                        if ( response.data === 'Iten atualizado com Sucesso!'){
+                            alert(response.data);
+
+                        }else {
+                            alert('Algo deu errado, tente mais tarde!!! ... ');
+
+                        };
+                        
+
+                            
+                            
+                        
+
+                    };
                     return(
                         <ul key={iten.id}>
                             <li>
@@ -72,12 +106,12 @@ function Painel_d(){
                                 <br/>
                                 <p>Description: {iten.description}</p>
                                 <br/>
-                                <p>Preço: {iten.preço}R$</p>
+                                <p>Preço: {iten.preço} R$</p>
                                 <br/>
                                 <p>Status: {iten.status}</p>
                                 <br/>
                                 <div className='Loja_btn'>
-                                    <button>Editar</button>
+                                    <button onClick={Update_Doces}>Editar</button>
                                 </div>
                             </li>
                         </ul>

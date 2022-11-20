@@ -29,8 +29,8 @@ routes.put('/prop_u', prop.update_prop); //update a propaganda
 //rotas #salgados
 routes.post('/create_product_s', create_products.create_product_s); //create a products salgados
 routes.post('/create_img_s', multer(multerConfig).single("image"), create_products.create_img_s); // salvando a imagem dos salgado
-routes.get('/index_salgados', create_products.Get_Salgadso); // buscando produtos do tipo (salgado) cadastrado!
-routes.put('/update_product_s', update_products.update_products_s); //update a products  s
+routes.get('/index_salgados', create_products.Get_Salgadso); // buscando produtos do tipo (salgado) cadastrado! 
+routes.put('/update_product_s', update_products.update_products_s); //update a products  s  
 // fata apenas definir quem pode ou não criar / editar os salgados!
 
 //rotas #doces

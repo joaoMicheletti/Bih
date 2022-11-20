@@ -21,7 +21,9 @@
 #Cadastro_itens {
     margin-bottom: 50px;
 }
-
+#Link {
+    padding-right: 30px;
+}
 
 .Form_Container h1 {
     text-align: center;
