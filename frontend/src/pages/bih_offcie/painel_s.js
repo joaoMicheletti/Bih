@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './style_login.css';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 import Api from '../../services/api';
 
@@ -75,6 +75,35 @@ function Painel_s(){
                     <div className='Itens_Loja'>
                         {Salgado.map((iten, key) => {
                             const url = 'http://localhost:3001/files/';
+
+                            const Update_iten = async () => {
+                                const id = iten.id;
+                                const Name = window.prompt("Novo nome para o produto...");
+                                const Description = window.prompt('Nova Descrição do Produto...');
+                                const Preço = window.prompt("Novo preço para o produto...");
+                                const Status = window.prompt("Status do produto [ON / OFF]...");
+                                
+                                
+                                const Data = {
+                                    id,
+                                    Name,
+                                    Description, 
+                                    Preço,
+                                    Status
+                                };
+                                const response = await Api.put('/update_product_s', Data);
+                                try{
+                                    console.log(response);
+                                    alert(response.data);
+                                    Navigate('/p_salgados');
+
+                                } catch(err) {
+
+                                };
+                                
+
+                            };
+
                             return(
                                 <ul key={iten.id} id='itens'>
                                     <li>
@@ -87,7 +116,7 @@ function Painel_s(){
                                         <br/>
                                         <p>Status: {iten.status}</p>
                                         <div className='Loja_btn'>
-                                        <button>Editar</button>
+                                        <button onClick={Update_iten}>Editar</button>
                                         </div>
                                     </li>
                                 </ul>
