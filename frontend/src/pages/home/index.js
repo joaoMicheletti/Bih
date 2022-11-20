@@ -15,8 +15,7 @@ function Home(){
         .catch(() => {
             console.log('erro')
         })
-    }, [])
-    console.log(itens)
+    }, []);
     return(
         <div className='Home_Container' id='Home_Container'>
 
@@ -34,9 +33,9 @@ function Home(){
                 const url ='http://localhost:3001/files/';
 
                 return(
-                    <div className='Conteudo' id='Conteudo'>
+                    <div key={iten.id} className='Conteudo' id='Conteudo'>
                 
-                        <div key={iten.id} className='Txt_Box'>
+                        <div  className='Txt_Box'>
                             <p>{iten.Texto}</p>
                             <button className='Btn'><Link to='/loja'>Nossa Loja</Link></button>
                         </div>

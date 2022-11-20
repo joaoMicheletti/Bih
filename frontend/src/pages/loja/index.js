@@ -39,9 +39,9 @@ function Loja(){
                 
                     {Prop.map((iten, key) => {
                         return(
-                            <div className='Propaganda'>
+                            <div key={iten.id} className='Propaganda'>
 
-                                <div key={iten.id} className='Txt_Propaganda'>
+                                <div  className='Txt_Propaganda'>
                                     <p>{iten.Texto}</p>
                                     
                                 </div>

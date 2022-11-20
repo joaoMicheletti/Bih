@@ -57,7 +57,6 @@ function Painel_p(){
     //enviando descrições dos salgados para o backend.
     const Salgados = async (e) => {
         e.preventDefault();
-        console.log(img_Salgado);
 
         const Data = {
             Name,
@@ -253,7 +252,7 @@ function Painel_p(){
                 <nav id='Cadastro_itens'>
                     <Link id="Link" to='/p_salgados'>P_Salgados</Link>
                     <Link id="Link" to='/p_doces' >P_Doces</Link>
-                    <Link id="Link" to='' >Exit</Link>
+                    <Link to='/pedidos'>Pedidos</Link> 
                 </nav>                
             </header>
             <div className="Forms_Container">

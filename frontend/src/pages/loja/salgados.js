@@ -14,12 +14,12 @@ function Salgado(){
             console.log('Erro');
         })
     }, []);
+
     const [Salgados, setSalgados] = useState([]);
     useEffect(() => {
         Api.get('/index_salgados')
         .then((Response_Salgados) => {
             setSalgados(Response_Salgados.data);
-            console.log(Response_Salgados.data);
         }).catch(() => {
             console.log('Erro');
         })
@@ -39,9 +39,9 @@ function Salgado(){
                 {Prop.map((iten, key) => {
                     const url = 'http://localhost:3001/files/';
                     return(
-                        <div className='Propaganda'>
+                        <div key={iten.id} className='Propaganda'>
 
-                            <div  key={iten.id} className='Txt_Propaganda'>
+                            <div   className='Txt_Propaganda'>
 
                                 <p>{iten.Texto}</p>
 

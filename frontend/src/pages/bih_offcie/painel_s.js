@@ -24,8 +24,7 @@ function Painel_s(){
     useEffect(() => {
         Api.get('/index_salgados')
         .then((Salgado) => {
-            setSalgado(Salgado.data)
-            console.log(Salgado.data);
+            setSalgado(Salgado.data);
                     
         })
         .catch(() => {
@@ -43,7 +42,7 @@ function Painel_s(){
                     <nav className='Menu'>
                         <Link to='/p_doces'>P_Doces  </Link>
                         <Link  to="/p_cadastro_itens">Cadastrar  </Link>
-                        <Link to="">Log-out</Link>
+                        <Link to='/pedidos'>Pedidos</Link> 
                     </nav>
                 </header> 
                 
@@ -56,7 +55,7 @@ function Painel_s(){
                         <div className='Propaganda'>
                             {itens.map((iten, key) =>{
                             const url = 'http://localhost:3001/files/';
-                            console.log(url)
+                            
                                                 
                         
                             return(

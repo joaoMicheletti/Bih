@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Navigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import './style_login.css';
 
 function Pedidos(){
@@ -9,9 +9,9 @@ function Pedidos(){
             <header id='Cabeçalho'>
 
                 <nav id='Menu'>
-                    <Link id='Lk' onClick={() => Navigate('p_salgados')} to="p_salgados">Painel_Salgados : </Link>
-                    <Link id='Lk' to="p_produtos">Painel_Produtos : </Link>
-                    <Link id='Lk' to="">EXIT</Link>
+                    <Link id='Lk' to="/p_salgados">P_Salgados : </Link>
+                    <Link id='LK' to="/p_cadastro_itens">Cadastrar</Link>
+                    <Link id='Lk' to="/p_doces">P_Doces : </Link>
                 </nav>
             </header>
             <div id="Pedidos_Container">
