@@ -33,6 +33,7 @@ function Painel_s(){
         
 
     }, []);
+    const url = 'http://localhost:3001/files/';
 
     return(
         <div className="Painel_s_Container">
@@ -54,7 +55,7 @@ function Painel_s(){
                     <div className='Prop_Loja'>
                         <div className='Propaganda'>
                             {itens.map((iten, key) =>{
-                            const url = 'http://localhost:3001/files/';
+                            
                             
                                                 
                         
@@ -73,35 +74,44 @@ function Painel_s(){
 
                     <div className='Itens_Loja'>
                         {Salgado.map((iten, key) => {
-                            const url = 'http://localhost:3001/files/';
 
                             const Update_iten = async () => {
-                                const id = iten.id;
-                                const Name = window.prompt("Novo nome para o produto...");
-                                const Description = window.prompt('Nova Descrição do Produto...');
-                                const Preço = window.prompt("Novo preço para o produto...");
-                                const Status = window.prompt("Status do produto [ON / OFF]...");
-                                
-                                
-                                const Data = {
-                                    id,
-                                    Name,
-                                    Description, 
-                                    Preço,
-                                    Status
-                                };
-                                const response = await Api.put('/update_product_s', Data);
-                                try{
-                                    console.log(response);
-                                    alert(response.data);
-                                    Navigate('/p_salgados');
 
-                                } catch(err) {
+                                const Authentication = localStorage.getItem('adm');
 
-                                };
+                                if(Authentication === null) {
+                                    alert('Voê nao te, altorização pra fazer isso!');
+                                } else {
+
+                                    const id = iten.id;
+                                    const Name = window.prompt("Novo nome para o produto...");
+                                    const Description = window.prompt('Nova Descrição do Produto...');
+                                    const Preço = window.prompt("Novo preço para o produto...");
+                                    const Status = window.prompt("Status do produto [ON / OFF]...");
+                                    
                                 
+                                    
+                                    const Data = {
+                                        id,
+                                        Name,
+                                        Description, 
+                                        Preço,
+                                        Status,
+                                        Authentication
+                                    };
+                                    const response = await Api.put('/update_product_s', Data);
+                                    try{
+                                        console.log(response);
+                                        alert(response.data);
+                                        Navigate('/p_salgados');
 
-                            };
+                                    } catch(err) {
+
+                                    };
+
+                                    }
+                                
+                        };
 
                             return(
                                 <ul key={iten.id} id='itens'>
