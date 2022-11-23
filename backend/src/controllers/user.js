@@ -24,7 +24,7 @@ module.exports = {
 
         const User = await connection('user').where('phone', Phone).select('phone');
         const C_Pass = await connection('user').where('phone', Phone).select('pass');
-        console.log(C_Pass[0].pass);
+        console.log(User[0].phone);
 
         if (User.length === 0){
 
@@ -32,7 +32,7 @@ module.exports = {
 
         } else if(C_Pass[0].pass === Pass) { 
 
-            return response.json(C_Pass[0].pass);
+            return response.json(User[0].phone);
 
         } else {
             

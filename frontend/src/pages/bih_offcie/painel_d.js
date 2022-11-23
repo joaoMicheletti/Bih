@@ -66,12 +66,12 @@ function Painel_d(){
                     
 
                     const Update_Doces = async () => {
-                        console.log('Update_Doces');
                         const id = iten.id;
                         const Name = window.prompt("Novo Nome Do Produto:...");
                         const Description = window.prompt("Nova Descrição do produto: ...");
-                        const Preço = window.prompt("Novo Preço do produto: ...");
+                        const Preço = window.prompt("Novo Preço do produto: ...");                      
                         const Status = window.prompt("Novo Status do Produto = [ON / OFF]");
+                        
 
                         const Data = {
                             id,

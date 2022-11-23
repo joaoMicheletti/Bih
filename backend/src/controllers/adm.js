@@ -32,7 +32,7 @@ module.exports = {
 
         } else if (C_Pass[0].pass === Pass ){
 
-            return response.json(C_Pass[0].pass);
+            return response.json(C_User[0].user);
         } else {
             return response.json('erro no login');
         }      

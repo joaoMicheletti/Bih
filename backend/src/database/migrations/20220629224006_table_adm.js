@@ -4,8 +4,8 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('adm', function(table){
-        table.string('id').primary();
-        table.string('user').notNullable();
+        table.increments();
+        table.int('user').notNullable();
         table.string('pass').notNullable();
     });
   
