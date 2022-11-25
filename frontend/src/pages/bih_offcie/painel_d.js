@@ -66,35 +66,38 @@ function Painel_d(){
                     
 
                     const Update_Doces = async () => {
-                        const id = iten.id;
-                        const Name = window.prompt("Novo Nome Do Produto:...");
-                        const Description = window.prompt("Nova Descrição do produto: ...");
-                        const Preço = window.prompt("Novo Preço do produto: ...");                      
-                        const Status = window.prompt("Novo Status do Produto = [ON / OFF]");
-                        
 
-                        const Data = {
-                            id,
-                            Name,
-                            Description,
-                            Preço,
-                            Status
-                        };
+                        const Authentication = localStorage.getItem('adm');
 
-                        const response = await Api.put('/update_product_d', Data)
+                                if(Authentication === null) {
+                                    alert('Voê nao te, altorização pra fazer isso!');
+                                } else {
+                                    
+                                    const id = iten.id;
+                                    const Name = window.prompt("Novo Nome Do Produto:...");
+                                    const Description = window.prompt("Nova Descrição do produto: ...");
+                                    const Preço = window.prompt("Novo Preço do produto: ...");                      
+                                    const Status = window.prompt("Novo Status do Produto = [ON / OFF]");
+                                    
 
-                        if ( response.data === 'Iten atualizado com Sucesso!'){
-                            alert(response.data);
+                                    const Data = {
+                                        id,
+                                        Name,
+                                        Description,
+                                        Preço,
+                                        Status
+                                    };
 
-                        }else {
-                            alert('Algo deu errado, tente mais tarde!!! ... ');
+                                    const response = await Api.put('/update_product_d', Data)
 
-                        };
-                        
+                                    if ( response.data === 'Iten atualizado com Sucesso!'){
+                                        alert(response.data);
 
-                            
-                            
-                        
+                                    }else {
+                                        alert('Algo deu errado, tente mais tarde!!! ... ');
+
+                                    };
+                                };
 
                     };
                     return(
