@@ -10,7 +10,6 @@ module.exports = {
 
         const Validation = await connection('adm').where('pass', Authentication).select('pass');
         
-        console.log(Validation.length)
 
         if(Validation.length === 0){
             return response.json('Action not permited');
@@ -52,19 +51,27 @@ async Get_Salgadso(request, response){
     //funçẽes para cadastrar produtos do tipo Doce"
 
     async create_product_d(request, response){
-        const {Name, Description, Preço, Status, img_Doce} = request.body;
+        const {Name, Description, Preço, Status, img_Doce, Authentication} = request.body;
+        
+        const Validation = await connection('adm').where('pass', Authentication).select('pass');
 
-        const Data = {
-            Name,
-            Description,
-            Preço,
-            Status,
-            img_Doce
+        if(Validation.length === 0 ){
+            return response.json("Action not Permited");
+        } else {
+            
+            const Data = {
+                Name,
+                Description,
+                Preço,
+                Status,
+                img_Doce
+            };
+            console.log(Data);
+            await connection('doces').insert(Data);
+    
+            return response.json('iten cadastrado!');
         };
-        console.log(Data);
-        await connection('doces').insert(Data);
-
-        return response.json('iten cadastrado!');
+        
     },
     // salvando imagem dos doces!
     async create_img_d(request, response){

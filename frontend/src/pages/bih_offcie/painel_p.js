@@ -74,7 +74,7 @@ function Painel_p(){
         } else if (Status === '') {
             document.querySelector('#Alerta').innerHTML = "preencha o campo (Status)@";
         } else {
-            const Authentication = window.prompt("Senha Do ADM");
+            const Authentication = window.prompt("Senha Do Adiministrador.");
             const Data = {
                 Name,
                 Description,
@@ -92,6 +92,7 @@ function Painel_p(){
                 Navigate('/p_salgados');
                 } else {
                     alert(response0.data);
+                    Navigate('/p_salgados');
                 }
                 
 
@@ -119,7 +120,7 @@ function Painel_p(){
         console.log('ola ');
 
         if (Image === '') {
-            document.querySelector('#Alerta_Doce').innerHTML = "Selecione uma (imagen)@";
+            document.querySelector('#Alerta_Doce').innerHTML = "anexe a imagem!";
         } else if (Name === ''){
             document.querySelector('#Alerta_Doce').innerHTNL = "Preencha o Campo (Nome)@";
         }  else if (Description === ''){
@@ -130,7 +131,7 @@ function Painel_p(){
             document.querySelector('#Alerta_Doce').innerHTML = "preencha o campo (Status)@";
         } else {
             
-            document.querySelector("#Alert_doce").innerHTML = "Imagem enviadda com sucesso!";
+            document.querySelector("#Alerta_Doce").innerHTML = "Imagem enviadda com sucesso!";
             const response = await Api.post('/create_img_d', formadata, headers);
             return img_Doce = response.data;
         };
@@ -141,15 +142,6 @@ function Painel_p(){
     const Doces = async (e) => {
         e.preventDefault();
 
-
-        const Data = {
-            Name,
-            Description,
-            Preço,
-            Status,
-            img_Doce
-        }
-        console.log(Data);
         if (img_Doce === ''){
             document.querySelector('#Alerta_Doce').innerHTML = '1° anexe a (imagem) !!!@';
         } else if (Image === '') {
@@ -163,12 +155,25 @@ function Painel_p(){
         } else if (Status === '') {
             document.querySelector('#Alerta_Doce').innerHTML = "preencha o campo (Status)@";
         } else {
+            const Authentication = window.prompt("Senha Do Adiministrador.");
+            const Data = {
+                Name,
+                Description,
+                Preço,
+                Status,
+                img_Doce,
+                Authentication
+            }
             const response = await Api.post('/create_product_d', Data)
             try{
                 if(response.data === 'iten cadastrado!'){
                     alert(response.data);
+                    Navigate('/p_doces');
+                } else {
+                    alert(response.data);
+                    Navigate('/p_doces');
                 };
-                Navigate('/p_doces');
+                
 
             } catch(err){
 
@@ -198,7 +203,7 @@ function Painel_p(){
         } else if (Texto === ''){
             document.querySelector('#Alerta_Prop').innerHTML = 'Preencha o campo (texto da propaganda)@ ';
         } else {
-            document.querySelector("#Alert_Prop").innerHTML = "Imagem enviada com sucesso.";
+            document.querySelector("#Alerta_Prop").innerHTML = "Imagem enviada com sucesso.";
             const response = await Api.post('/propaganda_img', formadata, headers);
             return img_propaganda = response.data;
         };
@@ -208,13 +213,19 @@ function Painel_p(){
     // enviando descrição da propaganda dos produtos!
     const Propaganda = async (e) => {
         e.preventDefault();
+        if(img_propaganda === ''){
+            document.querySelector('#Alerta_Prop').innerHTML = 'Selecione uma imagem';
+        } else {
+
+            const Authentication = window.prompt("Senha Do Adiministrador");
+        
         const Data = {
             Texto,
-            img_propaganda
+            img_propaganda,
+            Authentication
         };
         const Edit_or_no =  await Api.get('/index_prop')
-        if (Edit_or_no.data.length > 0){
-            console.log("maior");
+        if (Edit_or_no.data.length > 0){           
 
             const Res_UP = await Api.put('/prop_u', Data)
             try{
@@ -223,7 +234,7 @@ function Painel_p(){
                     Navigate('/p_doces');
 
                 } else {
-                    alert('Erro ao atualizar a Propaganda!')
+                    alert(Res_UP.data);
                     Navigate('/p_doces');
                 };
                 
@@ -249,13 +260,9 @@ function Painel_p(){
     
             };
         };
-        
 
-
-
-        /**/
-        
-        
+        };
+               
     };
 
     return(

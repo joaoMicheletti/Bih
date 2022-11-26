@@ -5,15 +5,22 @@ module.exports = {
     //create on prop
     async create_prop(request, response){
 
-        const {Texto, img_propaganda} = request.body;
-        const Data  = {
-            Texto,
-            img_propaganda
-        };
-        console.log(Data);
-        await connection('propaganda').insert(Data);
-        console.log(Data);
-        return response.json('iten Cadastrado!!!'); 
+        const {Texto, img_propaganda, Authentication} = request.body;
+
+        const Validation = await connection('adm').where('pass', Authentication).select('pass');
+        if(Validation.length === 0 ){
+            return response.json('Action not Permited');
+        } else {
+            
+            const Data  = {
+                Texto,
+                img_propaganda
+            };
+            
+            await connection('propaganda').insert(Data);
+            console.log(Data);
+            return response.json('iten Cadastrado!!!');
+        }; 
     
     },
     //salvando imagem da propaganda!
@@ -32,13 +39,21 @@ module.exports = {
     },
     //update on prop
     async update_prop(request, response){
-        const {Texto, img_propaganda} = request.body;
-        const Data  = {
-            Texto,
-            img_propaganda
+        const {Texto, img_propaganda, Authentication} = request.body;
+
+        const Validation = await connection('adm').where('pass', Authentication).select('pass');
+        if(Validation.length === 0 ){
+            return response.json('Action not Permited');
+        } else {
+            const Data  = {
+                Texto,
+                img_propaganda
+            };
+            await connection('propaganda').select('Texto').update('Texto', Texto);
+            await connection('propaganda').select('img_propaganda').update('img_propaganda', img_propaganda);
+            return response.json('ok');
+
         };
-        await connection('propaganda').select('Texto').update('Texto', Texto);
-        await connection('propaganda').select('img_propaganda').update('img_propaganda', img_propaganda);
-        return response.json('ok');
+        
     }
 }
