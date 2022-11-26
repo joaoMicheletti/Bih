@@ -5,7 +5,6 @@ import Api from '../../services/api';
 import api from '../../services/api';
 
 function Painel_p(){
-
     const Navigate = useNavigate('');
 
         // var of Salgados... end doces
@@ -18,7 +17,7 @@ function Painel_p(){
     const [Texto, setTexto] = useState('');
     const [Image_p, setImage_p] = useState('');
 
-    var img_Salgado = '';
+    var img_Salgado = '';    
 
  // enviando img dos salgasos para o backend.
     const Img_Salgado = async (e) => {
@@ -26,6 +25,7 @@ function Painel_p(){
         
         const formadata = new FormData();
         formadata.append('image', Image); 
+        
 
         console.log(formadata);
         const headers = { 
@@ -45,7 +45,9 @@ function Painel_p(){
             document.querySelector('#Alerta').innerHTML = "Preencha o campo (Preço)@";
         } else if (Status === '') {
             document.querySelector('#Alerta').innerHTML = "preencha o campo (Status)@";
-        } else {
+        } else{
+            
+            document.querySelector('#Alerta').innerHTML = "Imagem salva com sucesso!";
             const response1 = await api.post('/create_img_s', formadata, headers );
             img_Salgado = response1.data;
             console.log(img_Salgado);
@@ -58,13 +60,6 @@ function Painel_p(){
     const Salgados = async (e) => {
         e.preventDefault();
 
-        const Data = {
-            Name,
-            Description,
-            Preço,
-            Status,
-            img_Salgado
-        };
         if (img_Salgado === ''){
             document.querySelector('#Alerta').innerHTML = '1° anexe a (imagem) !!!@';
             
@@ -79,13 +74,26 @@ function Painel_p(){
         } else if (Status === '') {
             document.querySelector('#Alerta').innerHTML = "preencha o campo (Status)@";
         } else {
+            const Authentication = window.prompt("Senha Do ADM");
+            const Data = {
+                Name,
+                Description,
+                Preço,
+                Status,
+                img_Salgado,
+                Authentication
+            };
+            console.log(Data);
             const response0 = await Api.post('/create_product_s', Data)
             try{
                 console.log(response0);
                 if(response0.data === 'Dados cadastrados'){
                 alert('Dados cadastrados');
-                };
                 Navigate('/p_salgados');
+                } else {
+                    alert(response0.data);
+                }
+                
 
             }catch(err){
                 alert('Erro: ao cadastrar as informações, tente mais tarde!');
@@ -97,7 +105,7 @@ function Painel_p(){
     //enviando a img do produto do tipo Doce!
     var img_Doce = '';
     const Doce_img = async (e) => {
-        e.preventDefault();
+        e.preventDefault();        
 
         const formadata = new FormData();
         formadata.append('image', Image);
@@ -121,7 +129,8 @@ function Painel_p(){
         } else if (Status === '') {
             document.querySelector('#Alerta_Doce').innerHTML = "preencha o campo (Status)@";
         } else {
-
+            
+            document.querySelector("#Alert_doce").innerHTML = "Imagem enviadda com sucesso!";
             const response = await Api.post('/create_img_d', formadata, headers);
             return img_Doce = response.data;
         };
@@ -131,6 +140,8 @@ function Painel_p(){
     
     const Doces = async (e) => {
         e.preventDefault();
+
+
         const Data = {
             Name,
             Description,
@@ -162,6 +173,7 @@ function Painel_p(){
             } catch(err){
 
             };
+            
         };
         
     };
@@ -186,6 +198,7 @@ function Painel_p(){
         } else if (Texto === ''){
             document.querySelector('#Alerta_Prop').innerHTML = 'Preencha o campo (texto da propaganda)@ ';
         } else {
+            document.querySelector("#Alert_Prop").innerHTML = "Imagem enviada com sucesso.";
             const response = await Api.post('/propaganda_img', formadata, headers);
             return img_propaganda = response.data;
         };

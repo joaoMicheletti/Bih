@@ -6,17 +6,28 @@ module.exports = {
 
     // funções para criar os produtos do tipo salgada!
     async create_product_s(request, response){
-        const {Name, Description, Preço, Status, img_Salgado} = request.body;
-        const Data = {
-            Name,
-            Description, 
-            Preço,
-            Status,
-            img_Salgado
+        const {Name, Description, Preço, Status, img_Salgado, Authentication} = request.body;
+
+        const Validation = await connection('adm').where('pass', Authentication).select('pass');
+        
+        console.log(Validation.length)
+
+        if(Validation.length === 0){
+            return response.json('Action not permited');
+        } else {
+            const Data = {
+                Name,
+                Description, 
+                Preço,
+                Status,
+                img_Salgado
+            };
+            console.log(Data);
+            
+            await connection('salgados').insert(Data);
+    
+            return response.json('Dados cadastrados');
         };
-        console.log(Data);
-        await connection('salgados').insert(Data);
-        return response.json('Dados cadastrados');
         
     },
     // salvando a imagem do salgado

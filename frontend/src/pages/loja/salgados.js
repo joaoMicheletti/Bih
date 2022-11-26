@@ -24,6 +24,10 @@ function Salgado(){
             console.log('Erro');
         })
     },[]);
+
+    const Finish_Pedido = (e) => {
+      console.log('click')
+    }
     return(
 
         <div className='Loja_Container'>
@@ -87,7 +91,7 @@ function Salgado(){
                  <div className='pedido'>
                     <label>Valor de pedido:</label>
                     <p>200,00</p>
-                    <button type='button'>finalizar</button>
+                    <button onClick={Finish_Pedido} type='button'>finalizar</button>
                 </div>     
             </div>
         </div>

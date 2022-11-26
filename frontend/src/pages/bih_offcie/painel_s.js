@@ -80,7 +80,7 @@ function Painel_s(){
                                 const Authentication = localStorage.getItem('adm');
 
                                 if(Authentication === null) {
-                                    alert('Voê nao te, altorização pra fazer isso!');
+                                    alert('Action not permited.');
                                 } else {
 
                                     const id = iten.id;
