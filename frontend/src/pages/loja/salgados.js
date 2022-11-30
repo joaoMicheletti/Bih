@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import Logo from '../assets/Logo.jpg';
+import {ImExit} from 'react-icons/im';
+import {AiOutlineShoppingCart} from 'react-icons/ai';
+import Logo from '../../pages/assets/Logo.jpg';
 import './style_loja.css';
 import Api from '../../services/api';
 
@@ -25,9 +27,6 @@ function Salgado(){
         })
     },[]);
 
-    const Finish_Pedido = (e) => {
-      console.log('click')
-    }
     return(
 
         <div className='Loja_Container'>
@@ -36,6 +35,8 @@ function Salgado(){
                 <nav className='Menu'>
                     <Link  to="/">Home</Link>
                     <Link  to="/loja">Doces</Link>
+                    <Link to='/carrinho'><AiOutlineShoppingCart/></Link>
+                    <Link to='/exit'><ImExit/></Link>
                 </nav>
             </header>
         
@@ -79,20 +80,12 @@ function Salgado(){
                                     <p>Preço: {iten.preço}R$</p>
                                     <br/>
                                     <div className='Loja_btn'>
-                                        <button>+</button>
-                                        <button>-</button>
+                                        <button>Adicionar ao carrinho</button>
                                     </div>
                                 </li>
                             </ul>
                         );
-                    })}
-                    
-
-                 <div className='pedido'>
-                    <label>Valor de pedido:</label>
-                    <p>200,00</p>
-                    <button onClick={Finish_Pedido} type='button'>finalizar</button>
-                </div>     
+                    })}    
             </div>
         </div>
     );

@@ -6,6 +6,10 @@ import Loja from './pages/loja/index';//loja doces
 import Salgados from './pages/loja/salgados'; // loja salgados
 import Register from './pages/register/index'; //registro de usuarios 
 import Login from './pages/login/index'; // login de usuarios 
+import Carrinho from '../src/pages/loja/carrinho';
+import Exit from '../src/pages/loja/exit';
+
+
 //adm imports 
 import Cbia from './pages/bih_offcie/index';//logind to adm
 import Doces from './pages/bih_offcie/painel_d'; //painel de doces
@@ -24,8 +28,9 @@ class Rotas extends Component {
                     <Route path='salgados' element={<Salgados/>} /> 
                     <Route path='login' element={<Login/>}/>
                     <Route path='register' element={<Register/>}/>
-                                     
-
+                    <Route path='carrinho' element={<Carrinho/>} />
+                    <Route path='exit' element={<Exit/>}/>
+                    
                     <Route path='login_bia' element={<Cbia/>}/>
                     <Route path='p_doces' element={<Doces/>} />
                     <Route path='p_cadastro_itens' element={<Cadastro/>}/>

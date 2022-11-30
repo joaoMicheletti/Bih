@@ -51,6 +51,7 @@ function Login(){
                 <nav className='Menu'>
                     <Link to='/' onClick={() => Navigate('/')}>Home</Link>
                     <Link to='/register'>Registrar-se</Link>
+                    
                 </nav> 
             </header>
 

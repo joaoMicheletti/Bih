@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
-import Logo from '../assets/Logo.jpg';
-import './style_loja.css'; 
+import {AiOutlineShoppingCart} from 'react-icons/ai';
+import {ImExit} from 'react-icons/im';
+import Logo from '../loja/../assets/Logo.jpg';
+import './style_loja.css';
 import Api from '../../services/api';
 
 function Loja(){
+
     const url = 'http://localhost:3001/files/';
     const [Prop, setProp] = useState([]);
     useEffect(() => {
@@ -25,6 +28,7 @@ function Loja(){
             console.log('Erro');
         });
     },[]);
+    
     return(
         <div className='Loja_Container'>
             <header className='Cabeçalho'>
@@ -32,12 +36,15 @@ function Loja(){
                 <nav className='Menu'>
                     <Link  to="/" >Home</Link>
                     <Link to="/salgados">Salgados</Link>
+                    <Link to='/carrinho'><AiOutlineShoppingCart/></Link>
+                    <Link to='/exit'><ImExit/></Link>
                 </nav>
             </header>
 
             <div className='Conteudo_Prop'>
                 
                     {Prop.map((iten, key) => {
+                        
                         return(
                             <div key={iten.id} className='Propaganda'>
 
@@ -57,6 +64,17 @@ function Loja(){
                 
             <div className='Itens_Loja'>
                 {Doces.map((iten, key) => {
+                    const Name = iten.name;
+                    const Valor = iten.preço;
+                    const Authentication = localStorage.getItem('user');
+                    const Data = {
+                        Name,
+                        Valor,
+                        Authentication                          
+                    }
+                    const Pedido = () => {
+                        console.log(Data);
+                    }
                     return(
                         <ul key={iten.id}>
                             <li>
@@ -68,8 +86,7 @@ function Loja(){
                                 <p>Preço: {iten.preço}R$</p>
                                 <br/>
                                 <div className='Loja_btn'>
-                                    <button>+</button>
-                                    <button>-</button>
+                                    <button onClick={Pedido}>Adicionar ao carrinho</button>
                                 </div>
                             </li>
                         </ul> 
@@ -78,11 +95,7 @@ function Loja(){
                 
                 
             </div>
-            <div className='pedido'>
-                <label>Valor de pedido:</label>
-                <p>200,00</p>
-                <button type='button'>finalizar</button>
-            </div>
+            
         </div>
     );
 }

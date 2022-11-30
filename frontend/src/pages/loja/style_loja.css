@@ -82,14 +82,14 @@ ul li img {
 }
 
 .Loja_btn button {
-    margin-top: 5px;
-    margin-left: 10px;
-    width: 70px;
-    height: 20px;
-    font-size: 18px;
+    color: rgb(245, 11, 147);
     font-weight: 500;
-    border-radius: 6px;
-    border-color: transparent;
+    width: 150px;
+    height: 30px;
+    margin-bottom: 5px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+
 }
 .Loja_btn button:hover {
     background-color: rgba(0, 0, 0, 0.37);
@@ -111,6 +111,32 @@ ul li img {
     border: none;
     cursor: pointer;
 }
+#Exit_Container {
+    margin-top: 100px;
+    width: 80%;
+    margin-left: 10%;
+    text-align: center;
+}
+#Button_Container {
+    justify-content: center;
+    margin-top: 60px;
+    width: 80%;
+    margin-left: 10%;
+}
+#BTN_Exit {
+    margin-left: 20px;
+    width: 120px;
+    height: 40px;
+    background-color: rgb(209, 17, 91);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#BTN_Exit:hover {
+    background-color: rgba(0, 0, 0, 0.37);
+
+}
+
 @media (max-width: 700px){
     .Loja_Container .Cabeçalho .Menu {
         margin-top: 10px;
