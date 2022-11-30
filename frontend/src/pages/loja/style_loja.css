@@ -80,6 +80,10 @@ ul li img {
     width: 200px;
     height: 200px;
 }
+#Quantidade {
+    width: 150px;
+    margin-bottom: 10px;
+}
 
 .Loja_btn button {
     color: rgb(245, 11, 147);

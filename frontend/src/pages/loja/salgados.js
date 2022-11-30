@@ -7,6 +7,7 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Salgado(){
+    const [Quantidade, setQuantidade] = useState('');
     const url = 'http://localhost:3001/files/';
     const hystory = useNavigate();
     const [Prop, setProp] = useState([]);
@@ -69,7 +70,6 @@ function Salgado(){
             <h3><br/>Salgados</h3>
             <div className='Itens_Loja'>
                     {Salgados.map((iten, key) => {
-                        
                         const Name = iten.name;
                         const Valor = iten.preço;
                         const Authentication = localStorage.getItem('user');
@@ -81,6 +81,7 @@ function Salgado(){
                     
                         const Pedido = () => {
                             console.log(Data);
+                            console.log(Quantidade);
                             if (Authentication === null){
                                 alert("Cadastre-se ou faça login para efetuar pedidos");
                                 hystory('/login');
@@ -98,6 +99,10 @@ function Salgado(){
                                     <p>Preço: {iten.preço}R$</p>
                                     <br/>
                                     <div className='Loja_btn'>
+                                    <input id='Quantidade' 
+                                    type='number' 
+                                    placeholder='Quantidade'
+                                    onChange={(e) => setQuantidade(e.target.value)} ></input>
                                         <button onClick={Pedido}>Adicionar ao carrinho</button>
                                     </div>
                                 </li>

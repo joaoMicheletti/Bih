@@ -8,7 +8,7 @@ import Api from '../../services/api';
 
 function Loja(){
     const hystory = useNavigate();
-
+    const [Quantidade, setQuantidade] = useState('');
     const url = 'http://localhost:3001/files/';
     const [Prop, setProp] = useState([]);
     useEffect(() => {
@@ -75,6 +75,7 @@ function Loja(){
                     };
                     
                     const Pedido = () => {
+                        console.log(Quantidade);
                         console.log(Data);
                         if (Authentication === null){
                             alert("Cadastre-se ou faça login para efetuar pedidos");
@@ -92,6 +93,10 @@ function Loja(){
                                 <p>Preço: {iten.preço}R$</p>
                                 <br/>
                                 <div className='Loja_btn'>
+                                    <input id='Quantidade' 
+                                    type='number' 
+                                    placeholder='Quantidade'
+                                    onChange={(e) => setQuantidade(e.target.value)}></input>
                                     <button onClick={Pedido}>Adicionar ao carrinho</button>
                                 </div>
                             </li>
