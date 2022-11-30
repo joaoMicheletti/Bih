@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {ImExit} from 'react-icons/im';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import Logo from '../../pages/assets/Logo.jpg';
@@ -7,6 +7,8 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Salgado(){
+    const url = 'http://localhost:3001/files/';
+    const hystory = useNavigate();
     const [Prop, setProp] = useState([]);
     useEffect(() => {
         Api.get('index_prop')
@@ -67,7 +69,23 @@ function Salgado(){
             <h3><br/>Salgados</h3>
             <div className='Itens_Loja'>
                     {Salgados.map((iten, key) => {
-                        const url = 'http://localhost:3001/files/';
+                        
+                        const Name = iten.name;
+                        const Valor = iten.preço;
+                        const Authentication = localStorage.getItem('user');
+                        const Data = {
+                            Name,
+                            Valor,
+                            Authentication                          
+                        };
+                    
+                        const Pedido = () => {
+                            console.log(Data);
+                            if (Authentication === null){
+                                alert("Cadastre-se ou faça login para efetuar pedidos");
+                                hystory('/login');
+                            }
+                        };
                         return(
                             <ul  key={iten.id}>                                
                                 <li>
@@ -80,7 +98,7 @@ function Salgado(){
                                     <p>Preço: {iten.preço}R$</p>
                                     <br/>
                                     <div className='Loja_btn'>
-                                        <button>Adicionar ao carrinho</button>
+                                        <button onClick={Pedido}>Adicionar ao carrinho</button>
                                     </div>
                                 </li>
                             </ul>

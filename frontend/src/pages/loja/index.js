@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {AiOutlineShoppingCart} from 'react-icons/ai';
 import {ImExit} from 'react-icons/im';
 import Logo from '../loja/../assets/Logo.jpg';
@@ -7,6 +7,7 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Loja(){
+    const hystory = useNavigate();
 
     const url = 'http://localhost:3001/files/';
     const [Prop, setProp] = useState([]);
@@ -71,10 +72,15 @@ function Loja(){
                         Name,
                         Valor,
                         Authentication                          
-                    }
+                    };
+                    
                     const Pedido = () => {
                         console.log(Data);
-                    }
+                        if (Authentication === null){
+                            alert("Cadastre-se ou faça login para efetuar pedidos");
+                            hystory('/login');
+                        }
+                    };
                     return(
                         <ul key={iten.id}>
                             <li>
@@ -91,9 +97,7 @@ function Loja(){
                             </li>
                         </ul> 
                     );
-                })}
-                
-                
+                })};    
             </div>
             
         </div>
