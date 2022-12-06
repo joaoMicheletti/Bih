@@ -34,8 +34,10 @@ function Register(){
             console.log(response);
                         
             if (response.data === 'Número já cadastrado!!!'){
+                alert('Número já cadastrado!!!');
                 history('/register');
             } else {
+                alert('Usuario cadastrado!');
                 history('/login')
             };
 

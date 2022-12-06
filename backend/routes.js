@@ -12,7 +12,8 @@ const user =  require('./src/controllers/user');
 //multer
 const multer = require('multer');
 const multerConfig = require('./src/multer');
-
+//carrinho
+const Carrinho = require('./src/controllers/carrinho');
 
 const routes = express.Router();
 
@@ -50,6 +51,8 @@ routes.get('/index', create_login.Index_adm); // get a all user's adm!
 //routes of users.
 routes.post('/create_user',  user.register_user); //create a user
 routes.post('/user_login', user.login_user); //create a session user // login
+// rotas do carrinho:
+routes.post('/carrinho', Carrinho.Doce);
 
 
 module.exports = routes;

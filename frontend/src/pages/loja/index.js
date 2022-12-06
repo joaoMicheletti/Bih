@@ -66,21 +66,26 @@ function Loja(){
             <div className='Itens_Loja'>
                 {Doces.map((iten, key) => {
                     const Name = iten.name;
-                    const Valor = iten.preço;
-                    const Authentication = localStorage.getItem('user');
+                    const Preço = iten.preço;
+                    const User = localStorage.getItem('user');
+                    //const Img = iten.img_doce;
                     const Data = {
                         Name,
-                        Valor,
-                        Authentication                          
+                        Preço,
+                        User,
+                        Quantidade                         
                     };
                     
-                    const Pedido = () => {
+                    const Pedido = async () => {
                         console.log(Quantidade);
                         console.log(Data);
-                        if (Authentication === null){
+                        if (User === null){
                             alert("Cadastre-se ou faça login para efetuar pedidos");
                             hystory('/login');
-                        }
+                        } else {
+                            const response = await Api.post('/carrinho', Data);
+                            console.log(response + '<<<<< ::::resposta');
+                        };
                     };
                     return(
                         <ul key={iten.id}>

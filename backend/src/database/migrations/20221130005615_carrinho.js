@@ -3,11 +3,13 @@
  * @returns { Promise<void> }
  */
 exports.up = function(knex) {
-    return knex.schema.createTable('carrinho', function(table){
+    return knex.schema.createTable('carrinho_doce', function(table){
         table.increments();
         table.string('user').notNullable();
-        table.string('names_doce').notNullable();
-        table.string('names_salgado').notNullable();
+        table.string('name').notNullable();
+        table.string('quantidade').notNullable();
+        table.string('preço').notNullable();
+        table.string('img').notNullable();
 
     });
   
