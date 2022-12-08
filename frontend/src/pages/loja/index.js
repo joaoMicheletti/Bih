@@ -65,27 +65,48 @@ function Loja(){
                 
             <div className='Itens_Loja'>
                 {Doces.map((iten, key) => {
+                    //gambiarra da data
+                    const data = new Date();
+                    const Dia = data.getDate();
+                    const Mes = data.getMonth() + 1;
+                    const Ano = data.getFullYear();
+                    const Full_date = Dia+'/'+Mes+'/'+Ano;
+
                     const Name = iten.name;
                     const Preço = iten.preço;
                     const User = localStorage.getItem('user');
-                    //const Img = iten.img_doce;
+                    const Img = iten.img_doce;
                     const Data = {
                         Name,
                         Preço,
                         User,
-                        Quantidade                         
+                        Quantidade,
+                        Img,
+                        Full_date                 
                     };
                     
                     const Pedido = async () => {
                         console.log(Quantidade);
                         console.log(Data);
+                                        
                         if (User === null){
                             alert("Cadastre-se ou faça login para efetuar pedidos");
                             hystory('/login');
+                        } else if(Quantidade === ''){
+                            alert('Defina a quantidade!');
+
                         } else {
                             const response = await Api.post('/carrinho', Data);
-                            console.log(response + '<<<<< ::::resposta');
+                            console.log(response);
+                            alert('iten adicionado ao carrinho!!');
+                            // gambiara para zerar o stado da variavel setQuantidade;
+                            document.location.reload(true);
+                            
+                            
+                            
                         };
+                        
+                        
                     };
                     return(
                         <ul key={iten.id}>
