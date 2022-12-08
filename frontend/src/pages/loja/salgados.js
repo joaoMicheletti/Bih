@@ -70,23 +70,44 @@ function Salgado(){
             <h3><br/>Salgados</h3>
             <div className='Itens_Loja'>
                     {Salgados.map((iten, key) => {
+                        //gambiarra da data
+                        const data = new Date();
+                        const Dia = data.getDate();
+                        const Mes = data.getMonth() + 1;
+                        const Ano = data.getFullYear();
+                        const Full_date = Dia+'/'+Mes+'/'+Ano;
+
                         const Name = iten.name;
-                        const Valor = iten.preço;
-                        const Authentication = localStorage.getItem('user');
+                        const Preço = iten.preço;
+                        const User = localStorage.getItem('user');
+                        const Img = iten.img_salgado;
                         const Data = {
                             Name,
-                            Valor,
-                            Authentication                          
+                            Preço,
+                            User,
+                            Quantidade,
+                            Img,
+                            Full_date                 
                         };
                     
-                        const Pedido = () => {
+                        const Pedido = async () => {
                             console.log(Data);
                             console.log(Quantidade);
-                            if (Authentication === null){
+                            if (User === null){
                                 alert("Cadastre-se ou faça login para efetuar pedidos");
                                 hystory('/login');
-                            }
+                            } else if(Quantidade === ''){
+                                alert('Defina a quantidade!');
+    
+                            } else {
+                                const response = await Api.post('/carrinho_s', Data);
+                                alert(response.data);
+                                // gambiara para zerar o stado da variavel setQuantidade;
+                                document.location.reload(true);
+                                  
+                            };
                         };
+
                         return(
                             <ul  key={iten.id}>                                
                                 <li>

@@ -58,5 +58,4 @@ routes.get('/carrinho_index_d', Carrinho.Index_Doce);
 routes.post('/carrinho_s', Carrinho.Salgado);
 routes.get('/carrinho_index_s', Carrinho.Index_Salgado);
 
-
 module.exports = routes;

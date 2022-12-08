@@ -30,11 +30,10 @@ module.exports = {
             User,
             Quantidade,
             Img,
-            Full_date                         
+            Full_date                       
         };
-        console.log(Data)
         await connection('carrinho_salgado').insert(Data);
-        return response.json('adicionado ao carrinho!');
+        return response.json('Adicionado ao carrinho!');
         
     },
     //listando os salgados
