@@ -6,25 +6,29 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Carrinho(){
-    //const url = 'http://localhost:3001/files/';
-    const [Today, setToday] = useState(''); 
+    const URL = 'http://localhost:3001/files/';
+    const [Today, setToday] = useState([]); 
+    
     useEffect(() => {
         Api.get('/carrinho_index_d')
         .then((Response) => {
             setToday(Response.data);
-            console.log(Response);
+        }).catch(() => {
+            console.log('erro');
+        });
+    }, []);
+
+    const [Finalizados, setFinalizados] = useState([]);
+    useEffect(() => {
+        Api.get('/carrinho_index_s')
+        .then((Response) => {
+            setFinalizados(Response.data);
         }).catch(() => {
             console.log('Erro');
-        })
+        });
 
     }, []);
 
-    const Enviar = async () => {
-        console.log('Enviar');
-    };
-    const Cancelar = async () => {
-        console.log('Cancelar');
-    };
 
     return(
         <div className='Loja_Container'>
@@ -39,24 +43,57 @@ function Carrinho(){
             </header>
 
             <div id='Carrinho_Container'>
+                <h3>Adicionados Hoje</h3>
                 <div id='Pedidos_hoje'>
-                    <h3>Adicionados Hoje</h3>
-                    <ul>
-                        <li>
-                            <img src={Logo} alt='logo'/>
-                            <p>Name:</p>
-                            <p>Description:</p>
-                            <p>Quantidade:</p>
-                            <p>Preço:</p>
-                            <button onClick={Enviar} >Comprar</button>
-                            <button onClick={Cancelar}>Cancelar</button>
 
-                        </li>
-                    </ul>
+                    {Today.map((iten, key) => {
+
+                        const Comprar = async () => {
+                            console.log('Comprar');
+                        };
+                        const Cancelar = async () => {
+                            console.log('Cancelar');
+                        };
+                        return(
+                            <ul id='Carrinho_Pedido' key={iten.id} >
+                                <li>
+                                    <img src={URL + iten.img} alt='image produto'/>
+                                    <p>{iten.name}</p>
+                                    <br/>
+                                    <p>quantidade : {iten.quantidade}</p><br/>
+                                    <p>Preço : {iten.preço}R$</p><br/>
+                                    <button onClick={Comprar} id='BTN_Carrinho' >Comprar</button>
+                                    <button onClick={Cancelar} id='BTN_Carrinho' >Cancelar</button>
+                                    
+                                </li>
+                            </ul>
+                        );
+
+                    })}
+                    
                 </div>
-                <hr/>
+                <hr/><br/>
+                <br/>
                 <div id='Pedidos_Finalizados'>
                     <h3>Pedidos finalizados</h3>
+                    <div id='Pedidos_finalizados'>
+
+                    {Finalizados.map((iten, key) => {
+                        return(
+                            <ul id='Carrinho_Pedido' key={iten.id} >
+                                <li>
+                                    <img src={URL + iten.img} alt='image produto'/>
+                                    <p>{iten.name}</p>
+                                    <br/>
+                                    <p>quantidade : {iten.quantidade}</p><br/>
+                                    <p>{iten.preço}</p><br/>
+                                    
+                                </li>
+                            </ul>
+                        );
+
+                    })}
+                    </div>
                 </div>
             </div>
                 

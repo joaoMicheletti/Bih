@@ -163,3 +163,28 @@ ul li img {
         width: 100px;
     }
 }
+#Pedidos_hoje {
+    margin-top: 60px;
+    width: 80%;
+    margin-left: 12%;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+#Carrinho_Pedido {
+    margin-right: 5px;
+
+}
+#BTN_Carrinho {
+    width: 80px;
+    height: 30px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+#Pedidos_finalizados {
+    margin-top: 100px;
+    width: 80%;
+    margin-left: 12%;
+    display: flex;
+    flex-wrap: wrap;
+}
