@@ -18,17 +18,7 @@ function Carrinho(){
         });
     }, []);
 
-    const [Finalizados, setFinalizados] = useState([]);
-    useEffect(() => {
-        Api.get('/carrinho_index_s')
-        .then((Response) => {
-            setFinalizados(Response.data);
-        }).catch(() => {
-            console.log('Erro');
-        });
-
-    }, []);
-
+    
 
     return(
         <div className='Loja_Container'>
@@ -49,15 +39,51 @@ function Carrinho(){
                     {Today.map((iten, key) => {
 
                         const Comprar = async () => {
-                            console.log('Comprar');
+                            // Dados a serren verificados para cober a tacha de entrega,
+                            // e si atendemos essa região
+                            // após a validação envir o pedido para ser preparado!... 
+                            var Nome_C = prompt("Quao o nome de quem vai receber o pedido!");
+                            while (Nome_C === ''){
+                                Nome_C = prompt("Qual o nome de quem vai receber opedido ? : ");
+                            };
+                            var Rua = prompt("Digite o nome da Rua :" );
+                            while(Rua === '') {
+                                Rua = prompt("Digite o nome da rua : ");
+                            };
+                            var Numnero = prompt('Digite o número da residencia :');
+                            while(Numnero === '') {
+                                Numnero = prompt('Digite o número da residenci :')
+                            };
+                            var Cep = prompt('Digite o CEP :');
+                            while (Cep.length < 8){
+                                Cep = prompt('Digite um CEP Valido:');
+                            };
+                            while (Cep.length > 8 ){
+                                Cep = prompt('Digite um CEP Valido!');
+                            };
+                            console.log(Cep.length);
+                            console.log(Cep);
+                            console.log(Numnero);
+                            console.log(Rua);
+                            console.log(Nome_C);
+                            const Data = {
+                                Cep,
+                                Nome_C,
+                                Rua,
+                                Numnero
+                            };
+                            console.log(Data);
+                            const response = await Api.delete('/carrinho_delete');
+                            console.log(response);
                         };
                         const Cancelar = async () => {
-                            console.log('Cancelar');
+                            console.log("ccccccccc");
+                            
                         };
                         return(
                             <ul id='Carrinho_Pedido' key={iten.id} >
                                 <li>
-                                    <img src={URL + iten.img} alt='image produto'/>
+                                    <img src={URL + iten.img} alt='logo'/>
                                     <p>{iten.name}</p>
                                     <br/>
                                     <p>quantidade : {iten.quantidade}</p><br/>
@@ -73,28 +99,6 @@ function Carrinho(){
                     
                 </div>
                 <hr/><br/>
-                <br/>
-                <div id='Pedidos_Finalizados'>
-                    <h3>Pedidos finalizados</h3>
-                    <div id='Pedidos_finalizados'>
-
-                    {Finalizados.map((iten, key) => {
-                        return(
-                            <ul id='Carrinho_Pedido' key={iten.id} >
-                                <li>
-                                    <img src={URL + iten.img} alt='image produto'/>
-                                    <p>{iten.name}</p>
-                                    <br/>
-                                    <p>quantidade : {iten.quantidade}</p><br/>
-                                    <p>{iten.preço}</p><br/>
-                                    
-                                </li>
-                            </ul>
-                        );
-
-                    })}
-                    </div>
-                </div>
             </div>
                 
         </div>

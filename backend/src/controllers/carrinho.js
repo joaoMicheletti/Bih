@@ -1,4 +1,3 @@
-const { response } = require('express');
 const connection = require('../database/conection');
 module.exports = {
     async Doce(request, response){
@@ -42,4 +41,16 @@ module.exports = {
         return response.json(data);
 
     },
-}
+    async Dell(request, response){
+        const {Cep, Nome_C, Rua, Numero} = request.body;
+
+        const Data = {
+            Cep,
+            Nome_C,
+            Numero,
+            Rua
+        };
+        console.log(Data);
+        return response.json(Data);
+    },
+};
