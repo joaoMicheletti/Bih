@@ -41,14 +41,13 @@ module.exports = {
         return response.json(data);
 
     },
-    async Dell(request, response){
-        const {Cep, Nome_C, Rua, Numero} = request.body;
-
+    async Deletar(request, response) {
+        const {Id, Name, Quantidade, Preço} = request.body; //corpo da request,
         const Data = {
-            Cep,
-            Nome_C,
-            Numero,
-            Rua
+            Id,
+            Name,
+            Quantidade,
+            Preço  
         };
         console.log(Data);
         return response.json(Data);

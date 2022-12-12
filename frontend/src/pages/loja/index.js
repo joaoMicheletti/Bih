@@ -76,13 +76,15 @@ function Loja(){
                     const Preço = iten.preço;
                     const User = localStorage.getItem('user');
                     const Img = iten.img_doce;
+                    const Status_Iten = 'carrinho';
                     const Data = {
                         Name,
                         Preço,
                         User,
                         Quantidade,
                         Img,
-                        Full_date                 
+                        Full_date,
+                        Status_Iten
                     };
                     
                     const Pedido = async () => {

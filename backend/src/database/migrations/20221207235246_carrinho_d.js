@@ -11,7 +11,6 @@
         table.string('quantidade').notNullable();
         table.string('preço').notNullable();
         table.string('img').notNullable();
-
     });
   
 };

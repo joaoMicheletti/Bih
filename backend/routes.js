@@ -57,6 +57,6 @@ routes.get('/carrinho_index_d', Carrinho.Index_Doce);
 //salgado
 routes.post('/carrinho_s', Carrinho.Salgado);
 routes.get('/carrinho_index_s', Carrinho.Index_Salgado);
-//Deletando pedido
-routes.delete('/carrinho_delete', Carrinho.Dell);
+// deletando iten do carrinho
+routes.delete('/carrinho_delete', Carrinho.Deletar);
 module.exports = routes;

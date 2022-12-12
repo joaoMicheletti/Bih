@@ -37,9 +37,9 @@ function Carrinho(){
                 <div id='Pedidos_hoje'>
 
                     {Today.map((iten, key) => {
-
                         const Comprar = async () => {
-                            // Dados a serren verificados para cober a tacha de entrega,
+                            console.log('Comprar.');
+                             // Dados para  verificados para cobrr a tacha de entrega,
                             // e si atendemos essa região
                             // após a validação envir o pedido para ser preparado!... 
                             var Nome_C = prompt("Quao o nome de quem vai receber o pedido!");
@@ -73,12 +73,25 @@ function Carrinho(){
                                 Numnero
                             };
                             console.log(Data);
-                            const response = await Api.delete('/carrinho_delete');
-                            console.log(response);
                         };
                         const Cancelar = async () => {
-                            console.log("ccccccccc");
-                            
+                            console.log('Cancelar!!!!');
+                            const Id = iten.id;
+                            let Name = iten.name;
+                            let Quantidade = iten.quantidade;
+                            let Preço = iten.preço;
+
+                            console.log(iten);
+
+                            const Data = {
+                                Id,
+                                Name,
+                                Quantidade,
+                                Preço
+                            };
+                            console.log(Data);
+                            const response = await Api.delete('/carrinho_delete', Data);
+                            console.log(response.data);   
                         };
                         return(
                             <ul id='Carrinho_Pedido' key={iten.id} >
