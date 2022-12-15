@@ -59,4 +59,5 @@ routes.post('/carrinho_s', Carrinho.Salgado);
 routes.get('/carrinho_index_s', Carrinho.Index_Salgado);
 // deletando iten do carrinho
 routes.delete('/carrinho_delete', Carrinho.Deletar);
+routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
 module.exports = routes;

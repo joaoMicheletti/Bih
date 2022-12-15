@@ -43,13 +43,12 @@ module.exports = {
     },
     async Deletar(request, response) {
         const {Id, Name, Quantidade, Preço} = request.body; //corpo da request,
-        const Data = {
-            Id,
-            Name,
-            Quantidade,
-            Preço  
-        };
         await connection('carrinho_doce').where('id', Id).delete();
+        return response.json('Deleted!');
+    },
+    async Dell_s(request, response){
+        const {Id, Name, Quantidade, Preço} = request.body; //corpo da request,
+        await connection('carrinho_salgado').where('id', Id).delete();
         return response.json('Deleted!');
     },
 };
