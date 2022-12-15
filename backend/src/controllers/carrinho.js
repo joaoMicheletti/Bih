@@ -17,7 +17,14 @@ module.exports = {
 
     //listando Doces
     async Index_Doce( request, response){
-        const data = await connection('carrinho_doce').select('*');
+
+        const Data = new Date();
+        const Dia = Data.getDate();
+        const Mes = Data.getMonth() + 1;
+        const Ano = Data.getFullYear();
+        const Full_date = Dia+'/'+Mes+'/'+Ano;
+
+        const data = await connection('carrinho_doce').where('full_date', Full_date).select('*');
         return response.json(data);
 
     },
@@ -37,7 +44,14 @@ module.exports = {
     },
     //listando os salgados
     async Index_Salgado( request, response){
-        const data = await connection('carrinho_salgado').select('*');
+
+        const Data = new Date();
+        const Dia = Data.getDate();
+        const Mes = Data.getMonth() + 1;
+        const Ano = Data.getFullYear();
+        const Full_date = Dia+'/'+Mes+'/'+Ano;
+
+        const data = await connection('carrinho_salgado').where('full_date', Full_date).select('*');
         return response.json(data);
 
     },

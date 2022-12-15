@@ -51,12 +51,15 @@ routes.get('/index', create_login.Index_adm); // get a all user's adm!
 //routes of users.
 routes.post('/create_user',  user.register_user); //create a user
 routes.post('/user_login', user.login_user); //create a session user // login
+
 // rotas do carrinho:
 routes.post('/carrinho', Carrinho.Doce);
 routes.get('/carrinho_index_d', Carrinho.Index_Doce);
+
 //salgado
 routes.post('/carrinho_s', Carrinho.Salgado);
 routes.get('/carrinho_index_s', Carrinho.Index_Salgado);
+
 // deletando iten do carrinho
 routes.delete('/carrinho_delete', Carrinho.Deletar);
 routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
