@@ -81,8 +81,6 @@ function Carrinho(){
                             let Quantidade = iten.quantidade;
                             let Preço = iten.preço;
 
-                            console.log(iten);
-
                             const Data = {
                                 Id,
                                 Name,
@@ -90,8 +88,14 @@ function Carrinho(){
                                 Preço
                             };
                             console.log(Data);
-                            const response = await Api.delete('/carrinho_delete', Data);
-                            console.log(response.data);   
+                            const response = await Api.delete('/carrinho_delete', {data: Data});
+                            
+                            if (response.data === 'Deleted!'){
+                                alert("Deletado do Carrinho...");
+                                document.location.reload(true);
+                            } else {
+                                alert('Algo não saiu como esperado, tente mais tarde!...');
+                            }
                         };
                         return(
                             <ul id='Carrinho_Pedido' key={iten.id} >

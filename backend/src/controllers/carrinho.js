@@ -49,7 +49,7 @@ module.exports = {
             Quantidade,
             Preço  
         };
-        console.log(Data);
-        return response.json(Data);
+        await connection('carrinho_doce').where('id', Id).delete();
+        return response.json('Deleted!');
     },
 };
