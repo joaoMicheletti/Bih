@@ -21,7 +21,7 @@ function Painel_d(){
 
     const [Doces, setDoces] = useState([]);
     useEffect(() => {
-        Api.get('/index_doces')
+        Api.get('/index_doces_adm')
         .then((Response_Doces) => {
             setDoces(Response_Doces.data);            
         }).catch(() => {

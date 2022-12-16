@@ -22,7 +22,7 @@ function Painel_s(){
     }, []);
 
     useEffect(() => {
-        Api.get('/index_salgados')
+        Api.get('/index_salgados_adm')
         .then((Salgado) => {
             setSalgado(Salgado.data);
                     

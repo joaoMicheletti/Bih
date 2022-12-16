@@ -37,16 +37,17 @@ module.exports = {
     },
 
 
-// functionn para bescar os salgados cadastrados!
+// functionn para bescar os salgados disponiveis na loja!
 
 async Get_Salgadso(request, response){
+    const Data = await connection('salgados').where('Status', 'on').select('*');
+    return response.json(Data);
+},
+//listagem de todos os itens para o adm
+async Get_Salgado_adm(request, response){
     const Data = await connection('salgados').select('*');
     return response.json(Data);
 },
-
-
-
-
 
     //funçẽes para cadastrar produtos do tipo Doce"
 
@@ -81,11 +82,17 @@ async Get_Salgadso(request, response){
 
         return response.json(Image.filename);
     },
-    // listando os produtos do tipo doce cadastrados!
+    // listando os produtos disponiveis na loja!
 
-    async Get_Doces (request, response){
-        const Data = await connection('doces').select('*');
+    async Get_Doces(request, response){
+        const Data = await connection('doces').where('Status', 'on').select('*');
 
         return response.json(Data);
-    }
+    },
+    // listagem de doces para o adm
+    async Get_Doces_adm(request, response){
+        const Data = await connection('doces').select('*')
+        return response.json(Data);
+    },
+
 }

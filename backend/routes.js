@@ -30,14 +30,16 @@ routes.put('/prop_u', prop.update_prop); //update a propaganda
 //rotas #salgados
 routes.post('/create_product_s', create_products.create_product_s); //create a products salgados
 routes.post('/create_img_s', multer(multerConfig).single("image"), create_products.create_img_s); // salvando a imagem dos salgado
-routes.get('/index_salgados', create_products.Get_Salgadso); // buscando produtos do tipo (salgado) cadastrado! 
+routes.get('/index_salgados', create_products.Get_Salgadso); // buscando produtos do tipo (salgado) disponivel para a loja
+routes.get('/index_salgados_adm', create_products.Get_Salgado_adm); //listagem para o adm. 
 routes.put('/update_product_s', update_products.update_products_s); //update a products  s  
 // fata apenas definir quem pode ou não criar / editar os salgados!
 
 //rotas #doces
 routes.post('/create_product_d', create_products.create_product_d); //create a products doces
 routes.post('/create_img_d', multer(multerConfig).single("image"), create_products.create_img_d); // salvando a imagem dos doces!
-routes.get('/index_doces', create_products.Get_Doces); // buscando produtos do tipo (doce)!
+routes.get('/index_doces', create_products.Get_Doces); // buscando produtos do tipo (doce)! #disponiveis na loja.
+routes.get('/index_doces_adm', create_products.Get_Doces_adm); // listagem para o adm.
 routes.put('/update_product_d', update_products.update_products_d); //update a products  d
 // fata apenas definir quem pode ou não criar / editar os doces!
 

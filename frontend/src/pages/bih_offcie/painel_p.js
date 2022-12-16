@@ -45,6 +45,8 @@ function Painel_p(){
             document.querySelector('#Alerta').innerHTML = "Preencha o campo (Preço)@";
         } else if (Status === '') {
             document.querySelector('#Alerta').innerHTML = "preencha o campo (Status)@";
+        } else if(Status !== 'on' && Status !== 'off'){
+            document.querySelector('#Alerta').innerHTML = "Defina o Status como [ON / OFF]...";
         } else{
             
             document.querySelector('#Alerta').innerHTML = "Imagem salva com sucesso!";
@@ -73,6 +75,8 @@ function Painel_p(){
             document.querySelector('#Alerta').innerHTML = "Preencha o campo (Preço)@";
         } else if (Status === '') {
             document.querySelector('#Alerta').innerHTML = "preencha o campo (Status)@";
+        } else if(Status !== 'on' && Status !== 'off' ){
+            document.querySelector('#Alerta').innerHTML = "Defina o Status como [ON / OFF]...";
         } else {
             const Authentication = window.prompt("Senha Do Adiministrador.");
             const Data = {
@@ -129,6 +133,8 @@ function Painel_p(){
             document.querySelector('#Alerta_Doce').innerHTML = "Preencha o campo (Preço)@";
         } else if (Status === '') {
             document.querySelector('#Alerta_Doce').innerHTML = "preencha o campo (Status)@";
+        }else if(Status !== 'on' && Status !== 'off'){
+            document.querySelector('#Alerta_Doce').innerHTML = "Defina o Status como [ON / OFF]...";
         } else {
             
             document.querySelector("#Alerta_Doce").innerHTML = "Imagem enviadda com sucesso!";
@@ -154,6 +160,8 @@ function Painel_p(){
             document.querySelector('#Alerta_Doce').innerHTML = "Preencha o campo (Preço)@";
         } else if (Status === '') {
             document.querySelector('#Alerta_Doce').innerHTML = "preencha o campo (Status)@";
+        }else if(Status !== 'on' && Status !== 'off'){
+            document.querySelector('#Alerta_Doce').innerHTML = "Defina o Status como [ON / OFF]...";
         } else {
             const Authentication = window.prompt("Senha Do Adiministrador.");
             const Data = {
