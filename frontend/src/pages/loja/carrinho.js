@@ -7,10 +7,16 @@ import Api from '../../services/api';
 
 function Carrinho(){
     const URL = 'http://localhost:3001/files/';
-    const [Today, setToday] = useState([]); 
+    const [Today, setToday] = useState([]);
+    const User = localStorage.getItem('user');
+    const OBJ = {
+        User
+    };
+
+    console.log(User);
     
     useEffect(() => { // chamando os pedidos da categoria Doce;
-        Api.get('/carrinho_index_d')
+        Api.post('/carrinho_index_d', OBJ)
         .then((Response) => {
             setToday(Response.data);
         }).catch(() => {
@@ -19,7 +25,7 @@ function Carrinho(){
     }, []);
     const [Today_S, setToday_S] = useState([]);
     useEffect(() => { // chamando os pedidos  da categoria salgados;
-        Api.get('/carrinho_index_s')
+        Api.post('/carrinho_index_s', OBJ)
         .then((Response) => {
             setToday_S(Response.data);            
         }).catch(() => {
