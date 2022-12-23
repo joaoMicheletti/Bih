@@ -12,15 +12,17 @@ function Carrinho(){
     const OBJ = {
         User
     };
-
-    console.log(User);
     
     useEffect(() => { // chamando os pedidos da categoria Doce;
         Api.post('/carrinho_index_d', OBJ)
         .then((Response) => {
             setToday(Response.data);
         }).catch(() => {
-            alert('ERRO: ao carregar os doces...');
+            if(User === null){
+                alert("Acesso restrito");
+            } else {
+                alert('Erro interno');
+            };
         });
     }, []);
     const [Today_S, setToday_S] = useState([]);
@@ -29,7 +31,7 @@ function Carrinho(){
         .then((Response) => {
             setToday_S(Response.data);            
         }).catch(() => {
-            alert('ERRO: ao carregar os Salgados...');
+            alert('Erro interno');
         });
 
     }, []);
@@ -58,17 +60,17 @@ function Carrinho(){
                              // Dados para  verificados para cobrr a tacha de entrega,
                             // e si atendemos essa região
                             // após a validação envir o pedido para ser preparado!... 
-                            var Nome_C = prompt("Quao o nome de quem vai receber o pedido!");
-                            while (Nome_C === ''){
-                                Nome_C = prompt("Qual o nome de quem vai receber opedido ? : ");
+                            var Name_C = prompt("Quao o nome de quem vai receber o pedido!");
+                            while (Name_C === ''){
+                                Name_C = prompt("Qual o nome de quem vai receber opedido ? : ");
                             };
                             var Rua = prompt("Digite o nome da Rua :" );
                             while(Rua === '') {
                                 Rua = prompt("Digite o nome da rua : ");
                             };
-                            var Numnero = prompt('Digite o número da residencia :');
-                            while(Numnero === '') {
-                                Numnero = prompt('Digite o número da residenci :')
+                            var Casa_n = prompt('Digite o número da residencia :');
+                            while(Casa_n === '') {
+                                Casa_n = prompt('Digite o número da residenci :')
                             };
                             var Cep = prompt('Digite o CEP :');
                             while (Cep.length < 8){
@@ -77,16 +79,29 @@ function Carrinho(){
                             while (Cep.length > 8 ){
                                 Cep = prompt('Digite um CEP Valido!');
                             };
+                            var troco = prompt('troco pra quanto ?');
+                            while (troco === ''){
+                                troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
+                            }
+                            const Id = iten.id;
+                            let Name = iten.name;
+                            let Quantidade = iten.quantidade;
+                            let Preço = iten.preço;
                             console.log(Cep.length);
                             console.log(Cep);
-                            console.log(Numnero);
+                            console.log(Casa_n);
                             console.log(Rua);
-                            console.log(Nome_C);
+                            console.log(Name_C);
                             const Data = {
-                                Cep,
-                                Nome_C,
+                                Name_C,
                                 Rua,
-                                Numnero
+                                Casa_n,
+                                Cep,
+                                Id,
+                                Name,
+                                Quantidade,
+                                Preço,
+                                troco
                             };
                             console.log(Data);
                         };
@@ -120,15 +135,19 @@ function Carrinho(){
                                     <br/>
                                     <p>quantidade : {iten.quantidade}</p><br/>
                                     <p>Preço : {iten.preço}R$</p><br/>
+                                    <p>frete : 10,00R$</p><br/>
+                                    <p>Total: {parseInt(iten.quantidade) * parseInt(iten.preço) + 10},00 R$</p><br/>
                                     <button onClick={Comprar} id='BTN_Carrinho' >Comprar</button>
                                     <button onClick={Cancelar} id='BTN_Carrinho' >Cancelar</button>
                                     
                                 </li>
                             </ul>
+
                         );
 
                     })}
-                    
+
+
                 </div>
                 <hr/><br/>
                 <h3>Salgados</h3>
@@ -158,6 +177,8 @@ function Carrinho(){
                                 while (Cep.length > 8 ){
                                     Cep = prompt('Digite um CEP Valido!');
                                 };
+
+
                                 console.log(Cep.length);
                                 console.log(Cep);
                                 console.log(Numnero);

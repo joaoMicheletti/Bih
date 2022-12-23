@@ -163,6 +163,9 @@ ul li img {
         width: 100px;
     }
 }
+#Carrinho_Container {
+    margin-top: 80px;
+}
 #Pedidos_hoje {
     margin-top: 60px;
     width: 80%;

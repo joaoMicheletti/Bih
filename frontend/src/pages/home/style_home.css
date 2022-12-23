@@ -41,61 +41,141 @@ body {
 .Conteudo  {
     width: 100%;
     display: flex;
-    margin-top: 30px;
+    margin-top: 50px;
+}
+.Conteudo .Img_Box{
+    width: 30%;
+    margin-right: 10%;
+
 }
 
 
-
 .Txt_Box {
-    margin-left: 10%;
-    width: 50%;
-    color: wheat;
-  
+    font-size: 20px;
+    width: 60%;
+}
+.Txt_Box P {
+    margin-top: 100px;
 }
 .Conteudo .Txt_Box .Btn {
     cursor: pointer;
     background-color: rgb(224, 35, 107);
     text-align: center;
-    width: 200px;
+    width: 150px;
     height: 45px;
     margin-top: 20px;
-    margin-left: 20px;
     border-radius: 5px;
-    border-color: transparent;
-    font-weight: 600;
-    font-size: 20px;
+    border-color: transparent; 
+    font-size: 15px;
     color: white;
 }
 .Conteudo .Txt_Box button:hover {
     background-color: rgba(225, 34, 101, 0.815);;
 }
-.Conteudo .Img_Box img{
-    margin-left: 3px;
-    width: 395px;
-    max-height: 400px;
+.Conteudo .Img_Box img {
+    margin-top: 50px;
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 50px;
 }
-@media(max-width: 750px){
-    .Home_Container .Navigation img {
-        margin-left: 35%;
+
+
+
+@media(max-width: 528px){
+    #Logo {
+        margin-left: 10px;
     }
-    .Home_Container .Navigation .Menu {
+    .Conteudo{
+        display: inline;
+    }
+    
+    .Conteudo .Img_Box {
+        margin-right: 0;
+    }
+
+    .Conteudo .Img_Box img {
+        display: none;
+    }
+    .Conteudo .Txt_Box{
         margin-top: 20px;
+        margin-right: 20%;
+    }
+}
+@media(max-width: 600px){
+    #Logo {
+        margin-left: 10px;
+    }
+    .Conteudo{
+        display: inline;
+    }
+
+    .Conteudo .Img_Box img {
+        margin-top: 50px;
+        margin-left: 10%;
+        width: 80%;
+        margin-bottom: 50px;
+    }
+}
+@media(max-width: 768px){
+    #Logo {
+        margin-left: 10px;
+    }
+    .Conteudo{
+        display: inline;
+    }
+
+    .Conteudo .Img_Box img {
+        margin-top: 50px;
+        margin-left: 10%;
+        width: 80%;
+        margin-bottom: 50px;
+    }
+    
+    .Home_Container .Navigation .Menu {
+        margin-top: 35px;
         margin-right: 30px;
     }
     .Home_Container .Navigation .Menu a {
         margin-right: 1px;
-        font-size: 20px;
+        font-size: 25px;
     }
-    .Conteudo {
-        margin-top: 100px;
-    }
+    
     .Conteudo .Txt_Box {
-        font-size: 12px;
+        font-size: 19px;
         width: 80%;
     }
-    .Conteudo .Img_Box {
-        display: none;
+}
+@media(max-width: 992px){
+    #Logo {
+        margin-left: 10px;
     }
+    .Conteudo{
+        display: flex;
+    }
+
+    .Conteudo .Img_Box img {
+        margin-top: 50px;
+        margin-left: 10%;
+        width: 80%;
+        margin-bottom: 50px;
+    }
+    
+    .Home_Container .Navigation .Menu {
+        margin-top: 35px;
+        margin-right: 30px;
+    }
+    .Home_Container .Navigation .Menu a {
+        margin-right: 1px;
+        font-size: 25px;
+    }
+    
+    .Conteudo .Txt_Box {
+        font-size: 19px;
+        width: 80%;
+    }
+    
+    
+
 }
 
 

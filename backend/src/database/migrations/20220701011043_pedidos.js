@@ -4,13 +4,18 @@
  */
 exports.up = function(knex) {
     return knex.schema.createTable('pedidos', function(table){
+            // info produtos
         table.increments();
-        table.string('product_name').notNullable();
-        table.string('claint_name').notNullable();
-        table.string('addreas').notNullable();
-        table.string('value_padidos').notNullable();
+        table.string('name').notNullable();
+        table.string('quantidade').nullable();
+        table.string('preço').notNullable();
+                                                                                                    
+           //info claint
+        table.string('name_c').notNullable();
+        table.string('rua').notNullable();
+        table.string('casa_n').notNullable();
+        table.string('cep').notNullable();
         table.string('troco').notNullable();
-
     });
   
 };
