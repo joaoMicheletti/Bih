@@ -83,7 +83,7 @@ function Carrinho(){
                             while (troco === ''){
                                 troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
                             }
-                            const Id = iten.id;
+                            const Id = localStorage.getItem('user');
                             let Name = iten.name;
                             let Quantidade = iten.quantidade;
                             let Preço = iten.preço;
@@ -94,16 +94,21 @@ function Carrinho(){
                             console.log(Name_C);
                             const Data = {
                                 Name_C,
+                                Id,
                                 Rua,
                                 Casa_n,
                                 Cep,
-                                Id,
+                                
                                 Name,
                                 Quantidade,
                                 Preço,
                                 troco
                             };
                             console.log(Data);
+
+                            const response = await Api.post('/carrinho_pedido', Data)
+                            console.log(response.data);
+
                         };
                         const Cancelar = async () => {
                             const Id = iten.id;
@@ -136,7 +141,7 @@ function Carrinho(){
                                     <p>quantidade : {iten.quantidade}</p><br/>
                                     <p>Preço : {iten.preço}R$</p><br/>
                                     <p>frete : 10,00R$</p><br/>
-                                    <p>Total: {parseInt(iten.quantidade) * parseInt(iten.preço) + 10},00 R$</p><br/>
+                                    <p>TOTAL: {parseInt(iten.preço) * parseInt(iten.quantidade) + 10 },00R$</p><br/>
                                     <button onClick={Comprar} id='BTN_Carrinho' >Comprar</button>
                                     <button onClick={Cancelar} id='BTN_Carrinho' >Cancelar</button>
                                     

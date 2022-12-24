@@ -14,7 +14,8 @@ const multer = require('multer');
 const multerConfig = require('./src/multer');
 //carrinho
 const Carrinho = require('./src/controllers/carrinho');
-
+//carrinho pedido
+const Pedido = require('./src/controllers/pedido');
 const routes = express.Router();
 
 //routes#
@@ -65,4 +66,7 @@ routes.post('/carrinho_index_s', Carrinho.Index_Salgado);
 // deletando iten do carrinho
 routes.delete('/carrinho_delete', Carrinho.Deletar);
 routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
+
+//pedidos
+routes.post('/carrinho_pedido', Pedido.Create);
 module.exports = routes;
