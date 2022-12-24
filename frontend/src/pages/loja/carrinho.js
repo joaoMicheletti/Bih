@@ -60,17 +60,17 @@ function Carrinho(){
                              // Dados para  verificados para cobrr a tacha de entrega,
                             // e si atendemos essa região
                             // após a validação envir o pedido para ser preparado!... 
-                            var Name_C = prompt("Quao o nome de quem vai receber o pedido!");
-                            while (Name_C === ''){
-                                Name_C = prompt("Qual o nome de quem vai receber opedido ? : ");
+                            var NameC = prompt("Quao o nome de quem vai receber o pedido!");
+                            while (NameC === ''){
+                                NameC = prompt("Qual o nome de quem vai receber opedido ? : ");
                             };
                             var Rua = prompt("Digite o nome da Rua :" );
                             while(Rua === '') {
                                 Rua = prompt("Digite o nome da rua : ");
                             };
-                            var Casa_n = prompt('Digite o número da residencia :');
-                            while(Casa_n === '') {
-                                Casa_n = prompt('Digite o número da residenci :')
+                            var Casa = prompt('Digite o número da residencia :');
+                            while(Casa === '') {
+                                Casa = prompt('Digite o número da residenci :')
                             };
                             var Cep = prompt('Digite o CEP :');
                             while (Cep.length < 8){
@@ -79,30 +79,30 @@ function Carrinho(){
                             while (Cep.length > 8 ){
                                 Cep = prompt('Digite um CEP Valido!');
                             };
-                            var troco = prompt('troco pra quanto ?');
-                            while (troco === ''){
-                                troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
+                            var Troco = prompt('troco pra quanto ?');
+                            while (Troco === ''){
+                                Troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
                             }
-                            const Id = localStorage.getItem('user');
+                            const Iduser = localStorage.getItem('user');
                             let Name = iten.name;
                             let Quantidade = iten.quantidade;
                             let Preço = iten.preço;
                             console.log(Cep.length);
                             console.log(Cep);
-                            console.log(Casa_n);
+                            console.log(Casa);
                             console.log(Rua);
-                            console.log(Name_C);
+                            console.log(NameC);
                             const Data = {
-                                Name_C,
-                                Id,
+                                NameC,
+                                Iduser,
                                 Rua,
-                                Casa_n,
+                                Casa,
                                 Cep,
                                 
                                 Name,
                                 Quantidade,
                                 Preço,
-                                troco
+                                Troco
                             };
                             console.log(Data);
 
@@ -141,7 +141,7 @@ function Carrinho(){
                                     <p>quantidade : {iten.quantidade}</p><br/>
                                     <p>Preço : {iten.preço}R$</p><br/>
                                     <p>frete : 10,00R$</p><br/>
-                                    <p>TOTAL: {parseInt(iten.preço) * parseInt(iten.quantidade) + 10 },00R$</p><br/>
+                                    <p>TOTAL: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10) + 10 },00R$</p><br/>
                                     <button onClick={Comprar} id='BTN_Carrinho' >Comprar</button>
                                     <button onClick={Cancelar} id='BTN_Carrinho' >Cancelar</button>
                                     

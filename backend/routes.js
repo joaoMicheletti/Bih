@@ -16,6 +16,8 @@ const multerConfig = require('./src/multer');
 const Carrinho = require('./src/controllers/carrinho');
 //carrinho pedido
 const Pedido = require('./src/controllers/pedido');
+//listagem de pedidos
+const List = require('./src/controllers/pedidos_list');
 const routes = express.Router();
 
 //routes#
@@ -69,4 +71,5 @@ routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
 
 //pedidos
 routes.post('/carrinho_pedido', Pedido.Create);
+routes.get('/pedidos', List.Index);
 module.exports = routes;
