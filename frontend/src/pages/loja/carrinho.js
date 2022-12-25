@@ -163,39 +163,54 @@ function Carrinho(){
                                 // Dados para  verificados para cobrr a tacha de entrega,
                                 // e si atendemos essa região
                                 // após a validação envir o pedido para ser preparado!... 
-                                var Nome_C = prompt("Quao o nome de quem vai receber o pedido!");
-                                while (Nome_C === ''){
-                                    Nome_C = prompt("Qual o nome de quem vai receber opedido ? : ");
-                                };
-                                var Rua = prompt("Digite o nome da Rua :" );
-                                while(Rua === '') {
-                                    Rua = prompt("Digite o nome da rua : ");
-                                };
-                                var Numnero = prompt('Digite o número da residencia :');
-                                while(Numnero === '') {
-                                    Numnero = prompt('Digite o número da residenci :')
-                                };
-                                var Cep = prompt('Digite o CEP :');
-                                while (Cep.length < 8){
-                                    Cep = prompt('Digite um CEP Valido:');
-                                };
-                                while (Cep.length > 8 ){
-                                    Cep = prompt('Digite um CEP Valido!');
-                                };
+                                var NameC = prompt("Quao o nome de quem vai receber o pedido!");
+                            while (NameC === ''){
+                                NameC = prompt("Qual o nome de quem vai receber opedido ? : ");
+                            };
+                            var Rua = prompt("Digite o nome da Rua :" );
+                            while(Rua === '') {
+                                Rua = prompt("Digite o nome da rua : ");
+                            };
+                            var Casa = prompt('Digite o número da residencia :');
+                            while(Casa === '') {
+                                Casa = prompt('Digite o número da residenci :')
+                            };
+                            var Cep = prompt('Digite o CEP :');
+                            while (Cep.length < 8){
+                                Cep = prompt('Digite um CEP Valido:');
+                            };
+                            while (Cep.length > 8 ){
+                                Cep = prompt('Digite um CEP Valido!');
+                            };
+                            var Troco = prompt('troco pra quanto ?');
+                            while (Troco === ''){
+                                Troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
+                            }
+                            const Iduser = localStorage.getItem('user');
+                            let Name = iten.name;
+                            let Quantidade = iten.quantidade;
+                            let Preço = iten.preço;
+                            console.log(Cep.length);
+                            console.log(Cep);
+                            console.log(Casa);
+                            console.log(Rua);
+                            console.log(NameC);
+                            const Data = {
+                                NameC,
+                                Iduser,
+                                Rua,
+                                Casa,
+                                Cep,
+                                
+                                Name,
+                                Quantidade,
+                                Preço,
+                                Troco
+                            };
+                            console.log(Data);
 
-
-                                console.log(Cep.length);
-                                console.log(Cep);
-                                console.log(Numnero);
-                                console.log(Rua);
-                                console.log(Nome_C);
-                                const Data = {
-                                    Cep,
-                                    Nome_C,
-                                    Rua,
-                                    Numnero
-                                };
-                                console.log(Data);
+                            const response = await Api.post('/carrinho_pedido', Data)
+                            console.log(response.data);
                             };
                             const Cancelar = async () => {
                                 const Id = iten.id;
