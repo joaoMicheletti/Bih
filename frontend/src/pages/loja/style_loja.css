@@ -23,37 +23,29 @@
     float: right;
     margin-right: 5px;
 }
-.Loja_Container .Cabeçalho .Menu a {
-    
-    margin-right: 40px;
+.Loja_Container .Cabeçalho .Menu a { 
+    margin-right: 20px;
 }
 .Conteudo_Prop {
-    height: 300px;
-    margin-bottom: 30px;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
 }
 .Propaganda {
    display: flex;
-   width: 80%;
-   height:  300px;
-   margin-left: 10%;
+   height: auto;
+   margin-bottom: 50px;
 }
-.Propaganda .Txt_Propaganda {
-    display: flex;
-    width: 60%;
-    height: auto;
-    margin-right: 50px;
-    font-size: 18px;
-    max-height: 200px;
+.Img_Propaganda {
+    margin-left: 10px;
+}
+.Txt_Propaganda {
+    margin-left: 10px;
     color: white;
 }
-.Img_Propaganda { 
-    width: 350px;
-    height: 300px;
-}
-.Img_Propaganda img {
-    height: 300px;
-    width: 350px;
-}
+
+
 .Itens_Loja {
     background-color: transparent;
     margin-top: 30px;
@@ -128,6 +120,7 @@ ul li img {
     margin-left: 10%;
 }
 #BTN_Exit {
+    margin-bottom: 20px;
     margin-left: 20px;
     width: 120px;
     height: 40px;
@@ -139,29 +132,6 @@ ul li img {
 #BTN_Exit:hover {
     background-color: rgba(0, 0, 0, 0.37);
 
-}
-
-@media (max-width: 700px){
-    .Loja_Container .Cabeçalho .Menu {
-        margin-top: 10px;
-    }
-    .Loja_Container .Cabeçalho .Menu a {
-        font-size: 18px;
-        margin-right: 40px;
-        margin-left: 5px;
-    }
-    
-    .Propaganda .Txt_Propaganda {
-        font-size: 15px;
-        width: 60%;
-        max-height: 200px;
-        color: white;
-        margin-right: 5px;
-    }
-    .Propaganda .Img_Propaganda img {
-        max-height: 200px;
-        width: 100px;
-    }
 }
 #Carrinho_Container {
     margin-top: 80px;
@@ -190,4 +160,20 @@ ul li img {
     margin-left: 12%;
     display: flex;
     flex-wrap: wrap;
+}
+@media(max-width: 350px){
+    .Conteudo_Prop {
+        margin-top: 160px;
+    }
+    .Img_Propaganda {
+        display: none;
+    }
+}
+@media(max-width: 600px) {
+    .Conteudo_Prop {
+        margin-top: 160px;
+    }
+    .Img_Propaganda {
+        display: none;
+    }
 }

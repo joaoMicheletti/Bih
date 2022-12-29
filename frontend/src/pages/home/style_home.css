@@ -12,6 +12,9 @@ a:hover{
 body {
     background-color: rgb(231, 74, 205);
 }
+#PP {
+    color: white;
+}
 
 .Home_Container .Navigation img {
     margin-top: 15px;
@@ -22,6 +25,7 @@ body {
     
 }
 .Home_Container .Navigation .Menu  {
+    margin-bottom: 50px;
     margin-top: 20px;
     text-align: center;
     float: right;
@@ -41,22 +45,23 @@ body {
 .Conteudo  {
     width: 100%;
     display: flex;
+}
+#FLEX {
+    width: 100%;
+    display: flex;
+}
+.Conteudo .Img_Box img {
     margin-top: 50px;
+    margin-left: 10%;
+    width: 80%;
+    margin-bottom: 50px;
 }
-.Conteudo .Img_Box{
-    width: 30%;
-    margin-right: 10%;
+.Conteudo .Txt_Box {
+    margin-top: 50px;
+    font-size: 19px;
+    width: 80%;
+}
 
-}
-
-
-.Txt_Box {
-    font-size: 20px;
-    width: 60%;
-}
-.Txt_Box P {
-    margin-top: 100px;
-}
 .Conteudo .Txt_Box .Btn {
     cursor: pointer;
     background-color: rgb(224, 35, 107);
@@ -80,7 +85,6 @@ body {
 }
 
 
-
 @media(max-width: 528px){
     #Logo {
         margin-left: 10px;
@@ -97,6 +101,7 @@ body {
         display: none;
     }
     .Conteudo .Txt_Box{
+        margin-left: 20%;
         margin-top: 20px;
         margin-right: 20%;
     }

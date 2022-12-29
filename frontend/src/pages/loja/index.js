@@ -49,12 +49,13 @@ function Loja(){
                         return(
                             <div key={iten.id} className='Propaganda'>
 
+<div className='Img_Propaganda'>
+                                    <img src={url + iten.img_propaganda} alt="prop"/>                                
+                                </div>
+
                                 <div  className='Txt_Propaganda'>
                                     <p>{iten.Texto}</p>
                                     
-                                </div>
-                                <div className='Img_Propaganda'>
-                                    <img src={url + iten.img_propaganda} alt="prop"/>                                
                                 </div>
                             </div>
 

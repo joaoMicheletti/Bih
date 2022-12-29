@@ -34,15 +34,18 @@ function Home(){
 
                 return(
                     <div key={iten.id} className='Conteudo' id='Conteudo'>
-
-                        <div className='Img_Box' id='Img_Box'>
-                            <img src={url + iten.img_propaganda} alt='Imagem da propaganda'/>
+                        
+                        <div id='FLEX'>
+                            <div className='Img_Box' id='Img_Box'>
+                                <img src={url + iten.img_propaganda} alt='Imagem da propaganda'/>
+                            </div>
+                    
+                            <div  className='Txt_Box' id='Txt_Box' > 
+                                <p id='PP'>{iten.Texto}</p>
+                                <button className='Btn'><Link to='/loja'>Loja</Link></button>
+                            </div>
                         </div>
-                
-                        <div  className='Txt_Box'>
-                            <p>{iten.Texto}</p>
-                            <button className='Btn'><Link to='/loja'>Loja</Link></button>
-                        </div>
+                        
                     </div>
                 );
                 })}
