@@ -87,22 +87,18 @@ function Carrinho(){
                             let Name = iten.name;
                             let Quantidade = iten.quantidade;
                             let Preço = iten.preço;
-                            console.log(Cep.length);
-                            console.log(Cep);
-                            console.log(Casa);
-                            console.log(Rua);
-                            console.log(NameC);
+                            let Status = 'cozinha';
                             const Data = {
                                 NameC,
                                 Iduser,
                                 Rua,
                                 Casa,
                                 Cep,
-                                
                                 Name,
                                 Quantidade,
                                 Preço,
-                                Troco
+                                Troco,
+                                Status
                             };
                             console.log(Data);
 
@@ -190,22 +186,18 @@ function Carrinho(){
                             let Name = iten.name;
                             let Quantidade = iten.quantidade;
                             let Preço = iten.preço;
-                            console.log(Cep.length);
-                            console.log(Cep);
-                            console.log(Casa);
-                            console.log(Rua);
-                            console.log(NameC);
+                            let Status = 'cozinha';
                             const Data = {
                                 NameC,
                                 Iduser,
                                 Rua,
                                 Casa,
                                 Cep,
-                                
                                 Name,
                                 Quantidade,
                                 Preço,
-                                Troco
+                                Troco,
+                                Status
                             };
                             console.log(Data);
 

@@ -165,6 +165,19 @@
 #Pedidos_Enviados ul {
     background-color: rgb(247, 0, 164);
 }
+#BTN {
+    width: 100px;
+    height: 30px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(240, 36, 151);
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+#BTN:hover{
+    opacity: 85%;
+}
 
 @media(max-width: 700px){
     h1 {

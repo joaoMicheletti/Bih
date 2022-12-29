@@ -10,6 +10,7 @@ exports.up = function(knex) {
         table.string('quantidade').nullable();
         table.string('preço').notNullable();
         table.string('troco').notNullable();
+        table.string('status').notNullable();
                                                                                                     
            //info claint
         table.string('namec').notNullable();

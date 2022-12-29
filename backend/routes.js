@@ -72,4 +72,7 @@ routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
 //pedidos
 routes.post('/carrinho_pedido', Pedido.Create);
 routes.get('/pedidos', List.Index);
+//função que separa os pedidos recebidos dos enviados.
+routes.put('/pedidos_upload', List.Upload_pedido);
+routes.get('/pedidos_vendidos', List.List_vendidos);
 module.exports = routes;
