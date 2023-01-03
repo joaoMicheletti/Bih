@@ -105,6 +105,36 @@ body {
         margin-top: 20px;
         margin-right: 20%;
     }
+    #Footer {
+        text-align: center;
+        justify-content: center;
+        background-color: rgb(128, 9, 110);
+    }
+    #Footer a {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    #Social_midias {
+    }
+    #Social_midias p {
+        font-size: 19px;
+        margin-bottom: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #Horarios {
+        justify-content: center;
+    }
+    #Horarios p  {
+        margin-bottom: 20px;
+        font-size: 19px;
+    }    
+    #Dev {
+    }
+    #Dev p {
+        font-size: 19px;
+        margin-bottom: 40px
+    }
 }
 @media(max-width: 600px){
     #Logo {
@@ -182,6 +212,5 @@ body {
     
 
 }
-
 
 

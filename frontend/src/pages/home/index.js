@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {BsInstagram, BsWhatsapp, BsFacebook} from 'react-icons/bs';
 import {Link} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 import './style_home.css';
@@ -50,6 +51,35 @@ function Home(){
                 );
                 })}
             
+            <footer>
+                <div id='Footer'>
+                    <div id='Social_midias'>
+                        <p>Contato</p>
+                        <BsInstagram/> <a target='_blank' href='https://instagram.com/cantinhodabi_?igshid=YmMyMTA2M2Y='>Instagram</a><br/>
+                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511992650095'> Whatsapp</a><br/>
+                        <BsFacebook/> <a target='_black' href='https://web.facebook.com/profile.php?id=100063733983690'>Facebook</a>
+
+                    </div>
+                    <hr/>
+                    <br/>
+                    <div id='Horarios'>
+                        <p>Horario de funcionamento.</p>
+                        <p>Segunda-feira : 08:00 as 17:00</p>
+                        <p>Terça-feira : 08:00 as 17:00</p>
+                        <p>Quarta-feira : 08:00 as 17:00</p>
+                        <p>Quinta-feira : 08:00 as 17:00</p>
+                        <p>Sexta-feira : 08:00 as 17:00</p>
+            
+                    </div>
+                    <hr/>
+                    <br/>
+                    <div id='Dev'>
+                    <p>Develope By</p>
+                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511992650095'> Whatsapp</a><br/>
+                        
+                    </div>
+                </div>
+            </footer>
 
         </div>
     );
