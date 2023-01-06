@@ -45,15 +45,16 @@ body {
 .Conteudo  {
     width: 100%;
     display: flex;
+    margin-bottom: 100px;
 }
 #FLEX {
     width: 100%;
     display: flex;
 }
+
 .Conteudo .Img_Box img {
-    margin-top: 50px;
     margin-left: 10%;
-    width: 80%;
+    width: 90%;
     margin-bottom: 50px;
 }
 .Conteudo .Txt_Box {
@@ -83,28 +84,17 @@ body {
     width: 80%;
     margin-bottom: 50px;
 }
-
-
+#P_H {
+    color: black;
+}
 @media(max-width: 528px){
     #Logo {
         margin-left: 10px;
     }
-    .Conteudo{
-        display: inline;
+    #Txt_Box{
+        font-size: 15px;
     }
     
-    .Conteudo .Img_Box {
-        margin-right: 0;
-    }
-
-    .Conteudo .Img_Box img {
-        display: none;
-    }
-    .Conteudo .Txt_Box{
-        margin-left: 20%;
-        margin-top: 20px;
-        margin-right: 20%;
-    }
     #Footer {
         text-align: center;
         justify-content: center;
@@ -113,9 +103,6 @@ body {
     #Footer a {
         font-size: 20px;
         line-height: 30px;
-    }
-    
-    #Social_midias {
     }
     #Social_midias p {
         font-size: 19px;
@@ -128,8 +115,6 @@ body {
     #Horarios p  {
         margin-bottom: 20px;
         font-size: 19px;
-    }    
-    #Dev {
     }
     #Dev p {
         font-size: 19px;
@@ -149,6 +134,31 @@ body {
         margin-left: 10%;
         width: 80%;
         margin-bottom: 50px;
+    }
+    #Footer {
+        text-align: center;
+        justify-content: center;
+        background-color: rgb(128, 9, 110);
+    }
+    #Footer a {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    #Social_midias p {
+        font-size: 19px;
+        margin-bottom: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #Horarios {
+        justify-content: center;
+    }
+    #Horarios p  {
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+    #Dev p {
+        font-size: 19px;
+        margin-bottom: 40px
     }
 }
 @media(max-width: 768px){
@@ -179,8 +189,33 @@ body {
         font-size: 19px;
         width: 80%;
     }
+    #Footer {
+        text-align: center;
+        justify-content: center;
+        background-color: rgb(128, 9, 110);
+    }
+    #Footer a {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    #Social_midias p {
+        font-size: 19px;
+        margin-bottom: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #Horarios {
+        justify-content: center;
+    }
+    #Horarios p  {
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+    #Dev p {
+        font-size: 19px;
+        margin-bottom: 40px
+    }
 }
-@media(max-width: 992px){
+@media(min-width: 769px){
     #Logo {
         margin-left: 10px;
     }
@@ -203,14 +238,89 @@ body {
         margin-right: 1px;
         font-size: 25px;
     }
-    
     .Conteudo .Txt_Box {
         font-size: 19px;
         width: 80%;
     }
-    
-    
+    #Footer {
+        text-align: center;
+        justify-content: center;
+        background-color: rgb(128, 9, 110);
+        display: flex;
+    }
+    #Footer a {
+        font-size: 20px;
+        line-height: 50px;
+    }
+    #Social_midias{
+        margin-top: 60px;
+        margin-right: 50px;
+    }
+    #Social_midias p {
+        font-size: 19px;
+        margin-bottom: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #Horarios {
+        margin-top: 60px;
+        margin-left: 10px;
+        margin-right: 10px;
+        justify-content: center;
+    }
+    #Horarios p  {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+    #Dev{
+        margin-top: 60px;
+        margin-left: 50px;
+    }
+    #Dev p {
+        font-size: 19px;
+        margin-bottom: 40px
+    }    
 
 }
+@media(min-width: 993px){
+    #Footer {
+        text-align: center;
+        justify-content: center;
+        background-color: rgb(128, 9, 110);
+        display: flex;
+    }
+    #Footer a {
+        font-size: 20px;
+        line-height: 50px;
+    }
+    #Social_midias{
+        margin-top: 60px;
+        margin-right: 50px;
+    }
+    #Social_midias p {
+        font-size: 19px;
+        margin-bottom: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    #Horarios {
+        margin-top: 60px;
+        margin-left: 10px;
+        margin-right: 10px;
+        justify-content: center;
+    }
+    #Horarios p  {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 19px;
+    }
+    #Dev{
+        margin-top: 60px;
+        margin-left: 50px;
+    }
+    #Dev p {
+        font-size: 19px;
+        margin-bottom: 40px
+    }
 
+}
 

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Link, useNavigate, Navigate} from 'react-router-dom';
+import {BsInstagram, BsWhatsapp, BsFacebook} from 'react-icons/bs';
 import api from '../../services/api';
 import './style_login.css';
 import Logo from '../assets/Logo.jpg';
@@ -58,8 +59,8 @@ function Login(){
             <h1>Login</h1>
             <h4 id='response'></h4>
     
-            <div className='Conteudo_Form'>
-                <form  className='Form' onSubmit={Logar}>
+            <div id='Conteudo_Form'>
+                <form id='Form' className='Form' onSubmit={Logar}>
                     Celular: <input type='number' className='Phone'
                     placeholder='Celular EX: 119322235' 
                     name='Phone' onChange={(e) => setPhone(e.target.value)}/>
@@ -68,8 +69,43 @@ function Login(){
                     name='Pass' onChange={(e) => setPass(e.target.value)} />
                     <button type='submit' className='Btn_Form'>Login</button>
                 </form>
-                <img src={Bolo} className='Bolo_Img' alt='img'></img>
+                <div id='Img'>
+                    <img src={Bolo} className='Bolo_Img' alt='img'></img>
+
+                </div>
+                
             </div>
+            <footer>
+                <div id='Footer'>
+                    <div id='Social_midias'>
+                        <p>Contato</p>
+                        <BsInstagram/> <a target='_blank' href='https://instagram.com/cantinhodabi_?igshid=YmMyMTA2M2Y='>Instagram</a><br/>
+                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511992650095'> Whatsapp</a><br/>
+                        <BsFacebook/> <a target='_black' href='https://web.facebook.com/profile.php?id=100063733983690'>Facebook</a>
+
+                    </div>
+                    <br/>
+                    <hr/>
+                    <br/>
+                    <div id='Horarios'>
+                        <h4>Funcionamento</h4>
+                        <p>Segunda-feira : 08:00 as 17:00</p>
+                        <p>Terça-feira : 08:00 as 17:00</p>
+                        <p>Quarta-feira : 08:00 as 17:00</p>
+                        <p>Quinta-feira : 08:00 as 17:00</p>
+                        <p>Sexta-feira : 08:00 as 17:00</p>
+            
+                    </div>
+                    <br/>
+                    <hr/>
+                    <br/>
+                    <div id='Dev'>
+                    <p>Develope By</p>
+                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511992650095'> Whatsapp</a><br/>
+                        
+                    </div>
+                </div>
+            </footer>
         </div>
     );
 }

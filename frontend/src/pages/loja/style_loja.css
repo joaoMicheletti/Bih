@@ -25,6 +25,7 @@
 }
 .Loja_Container .Cabeçalho .Menu a { 
     margin-right: 20px;
+    font-size: 25px;
 }
 .Conteudo_Prop {
     justify-content: center;
@@ -168,12 +169,18 @@ ul li img {
     .Img_Propaganda {
         display: none;
     }
+    .Txt_Propaganda{
+        display: none;
+    }
 }
-@media(max-width: 600px) {
+@media(max-width: 768px) {
     .Conteudo_Prop {
         margin-top: 160px;
     }
     .Img_Propaganda {
+        display: none;
+    }
+    .Txt_Propaganda {
         display: none;
     }
 }

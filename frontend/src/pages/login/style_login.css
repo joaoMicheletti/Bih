@@ -34,10 +34,19 @@ h1 {
 h4 {
     margin-bottom: 10px;
 }
+#Conteudo_Form{
+    justify-content: center;
+    display: flex;
+}
 .Form_Container .Form {
+    margin-right: 30px;
+    margin-top: 60px;
     width: 300px;
     height: 300px;
     display: inline-table;
+}
+#Img img {
+    width: 300px;
 }
 .Form_Container .Form input {
     width: 280px;

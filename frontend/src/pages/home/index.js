@@ -43,7 +43,7 @@ function Home(){
                     
                             <div  className='Txt_Box' id='Txt_Box' > 
                                 <p id='PP'>{iten.Texto}</p>
-                                <button className='Btn'><Link to='/loja'>Loja</Link></button>
+                                <button id='Btn' className='Btn'><Link to='/loja'>Loja</Link></button>
                             </div>
                         </div>
                         
@@ -60,10 +60,11 @@ function Home(){
                         <BsFacebook/> <a target='_black' href='https://web.facebook.com/profile.php?id=100063733983690'>Facebook</a>
 
                     </div>
+                    <br/>
                     <hr/>
                     <br/>
                     <div id='Horarios'>
-                        <p>Horario de funcionamento.</p>
+                        <h4>Funcionamento</h4>
                         <p>Segunda-feira : 08:00 as 17:00</p>
                         <p>Terça-feira : 08:00 as 17:00</p>
                         <p>Quarta-feira : 08:00 as 17:00</p>
@@ -71,6 +72,7 @@ function Home(){
                         <p>Sexta-feira : 08:00 as 17:00</p>
             
                     </div>
+                    <br/>
                     <hr/>
                     <br/>
                     <div id='Dev'>
