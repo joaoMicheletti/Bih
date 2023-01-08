@@ -99,12 +99,13 @@ function Carrinho(){
                                 Quantidade,
                                 Preço,
                                 Troco,
-                                Status
+                                Status,
                             };
                             console.log(Data);
 
                             const response = await Api.post('/carrinho_pedido', Data)
                             console.log(response.data);
+                            document.querySelector('#Pedido_number').innerHTML += 'Numero do seu pedido é {'+ iten.id+'} pergunte sobre o seu pedido nos canais de comunicação  passando o número dele.';
 
                         };
                         const Cancelar = async () => {
@@ -149,6 +150,10 @@ function Carrinho(){
 
                     })}
 
+
+                </div>
+                <div id='Result_pedido'>
+                    <h3 id='Pedido_number'></h3>
 
                 </div>
                 <hr/><br/>
@@ -198,7 +203,7 @@ function Carrinho(){
                                 Quantidade,
                                 Preço,
                                 Troco,
-                                Status
+                                Status,
                             };
                             console.log(Data);
 

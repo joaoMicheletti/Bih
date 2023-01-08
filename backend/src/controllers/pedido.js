@@ -19,7 +19,7 @@ module.exports = {
         };
         await connection('pedidos').insert(Data);
         console.log(Data);
-        return response.json("ola");
+        return response.json('ola');
     },
 
 }

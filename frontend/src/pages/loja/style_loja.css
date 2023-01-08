@@ -3,6 +3,9 @@
     padding: 0;
     box-sizing: border-box;
  }
+ #Pedido_number {
+    color: red;
+ }
  h3 {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
