@@ -21,5 +21,4 @@ module.exports = {
         console.log(Data);
         return response.json('ola');
     },
-
 }

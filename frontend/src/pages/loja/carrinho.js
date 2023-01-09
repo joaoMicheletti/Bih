@@ -105,8 +105,15 @@ function Carrinho(){
 
                             const response = await Api.post('/carrinho_pedido', Data)
                             console.log(response.data);
-                            document.querySelector('#Pedido_number').innerHTML += 'Numero do seu pedido é {'+ iten.id+'} pergunte sobre o seu pedido nos canais de comunicação  passando o número dele.';
-
+                            alert('O número do seu pedido é {'+ iten.id+'} consulte o estatus dele pelos canas de cominicação...');
+                            
+                            let Id = iten.id;
+                            const UP = {
+                                Id
+                            }
+                            const resp_update = await Api.put('/carrinho_upload',  UP)
+                            console.log(resp_update.data);
+                            document.location.reload(true);
                         };
                         const Cancelar = async () => {
                             const Id = iten.id;
@@ -152,10 +159,6 @@ function Carrinho(){
 
 
                 </div>
-                <div id='Result_pedido'>
-                    <h3 id='Pedido_number'></h3>
-
-                </div>
                 <hr/><br/>
                 <h3>Salgados</h3>
                 <div id='Pedidos_hoje'>
@@ -166,50 +169,62 @@ function Carrinho(){
                                 // e si atendemos essa região
                                 // após a validação envir o pedido para ser preparado!... 
                                 var NameC = prompt("Quao o nome de quem vai receber o pedido!");
-                            while (NameC === ''){
-                                NameC = prompt("Qual o nome de quem vai receber opedido ? : ");
-                            };
-                            var Rua = prompt("Digite o nome da Rua :" );
-                            while(Rua === '') {
-                                Rua = prompt("Digite o nome da rua : ");
-                            };
-                            var Casa = prompt('Digite o número da residencia :');
-                            while(Casa === '') {
-                                Casa = prompt('Digite o número da residenci :')
-                            };
-                            var Cep = prompt('Digite o CEP :');
-                            while (Cep.length < 8){
-                                Cep = prompt('Digite um CEP Valido:');
-                            };
-                            while (Cep.length > 8 ){
-                                Cep = prompt('Digite um CEP Valido!');
-                            };
-                            var Troco = prompt('troco pra quanto ?');
-                            while (Troco === ''){
-                                Troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
-                            }
-                            const Iduser = localStorage.getItem('user');
-                            let Name = iten.name;
-                            let Quantidade = iten.quantidade;
-                            let Preço = iten.preço;
-                            let Status = 'cozinha';
-                            const Data = {
-                                NameC,
-                                Iduser,
-                                Rua,
-                                Casa,
-                                Cep,
-                                Name,
-                                Quantidade,
-                                Preço,
-                                Troco,
-                                Status,
-                            };
-                            console.log(Data);
+                                while (NameC === ''){
+                                    NameC = prompt("Qual o nome de quem vai receber opedido ? : ");
+                                };
+                                var Rua = prompt("Digite o nome da Rua :" );
+                                while(Rua === '') {
+                                    Rua = prompt("Digite o nome da rua : ");
+                                };
+                                var Casa = prompt('Digite o número da residencia :');
+                                while(Casa === '') {
+                                    Casa = prompt('Digite o número da residenci :')
+                                };
+                                var Cep = prompt('Digite o CEP :');
+                                while (Cep.length < 8){
+                                    Cep = prompt('Digite um CEP Valido:');
+                                };
+                                while (Cep.length > 8 ){
+                                    Cep = prompt('Digite um CEP Valido!');
+                                };
+                                var Troco = prompt('troco pra quanto ?');
+                                while (Troco === ''){
+                                    Troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
+                                }
+                                const Iduser = localStorage.getItem('user');
+                                let Name = iten.name;
+                                let Quantidade = iten.quantidade;
+                                let Preço = iten.preço;
+                                let Status = 'cozinha';
+                                const Data = {
+                                    NameC,
+                                    Iduser,
+                                    Rua,
+                                    Casa,
+                                    Cep,
+                                    Name,
+                                    Quantidade,
+                                    Preço,
+                                    Troco,
+                                    Status,
+                                };
+                                console.log(Data);
 
-                            const response = await Api.post('/carrinho_pedido', Data)
-                            console.log(response.data);
+                                const response = await Api.post('/carrinho_pedido', Data)
+                                console.log(response.data);
+                                alert('O número do seu pedido é {'+ iten.id+'} consulte o estatus dele pelos canas de cominicação...');
+                                
+                                let Id = iten.id;
+                                const UP = {
+                                    Id
+                                }
+                                const resp_update = await Api.put('/carrinho_upload_s',  UP)
+                                console.log(resp_update.data);
+                                document.location.reload(true);
+                        
                             };
+
+
                             const Cancelar = async () => {
                                 const Id = iten.id;
                                 let Name = iten.name;
@@ -248,6 +263,10 @@ function Carrinho(){
                             );
 
                         })}
+                        <hr/>
+                        <div id='Result_pedido'>
+                    <h3 id='Pedido_number'></h3>
+                </div>
                 </div>
                 
             </div>

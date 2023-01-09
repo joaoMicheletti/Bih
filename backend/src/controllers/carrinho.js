@@ -73,4 +73,19 @@ module.exports = {
         await connection('carrinho_salgado').where('id', Id).delete();
         return response.json('Deleted!');
     },
+    //update pedido finalizado;
+    async Update_D(request, response){
+        const{Id} = request.body;
+        console.log(Id);
+        await connection('carrinho_doce').where('id', Id).update('full_date', 'off');
+
+        return response.json('ok');
+    },
+    async Update_S(request, response){
+        const{Id} = request.body;
+        await connection('carrinho_salgado').where('id', Id).update('full_date', 'off');
+
+        return response.json('ok');
+
+    },
 };

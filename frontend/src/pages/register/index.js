@@ -66,7 +66,9 @@ function Register(){
                 Celular : <input type='number' 
                 className='Phone'
                 placeholder='Celular EX: 119322235' 
-                name="Phone" onChange={(e) => setPhone(e.target.value)} />
+                name="Phone" 
+                maxLength={10}
+                onChange={(e) => setPhone(e.target.value)} />
 
                 Senha : <input type={'password'} 
                 className='Senha' 

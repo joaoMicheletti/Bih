@@ -18,6 +18,8 @@ const Carrinho = require('./src/controllers/carrinho');
 const Pedido = require('./src/controllers/pedido');
 //listagem de pedidos
 const List = require('./src/controllers/pedidos_list');
+const pedido = require('./src/controllers/pedido');
+const { Salgado } = require('./src/controllers/carrinho');
 const routes = express.Router();
 
 //routes#
@@ -64,7 +66,8 @@ routes.post('/carrinho_index_d', Carrinho.Index_Doce);
 //salgado
 routes.post('/carrinho_s', Carrinho.Salgado);
 routes.post('/carrinho_index_s', Carrinho.Index_Salgado);
-
+routes.put('/carrinho_upload', Carrinho.Update_D);//update data do pedido finalizado Doce
+routes.put('/carrinho_upload_s', Carrinho.Update_S); //update data do pedido finalizado Salgado;
 // deletando iten do carrinho
 routes.delete('/carrinho_delete', Carrinho.Deletar);
 routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
