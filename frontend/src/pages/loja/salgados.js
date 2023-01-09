@@ -9,7 +9,7 @@ import Api from '../../services/api';
 
 function Salgado(){
     const [Quantidade, setQuantidade] = useState('');
-    const url = 'http://localhost:3001/files/';
+    const url =  'http://localhost:3001/files/';
     const hystory = useNavigate();
     const [Prop, setProp] = useState([]);
     useEffect(() => {
@@ -46,7 +46,7 @@ function Salgado(){
         
             <div className='Prop_Loja'>
                 {Prop.map((iten, key) => {
-                    const url = 'http://localhost:3001/files/';
+                    
                     return(
                         <div key={iten.id} className='Propaganda'>
 
@@ -119,6 +119,8 @@ function Salgado(){
                                     <p>Descrição: {iten.description}</p>
                                     <br/>
                                     <p>Preço: {iten.preço}R$</p>
+                                    <br/>
+                                    <p>Estoque: {iten.estoque}</p>
                                     <br/>
                                     <div className='Loja_btn'>
                                     <input id='Quantidade' 

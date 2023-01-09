@@ -12,6 +12,7 @@ function Painel_p(){
     const [Name, setName] = useState('');
     const [Description, setDescription] = useState('');
     const [Preço, setPreço] = useState('');
+    const [Estoque, setEstoque] = useState('');
     const [Status, setStatus] = useState('');
         //var of propaganda
     const [Texto, setTexto] = useState('');
@@ -73,7 +74,9 @@ function Painel_p(){
             document.querySelector('#Alerta').innerHTML = "Preencha o campo (Descrição)@";
         } else if (Preço === '') {
             document.querySelector('#Alerta').innerHTML = "Preencha o campo (Preço)@";
-        } else if (Status === '') {
+        } else if (Estoque === '') {
+            document.querySelector('#Alerta').innerHTML = 'Preencha o campo (Estoque)@';
+        }else if (Status === '') {
             document.querySelector('#Alerta').innerHTML = "preencha o campo (Status)@";
         } else if(Status !== 'on' && Status !== 'off' ){
             document.querySelector('#Alerta').innerHTML = "Defina o Status como [ON / OFF]...";
@@ -83,6 +86,7 @@ function Painel_p(){
                 Name,
                 Description,
                 Preço,
+                Estoque,
                 Status,
                 img_Salgado,
                 Authentication
@@ -306,8 +310,11 @@ function Painel_p(){
                     <input type='text' placeholder="Descrição do produto"
                     onChange={(e) => setDescription(e.target.value)}/>
                     <p>Preço do produto:</p>
-                    <input type='test' placeholder="Preço do produto"
+                    <input type='text' placeholder="Preço do produto"
                     onChange={(e) => setPreço(e.target.value)}/>
+                    <p>Estoque</p>
+                    <input type='text' placeholder='Estoque'
+                    onChange={(e) => setEstoque(e.target.value)}/>
                     <p>Status:</p>
                     <input type='text' placeholder="Status do produto"
                     onChange={(e) => setStatus(e.target.value)}/>

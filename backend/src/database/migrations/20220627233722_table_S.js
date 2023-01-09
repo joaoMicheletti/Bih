@@ -10,7 +10,8 @@ exports.up = function(knex) {
         table.increments();        
         table.string('name').notNullable();
         table.string('description').notNullable();
-        table.string('preço').notNullable();        
+        table.string('preço').notNullable();
+        table.string('estoque').notNullable();       
         table.string('img_salgado').notNullable();
         table.string('status').notNullable();
     });

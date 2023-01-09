@@ -31,7 +31,7 @@ function Home(){
             </header> 
 
             {itens.map((iten, key) => {
-                const url ='http://localhost:3001/files/';
+                const url = 'http://localhost:3001/files/';
 
                 return(
                     <div key={iten.id} className='Conteudo' id='Conteudo'>

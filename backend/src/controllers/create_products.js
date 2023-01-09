@@ -6,7 +6,7 @@ module.exports = {
 
     // funções para criar os produtos do tipo salgada!
     async create_product_s(request, response){
-        const {Name, Description, Preço, Status, img_Salgado, Authentication} = request.body;
+        const {Name, Description, Preço, Estoque, Status, img_Salgado, Authentication} = request.body;
 
         const Validation = await connection('adm').where('pass', Authentication).select('pass');
         
@@ -18,6 +18,7 @@ module.exports = {
                 Name,
                 Description, 
                 Preço,
+                Estoque,
                 Status,
                 img_Salgado
             };

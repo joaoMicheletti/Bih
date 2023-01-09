@@ -8,6 +8,7 @@ function Painel_s(){
 
     const [itens, setItens] = useState([]);
     const [Salgado, setSalgado] = useState([]);
+    const url = 'http://localhost:3001/files/';
     useEffect(() => {
         Api.get('/index_prop')
         .then((Response) => {
@@ -33,7 +34,7 @@ function Painel_s(){
         
 
     }, []);
-    const url = 'http://localhost:3001/files/';
+    
 
     return(
         <div className="Painel_s_Container">
