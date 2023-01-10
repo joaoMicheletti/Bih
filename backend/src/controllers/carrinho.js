@@ -33,13 +33,14 @@ module.exports = {
 
     },
     async Salgado (request, response){
-        const {Name, Preço, User, Quantidade, Img, Full_date} = request.body;
+        const {Estoque, Name, Preço, User, Quantidade, Img, Full_date} = request.body;
         const Data = {
             Name,
             Preço,
             User,
             Quantidade,
             Img,
+            Estoque,
             Full_date                       
         };
         await connection('carrinho_salgado').insert(Data);

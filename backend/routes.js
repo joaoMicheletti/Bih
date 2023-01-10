@@ -73,7 +73,7 @@ routes.delete('/carrinho_delete', Carrinho.Deletar);
 routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
 // atualizando o estoque após a compra do iten
 routes.put('/estoque_d', create_products.Update_Estoque_Doce);//update estoque dos doces.
-routes.put('/estoque_s')//update estoque dos salgados.
+routes.put('/estoque_s', create_products.Update_Estoque_Salgado);//update estoque dos salgados.
 
 //pedidos
 routes.post('/carrinho_pedido', Pedido.Create);

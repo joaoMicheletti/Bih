@@ -82,15 +82,16 @@ function Salgado(){
                         const Preço = iten.preço;
                         const User = localStorage.getItem('user');
                         const Img = iten.img_salgado;
+                        const Estoque = iten.estoque;
                         const Data = {
                             Name,
                             Preço,
                             User,
                             Quantidade,
+                            Estoque,
                             Img,
                             Full_date                 
                         };
-                    
                         const Pedido = async () => {
                             console.log(Data);
                             console.log(Quantidade);
@@ -120,7 +121,7 @@ function Salgado(){
                                     <br/>
                                     <p>Preço: {iten.preço}R$</p>
                                     <br/>
-                                    <p>Estoque: {iten.estoque}</p>
+                                    <p>Estoque: {iten.estoque} unidades</p>
                                     <br/>
                                     <div className='Loja_btn'>
                                     <input id='Quantidade' 

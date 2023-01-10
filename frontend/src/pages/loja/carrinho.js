@@ -26,6 +26,7 @@ function Carrinho(){
             };
         });
     }, []);
+    console.log(Today);
     const [Today_S, setToday_S] = useState([]);
     useEffect(() => { // chamando os pedidos  da categoria salgados;
         Api.post('/carrinho_index_s', OBJ)
@@ -36,6 +37,8 @@ function Carrinho(){
         });
 
     }, []);
+
+    console.log(Today_S);
 
     
 
@@ -123,7 +126,7 @@ function Carrinho(){
                             };
                             const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
                             console.log(Up_Estoque_Doce);
-                            //document.location.reload(true);
+                            document.location.reload(true);
                         };
                         const Cancelar = async () => {
                             const Id = iten.id;
@@ -230,7 +233,18 @@ function Carrinho(){
                                 }
                                 const resp_update = await Api.put('/carrinho_upload_s',  UP)
                                 console.log(resp_update.data);
-                                document.location.reload(true);
+
+                                const Estoque = iten.estoque;
+
+                                const Decrement_estoque = parseInt(iten.estoque, 10) - parseInt(iten.quantidade);
+                                const up_doce = {
+                                    Name,
+                                    Estoque,
+                                    Decrement_estoque
+                                };
+                                const Up_Estoque_Doce = await Api.put('/estoque_s', up_doce);
+                                console.log(Up_Estoque_Doce);
+                                //document.location.reload(true);
                         
                             };
 
