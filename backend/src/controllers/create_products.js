@@ -53,7 +53,7 @@ async Get_Salgado_adm(request, response){
     //funçẽes para cadastrar produtos do tipo Doce"
 
     async create_product_d(request, response){
-        const {Name, Description, Preço, Status, img_Doce, Authentication} = request.body;
+        const {Estoque, Name, Description, Preço, Status, img_Doce, Authentication} = request.body;
         
         const Validation = await connection('adm').where('pass', Authentication).select('pass');
 
@@ -65,6 +65,7 @@ async Get_Salgado_adm(request, response){
                 Name,
                 Description,
                 Preço,
+                Estoque,
                 Status,
                 img_Doce
             };

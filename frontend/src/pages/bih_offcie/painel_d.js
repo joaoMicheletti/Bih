@@ -111,6 +111,8 @@ function Painel_d(){
                                 <br/>
                                 <p>Preço: {iten.preço} R$</p>
                                 <br/>
+                                <p>Estoque: {iten.estoque} unidades</p>
+                                <br/>
                                 <p>Status: {iten.status}</p>
                                 <br/>
                                 <div className='Loja_btn'>

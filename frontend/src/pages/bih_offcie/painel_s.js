@@ -124,6 +124,8 @@ function Painel_s(){
                                         <br/>
                                         <p>Preço: {iten.preço} R$</p>
                                         <br/>
+                                        <p>Estoque: {iten.estoque} unidades</p>
+                                        <br/>
                                         <p>Status: {iten.status}</p>
                                         <div className='Loja_btn'>
                                         <button onClick={Update_iten}>Editar</button>

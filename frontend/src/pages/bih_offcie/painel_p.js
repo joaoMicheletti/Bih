@@ -162,7 +162,10 @@ function Painel_p(){
             document.querySelector('#Alerta_Doce').innerHTML = "Preencha o campo (Descrição)@";
         } else if (Preço === '') {
             document.querySelector('#Alerta_Doce').innerHTML = "Preencha o campo (Preço)@";
-        } else if (Status === '') {
+        } else if (Estoque === ''){
+            document.querySelector("#Alerta_Doce").innerHTML = "Preench o campo (Estoque)";
+        }
+        else if (Status === '') {
             document.querySelector('#Alerta_Doce').innerHTML = "preencha o campo (Status)@";
         }else if(Status !== 'on' && Status !== 'off'){
             document.querySelector('#Alerta_Doce').innerHTML = "Defina o Status como [ON / OFF]...";
@@ -173,6 +176,7 @@ function Painel_p(){
                 Description,
                 Preço,
                 Status,
+                Estoque,
                 img_Doce,
                 Authentication
             }
@@ -345,6 +349,9 @@ function Painel_p(){
                     <p>Preço do produto:</p>
                     <input type='test' placeholder="Preço do produto"
                     onChange={(e) => setPreço(e.target.value)}/>
+                    <p>Estoque:</p>
+                    <input type='text' placeholder='Estoque'
+                    onChange={(e) => setEstoque(e.target.value)}/>
                     <p>Status:</p>
                     <input type='text' placeholder="Status do produto"
                     onChange={(e) => setStatus(e.target.value)}/>

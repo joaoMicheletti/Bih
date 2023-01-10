@@ -118,6 +118,8 @@ function Loja(){
                                 <br/>
                                 <p>Preço: {iten.preço}R$</p>
                                 <br/>
+                                <p>Estoque: {iten.estoque}</p>
+                                <br/>
                                 <div className='Loja_btn'>
                                     <input id='Quantidade' 
                                     type='number' 
@@ -127,8 +129,8 @@ function Loja(){
                                 </div>
                             </li>
                         </ul> 
-                    );
-                })};    
+                    )
+                })}   
             </div>
 
             <footer>
