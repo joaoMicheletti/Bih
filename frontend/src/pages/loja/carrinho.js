@@ -113,7 +113,17 @@ function Carrinho(){
                             }
                             const resp_update = await Api.put('/carrinho_upload',  UP)
                             console.log(resp_update.data);
-                            document.location.reload(true);
+
+                            const Estoque = iten.estoque;
+                            const Decrement_estoque = parseInt(iten.estoque, 10) - parseInt(iten.quantidade);
+                            const up_doce = {
+                                Name,
+                                Estoque,
+                                Decrement_estoque
+                            };
+                            const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
+                            console.log(Up_Estoque_Doce);
+                            //document.location.reload(true);
                         };
                         const Cancelar = async () => {
                             const Id = iten.id;

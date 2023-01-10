@@ -9,6 +9,7 @@
         table.string('user').notNullable();
         table.string('name').notNullable();
         table.string('quantidade').notNullable();
+        table.string('estoque').notNullable();
         table.string('preço').notNullable();
         table.string('img').notNullable();
     });

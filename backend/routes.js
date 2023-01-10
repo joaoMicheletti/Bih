@@ -38,7 +38,7 @@ routes.post('/create_img_s', multer(multerConfig).single("image"), create_produc
 routes.get('/index_salgados', create_products.Get_Salgadso); // buscando produtos do tipo (salgado) disponivel para a loja
 routes.get('/index_salgados_adm', create_products.Get_Salgado_adm); //listagem para o adm. 
 routes.put('/update_product_s', update_products.update_products_s); //update a products  s  
-// fata apenas definir quem pode ou não criar / editar os salgados!
+
 
 //rotas #doces
 routes.post('/create_product_d', create_products.create_product_d); //create a products doces
@@ -46,7 +46,7 @@ routes.post('/create_img_d', multer(multerConfig).single("image"), create_produc
 routes.get('/index_doces', create_products.Get_Doces); // buscando produtos do tipo (doce)! #disponiveis na loja.
 routes.get('/index_doces_adm', create_products.Get_Doces_adm); // listagem para o adm.
 routes.put('/update_product_d', update_products.update_products_d); //update a products  d
-// fata apenas definir quem pode ou não criar / editar os doces!
+
 
 
 
@@ -71,6 +71,9 @@ routes.put('/carrinho_upload_s', Carrinho.Update_S); //update data do pedido fin
 // deletando iten do carrinho
 routes.delete('/carrinho_delete', Carrinho.Deletar);
 routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
+// atualizando o estoque após a compra do iten
+routes.put('/estoque_d', create_products.Update_Estoque_Doce);//update estoque dos doces.
+routes.put('/estoque_s')//update estoque dos salgados.
 
 //pedidos
 routes.post('/carrinho_pedido', Pedido.Create);

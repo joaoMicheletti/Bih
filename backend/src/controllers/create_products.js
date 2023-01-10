@@ -96,5 +96,17 @@ async Get_Salgado_adm(request, response){
         const Data = await connection('doces').select('*')
         return response.json(Data);
     },
+    async Update_Estoque_Doce(request, response){
+        const {Name, Estoque, Decrement_estoque} = request.body;
+        const Data = {
+            Name,
+            Estoque,
+            Decrement_estoque
+        };
+        const ddd = await connection('doces').where('name', Name).select('*')
+        .update('estoque', Decrement_estoque);
+        console.log(Data);
+        return response.json('ok');
+    },
 
 }

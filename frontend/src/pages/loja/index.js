@@ -79,12 +79,14 @@ function Loja(){
                     const User = localStorage.getItem('user');
                     const Img = iten.img_doce;
                     const Status_Iten = 'carrinho';
+                    const Estoque = iten.estoque
                     const Data = {
                         Name,
                         Preço,
                         User,
                         Quantidade,
                         Img,
+                        Estoque,
                         Full_date,
                         Status_Iten
                     };
