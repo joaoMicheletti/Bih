@@ -50,7 +50,7 @@ function Loja(){
                         return(
                             <div key={iten.id} className='Propaganda'>
 
-<div className='Img_Propaganda'>
+                                <div className='Img_Propaganda'>
                                     <img src={url + iten.img_propaganda} alt="prop"/>                                
                                 </div>
 
@@ -64,6 +64,8 @@ function Loja(){
                     })}
             </div>
             <h3>Doces</h3>
+
+            <p id='Estoque_alert'></p>
                 
             <div className='Itens_Loja'>
                 {Doces.map((iten, key) => {
@@ -101,6 +103,8 @@ function Loja(){
                         } else if(Quantidade === ''){
                             alert('Defina a quantidade!');
 
+                        } else if(Quantidade > parseInt(iten.estoque, 10)) {
+                            document.querySelector('#Estoque_alert').innerHTML = 'Quantidade superior a do estoque!';
                         } else {
                             const response = await Api.post('/carrinho', Data);
                             alert(response.data);

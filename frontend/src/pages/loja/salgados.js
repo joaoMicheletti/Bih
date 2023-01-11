@@ -69,6 +69,8 @@ function Salgado(){
             </div>
             
             <h3><br/>Salgados</h3>
+
+            <p id='Estoque_alert'></p>
             <div className='Itens_Loja'>
                     {Salgados.map((iten, key) => {
                         //gambiarra da data
@@ -101,6 +103,8 @@ function Salgado(){
                             } else if(Quantidade === ''){
                                 alert('Defina a quantidade!');
     
+                            } else if(Quantidade > parseInt(iten.estoque, 10)) {
+                                document.querySelector('#Estoque_alert').innerHTML = 'Quantidade superior do estoque!';
                             } else {
                                 const response = await Api.post('/carrinho_s', Data);
                                 alert(response.data);
