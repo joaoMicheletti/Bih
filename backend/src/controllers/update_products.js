@@ -2,13 +2,14 @@ const connection = require('../database/conection');
 module.exports = {
     //editando os Salgados  
     async update_products_s(request, response){
-        const {id, Name, Description, Preço, Status, Authentication} = request.body;
+        const {id, Name, Description, Preço, Estoque, Status, Authentication} = request.body;
         const Data = {
             id,
             Name,
             Description, 
             Preço,
             Status,
+            Estoque,
             Authentication
         };
         console.log(Data);
@@ -25,17 +26,19 @@ module.exports = {
         .update('description', Description)
         .update('preço', Preço)
         .update('status', Status)
+        .update('estoque', Estoque);
         return response.json('Produto atualizado com sucesso!!!');
     },
 
     //editando os Doces;
     async update_products_d(request, response){
-        const {id, Name, Description, Preço, Status} = request.body;
+        const {id, Name, Description, Preço, Estoque, Status} = request.body;
         const Data = {
             id,
             Name,
             Description,
             Preço,
+            Estoque,
             Status
         };
         console.log(Data); 
@@ -43,7 +46,8 @@ module.exports = {
         .update('name', Name)
         .update('description', Description)
         .update('preço', Preço)
-        .update('status', Status);
+        .update('status', Status)
+        .update('estoque', Estoque);
         return response.json('Iten atualizado com Sucesso!');
     }
 }

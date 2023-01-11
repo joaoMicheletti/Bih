@@ -244,7 +244,7 @@ function Carrinho(){
                                 };
                                 const Up_Estoque_Doce = await Api.put('/estoque_s', up_doce);
                                 console.log(Up_Estoque_Doce);
-                                //document.location.reload(true);
+                                document.location.reload(true);
                         
                             };
 
@@ -287,7 +287,6 @@ function Carrinho(){
                             );
 
                         })}
-                        <hr/>
                         <div id='Result_pedido'>
                     <h3 id='Pedido_number'></h3>
                 </div>

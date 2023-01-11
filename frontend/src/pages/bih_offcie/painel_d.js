@@ -76,7 +76,8 @@ function Painel_d(){
                                     const id = iten.id;
                                     const Name = window.prompt("Novo Nome Do Produto:...");
                                     const Description = window.prompt("Nova Descrição do produto: ...");
-                                    const Preço = window.prompt("Novo Preço do produto: ...");                      
+                                    const Preço = window.prompt("Novo Preço do produto: ...");
+                                    const Estoque = window.prompt("Quantidade no Estoque:...");                     
                                     const Status = window.prompt("Novo Status do Produto = [ON / OFF]");
                                     
 
@@ -85,13 +86,16 @@ function Painel_d(){
                                         Name,
                                         Description,
                                         Preço,
+                                        Estoque,
                                         Status
                                     };
+                                    console.log(Data);
 
                                     const response = await Api.put('/update_product_d', Data)
 
                                     if ( response.data === 'Iten atualizado com Sucesso!'){
                                         alert(response.data);
+                                        document.location.reload(true);
 
                                     }else {
                                         alert('Algo deu errado, tente mais tarde!!! ... ');

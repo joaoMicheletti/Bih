@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import './style_login.css';
-import {Link, Navigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 import Api from '../../services/api';
 
@@ -88,6 +88,7 @@ function Painel_s(){
                                     const Name = window.prompt("Novo nome para o produto...");
                                     const Description = window.prompt('Nova Descrição do Produto...');
                                     const Preço = window.prompt("Novo preço para o produto...");
+                                    const Estoque = window.prompt("Quantidade no Estoque:...");
                                     const Status = window.prompt("Status do produto [ON / OFF]...");
                                     
                                 
@@ -98,13 +99,14 @@ function Painel_s(){
                                         Description, 
                                         Preço,
                                         Status,
+                                        Estoque,
                                         Authentication
                                     };
                                     const response = await Api.put('/update_product_s', Data);
                                     try{
                                         console.log(response);
                                         alert(response.data);
-                                        Navigate('/p_salgados');
+                                        document.location.reload(true);
 
                                     } catch(err) {
 
