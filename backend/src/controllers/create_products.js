@@ -57,14 +57,18 @@ async Update_Estoque_Salgado(request, response){
         Estoque, 
         Decrement_estoque
     };
-    //si o estoque for (0) não tem porque mostar o item na loja.
-    if(Decrement_estoque > 0){
-        await connection('salgados').where('name', Name)
-        .update('estoque', Decrement_estoque);    
-    } else {
+    await connection('salgados').where('name', Name)
+    .update('estoque', Decrement_estoque); 
+    
+    if(Decrement_estoque === 0){
         await connection('salgados').where('name', Name)
         .update('status', 'off');
     }
+
+    //await connection('salgados').where('name', Name)
+    //.update('status', 'off');
+    //si o estoque for (0) não tem porque mostar o item na loja.
+    
     
     console.log(Data);
     response.json('ok');
@@ -127,13 +131,13 @@ async Update_Estoque_Salgado(request, response){
             Decrement_estoque
         };
         //si o estoque for (0) não tem porque mostar o item na loja.
-        if(Decrement_estoque > 0){
-            await connection('doces').where('name', Name)
-            .update('estoque', Decrement_estoque);
-        } else {
+        await connection('doces').where('name', Name)
+        .update('estoque', Decrement_estoque); 
+        
+        if(Decrement_estoque === 0){
             await connection('doces').where('name', Name)
             .update('status', 'off');
-        }
+        };
         
         console.log(Data);
         return response.json('ok');

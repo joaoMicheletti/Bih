@@ -106,7 +106,7 @@ function Carrinho(){
                             };
                             console.log(Data);
 
-                            const response = await Api.post('/carrinho_pedido', Data)
+                            const response = await Api.post('/carrinho_pedido', Data);
                             console.log(response.data);
                             alert('O número do seu pedido é {'+ iten.id+'} consulte o estatus dele pelos canas de cominicação...');
                             
