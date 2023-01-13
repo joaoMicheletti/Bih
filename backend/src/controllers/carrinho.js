@@ -90,4 +90,24 @@ module.exports = {
         return response.json('ok');
 
     },
+    // fazendo uma busca no banco de dados, afin de saber se o estoque já foi comprometido...
+    async Estoque_S(request, response){
+        const {Namme, Quantt} = request.body;
+        const Res = await connection('salgados').where('name', Namme).select('estoque');
+        console.log('Estoque_Salgado: >   ' +Namme);
+
+        if(parseInt(Res[0].estoque) < Quantt){
+            console.log(parseInt(Res[0].estoque, 10) - Quantt);
+            return response.json('Nosso estoque, Não atende essa quanidade!');
+        } else {
+            console.log('ok');
+            return response.json('ok');
+        }
+
+    },
+    async Estoque_D(request, response){
+        const {Name} = request.body;
+        console.log('EStoque_Doce, '+ Name );
+        return response.json(Name);
+    },
 };

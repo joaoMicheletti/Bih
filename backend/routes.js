@@ -68,6 +68,7 @@ routes.post('/carrinho_s', Carrinho.Salgado);
 routes.post('/carrinho_index_s', Carrinho.Index_Salgado);
 routes.put('/carrinho_upload', Carrinho.Update_D);//update data do pedido finalizado Doce
 routes.put('/carrinho_upload_s', Carrinho.Update_S); //update data do pedido finalizado Salgado;
+routes.post('/estoque_s', Carrinho.Estoque_S); // consulta, ver se e possivel efetuar o pedido.
 // deletando iten do carrinho
 routes.delete('/carrinho_delete', Carrinho.Deletar);
 routes.delete('/carrinho_delete_s', Carrinho.Dell_s);
