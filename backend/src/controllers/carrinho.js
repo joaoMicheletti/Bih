@@ -97,17 +97,25 @@ module.exports = {
         console.log('Estoque_Salgado: >   ' +Namme);
 
         if(parseInt(Res[0].estoque) < Quantt){
-            console.log(parseInt(Res[0].estoque, 10) - Quantt);
-            return response.json('Nosso estoque, Não atende essa quanidade!');
-        } else {
-            console.log('ok');
-            return response.json('ok');
-        }
 
+            return response.json('Nosso estoque, Não atende essa quanidade!');
+
+        } else {s
+            return response.json('ok');
+        };
     },
     async Estoque_D(request, response){
-        const {Name} = request.body;
-        console.log('EStoque_Doce, '+ Name );
-        return response.json(Name);
+        const {Name_D, Quantidade_D} = request.body;
+
+        const Res = await connection('doces').where('name', Name_D).select('estoque');
+        console.log('Estoque_Salgado: >   ' +Name_D);
+
+        if(parseInt(Res[0].estoque) < Quantidade_D){
+
+            return response.json('Nosso estoque, Não atende essa quanidade!');
+
+        } else {
+            return response.json('ok');
+        };
     },
 };
