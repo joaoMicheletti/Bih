@@ -61,7 +61,7 @@ function Carrinho(){
 
                     {Today.map((iten, key) => {
                         const Comprar = async () => {
-                            const Name_D= iten.name;
+                            const Name_D = iten.name;
                             const Quantidade_D = iten.quantidade;
                             const Itens = {
                                 Name_D,
@@ -69,11 +69,12 @@ function Carrinho(){
                             };
                             console.log(Itens)
                             const Tt = await Api.post('estoque_d', Itens);
-                            alert(Tt.data);
-                            if (Tt.data === 'Nosso estoque, Não atende essa quanidade!'){
-                                document.querySelector('#res_Tt').innerHTML = 'Nosso estoque, Não atende essa quanidade!';
+                            alert('Nosso estoque, Não atende essa quantidade!');
+                            if (Tt.data === 'Nosso estoque, Não atende essa quantidade!'){
+                                document.querySelector('#res_Tt').innerHTML = 'Nosso estoque, Não atende essa quantidade!' ;
+                                
                             } else if(Tt.data === 'ok'){
-                                console.log('Comprar.');
+                                
                                 // Dados para  verificados para cobrr a tacha de entrega,
                                 // e si atendemos essa região
                                 // após a validação envir o pedido para ser preparado!... 
@@ -193,7 +194,7 @@ function Carrinho(){
                 </div>
                 <hr/><br/>
                 <h3>Salgados</h3>
-                <p id='res_Tt'></p>
+                <p id='res_Tt_salgados'></p>
                 <div id='Pedidos_hoje'>
                     {Today_S.map((iten, key) => {
                             const Comprar = async () => {
@@ -204,9 +205,9 @@ function Carrinho(){
                                     Quantt
                                 };
                                 const Tt = await Api.post('estoque_s', Iten_name);
-                                alert(Tt.data);
-                                if (Tt.data === 'Nosso estoque, Não atende essa quanidade!'){
-                                    document.querySelector('#res_Tt').innerHTML = 'Nosso estoque, Não atende essa quanidade!';
+                                alert(Tt.data.data.res);
+                                if (Tt.data.data.res === 'Nosso estoque, Não atende essa quantidade!'){
+                                    document.querySelector('#res_Tt_salgados').innerHTML = 'Nosso estoque, Não atende essa quantidade!';
                                 } else if(Tt.data === 'ok'){
 
                                     console.log('Comprar.');

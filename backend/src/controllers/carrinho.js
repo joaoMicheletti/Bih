@@ -95,12 +95,19 @@ module.exports = {
         const {Namme, Quantt} = request.body;
         const Res = await connection('salgados').where('name', Namme).select('estoque');
         console.log('Estoque_Salgado: >   ' +Namme);
+        console.log(Quantt);
+        console.log(Res)
 
-        if(parseInt(Res[0].estoque) < Quantt){
+        if(parseInt(Res[0].estoque) < Quantt ){
+            const res = 'Nosso estoque, Não atende essa quantidade!';
+            const Estoque = Res[0].estoque;
+            const Data = {
+                res,
+                Estoque
+            }
+            return response.json({data: Data});
 
-            return response.json('Nosso estoque, Não atende essa quanidade!');
-
-        } else {s
+        }else {
             return response.json('ok');
         };
     },
@@ -109,11 +116,12 @@ module.exports = {
 
         const Res = await connection('doces').where('name', Name_D).select('estoque');
         console.log('Estoque_Salgado: >   ' +Name_D);
+        console.log(Res);
+        console.log(Quantidade_D)
 
         if(parseInt(Res[0].estoque) < Quantidade_D){
-
-            return response.json('Nosso estoque, Não atende essa quanidade!');
-
+            
+            return response.json('Nosso estoque, Não atende essa quantidade!');
         } else {
             return response.json('ok');
         };
