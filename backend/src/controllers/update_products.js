@@ -2,10 +2,9 @@ const connection = require('../database/conection');
 module.exports = {
     //editando os Salgados  
     async update_products_s(request, response){
-        const {id, Name, Description, Preço, Estoque, Status, Authentication} = request.body;
+        const {id, Description, Preço, Estoque, Status, Authentication} = request.body;
         const Data = {
             id,
-            Name,
             Description, 
             Preço,
             Status,
@@ -22,7 +21,6 @@ module.exports = {
 
         
         await connection('salgados').where('id', id)
-        .update('name', Name)
         .update('description', Description)
         .update('preço', Preço)
         .update('status', Status)
@@ -32,18 +30,22 @@ module.exports = {
 
     //editando os Doces;
     async update_products_d(request, response){
-        const {id, Name, Description, Preço, Estoque, Status} = request.body;
+        const {id, Description, Preço, Estoque, Status, Authentication} = request.body;
         const Data = {
             id,
-            Name,
             Description,
             Preço,
             Estoque,
             Status
         };
+        const Aut = await connection('adm').where('user', Authentication).select('user');
+
+        if (Aut === ''){
+            return response.json('Você não tem Autorização para fazer isso!');
+        }
         console.log(Data); 
+        
         await connection('doces').where('id', id)
-        .update('name', Name)
         .update('description', Description)
         .update('preço', Preço)
         .update('status', Status)

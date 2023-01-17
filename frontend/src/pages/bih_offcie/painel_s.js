@@ -85,7 +85,6 @@ function Painel_s(){
                                 } else {
 
                                     const id = iten.id;
-                                    const Name = window.prompt("Novo nome para o produto...");
                                     const Description = window.prompt('Nova Descrição do Produto...');
                                     const Preço = window.prompt("Novo preço para o produto...");
                                     const Estoque = window.prompt("Quantidade no Estoque:...");
@@ -95,7 +94,6 @@ function Painel_s(){
                                     
                                     const Data = {
                                         id,
-                                        Name,
                                         Description, 
                                         Preço,
                                         Status,

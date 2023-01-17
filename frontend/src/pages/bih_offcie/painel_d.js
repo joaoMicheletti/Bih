@@ -73,8 +73,8 @@ function Painel_d(){
                                     alert('Action not permited');
                                 } else {
                                     
+                                    const Authentication = localStorage.getItem('adm');
                                     const id = iten.id;
-                                    const Name = window.prompt("Novo Nome Do Produto:...");
                                     const Description = window.prompt("Nova Descrição do produto: ...");
                                     const Preço = window.prompt("Novo Preço do produto: ...");
                                     const Estoque = window.prompt("Quantidade no Estoque:...");                     
@@ -83,11 +83,11 @@ function Painel_d(){
 
                                     const Data = {
                                         id,
-                                        Name,
                                         Description,
                                         Preço,
                                         Estoque,
-                                        Status
+                                        Status,
+                                        Authentication
                                     };
                                     console.log(Data);
 
