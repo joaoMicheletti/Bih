@@ -69,9 +69,9 @@ function Carrinho(){
                             };
                             console.log(Itens)
                             const Tt = await Api.post('estoque_d', Itens);
-                            alert('Nosso estoque, Não atende essa quantidade!');
                             if (Tt.data === 'Nosso estoque, Não atende essa quantidade!'){
                                 document.querySelector('#res_Tt').innerHTML = 'Nosso estoque, Não atende essa quantidade!' ;
+                                alert('Nosso estoque, Não atende essa quantidade!');
                                 
                             } else if(Tt.data === 'ok'){
                                 
@@ -205,9 +205,9 @@ function Carrinho(){
                                     Quantt
                                 };
                                 const Tt = await Api.post('estoque_s', Iten_name);
-                                alert(Tt.data.data.res);
-                                if (Tt.data.data.res === 'Nosso estoque, Não atende essa quantidade!'){
+                                if (Tt.data === 'Nosso estoque, Não atende essa quantidade!'){
                                     document.querySelector('#res_Tt_salgados').innerHTML = 'Nosso estoque, Não atende essa quantidade!';
+                                    alert('Nosso estoque, Não atende essa quantidade!');
                                 } else if(Tt.data === 'ok'){
 
                                     console.log('Comprar.');

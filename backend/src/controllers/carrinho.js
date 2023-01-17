@@ -98,16 +98,10 @@ module.exports = {
         console.log(Quantt);
         console.log(Res)
 
-        if(parseInt(Res[0].estoque) < Quantt ){
-            const res = 'Nosso estoque, Não atende essa quantidade!';
-            const Estoque = Res[0].estoque;
-            const Data = {
-                res,
-                Estoque
-            }
-            return response.json({data: Data});
-
-        }else {
+        if(parseInt(Res[0].estoque) < Quantt){
+            
+            return response.json('Nosso estoque, Não atende essa quantidade!');
+        } else {
             return response.json('ok');
         };
     },
