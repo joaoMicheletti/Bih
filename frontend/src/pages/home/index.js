@@ -17,6 +17,7 @@ function Home(){
             console.log('erro')
         })
     }, []);
+    const VM = '< VM_Software />';
     return(
         <div className='Home_Container' id='Home_Container'>
 
@@ -77,7 +78,7 @@ function Home(){
                     <br/>
                     <div id='Dev'>
                     <p>Develope By</p>
-                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511992650095'> Whatsapp</a><br/>
+                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511932223533'>{VM}</a><br/>
                         
                     </div>
                 </div>

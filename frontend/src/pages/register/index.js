@@ -7,6 +7,7 @@ import Bolo from '../assets/bolinho1.png';
 import api from '../../services/api';
 
 function Register(){
+    const VM = '< VM_Software />';
     const history = useNavigate();
     const [Phone, setPhone] = useState('');
     const [Pass, setPass] = useState('');
@@ -110,7 +111,7 @@ function Register(){
                     <br/>
                     <div id='Dev'>
                     <p>Develope By</p>
-                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511992650095'> Whatsapp</a><br/>
+                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511932223533'>{VM}</a><br/>
                         
                     </div>
                 </div>

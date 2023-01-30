@@ -8,6 +8,7 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Salgado(){
+    const VM = '< VM_Software />';
     const [Quantidade, setQuantidade] = useState('');
     const url =  'http://localhost:3001/files/';
     const hystory = useNavigate();
@@ -165,7 +166,7 @@ function Salgado(){
                     <br/>
                     <div id='Dev'>
                     <p>Develope By</p>
-                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511992650095'> Whatsapp</a><br/>
+                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511932223533'> {VM} </a><br/>
                         
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {ImExit} from 'react-icons/im';
 import {BsInstagram, BsWhatsapp, BsFacebook} from 'react-icons/bs';
 import Logo from '../loja/../assets/Logo.jpg';
@@ -7,12 +7,14 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Carrinho(){
+    const History = useNavigate();
     const URL = 'http://localhost:3001/files/';
     const [Today, setToday] = useState([]);
     const User = localStorage.getItem('user');
     const OBJ = {
         User
     };
+    const VM = '< VM_Software />';
     
     useEffect(() => { // chamando os pedidos da categoria Doce;
         Api.post('/carrinho_index_d', OBJ)
@@ -68,72 +70,29 @@ function Carrinho(){
                                 Quantidade_D
                             };
                             console.log(Itens)
+                            
+                            //consulta ao db para ver se ainda temos disponivel no estoque!
                             const Tt = await Api.post('estoque_d', Itens);
+
                             if (Tt.data === 'Nosso estoque, Não atende essa quantidade!'){
-                                document.querySelector('#res_Tt').innerHTML = 'Nosso estoque, Não atende essa quantidade!' ;
-                                alert('Nosso estoque, Não atende essa quantidade!');
+                                //document.querySelector('#res_Tt').innerHTML = 'Nosso estoque, Não atende essa quantidade!' ;
+                                //alert('Nosso estoque, Não atende essa quantidade!');
                                 
                             } else if(Tt.data === 'ok'){
-                                
-                                // Dados para  verificados para cobrr a tacha de entrega,
-                                // e si atendemos essa região
-                                // após a validação envir o pedido para ser preparado!... 
-                                var NameC = prompt("Quao o nome de quem vai receber o pedido!");
-                                while (NameC === ''){
-                                    NameC = prompt("Qual o nome de quem vai receber opedido ? : ");
-                                };
-                                var Rua = prompt("Digite o nome da Rua :" );
-                                while(Rua === '') {
-                                    Rua = prompt("Digite o nome da rua : ");
-                                };
-                                var Casa = prompt('Digite o número da residencia :');
-                                while(Casa === '') {
-                                    Casa = prompt('Digite o número da residenci :')
-                                };
-                                var Cep = prompt('Digite o CEP :');
-                                while (Cep.length < 8){
-                                    Cep = prompt('Digite um CEP Valido:');
-                                };
-                                while (Cep.length > 8 ){
-                                    Cep = prompt('Digite um CEP Valido!');
-                                };
-                                var Troco = prompt('troco pra quanto ?');
-                                while (Troco === ''){
-                                    Troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
-                                }
-                                const Iduser = localStorage.getItem('user');
-                                let Name = iten.name;
-                                let Quantidade = iten.quantidade;
-                                let Preço = iten.preço;
-                                let Status = 'cozinha';
-                                let np = iten.id + 'D';
-                                const Data = {
-                                    NameC,
-                                    Iduser,
-                                    Rua,
-                                    Casa,
-                                    Cep,
-                                    Name,
-                                    Quantidade,
-                                    Preço,
-                                    Troco,
-                                    Status,
-                                    np,
-                                };
-                                console.log(Data);
+                                History('/confirm');
+                                 // enviando pedido para a cozinha
+                                //const response = await Api.post('/carrinho_pedido');
 
-                                const response = await Api.post('/carrinho_pedido', Data);
-                                console.log(response.data);
-                                alert('O número do seu pedido é {'+ np+'} consulte o estatus dele pelos canas de cominicação...');
-                                
+                                /* editando adata do iten para que nao sejá mais listado no carrinho
                                 let Id = iten.id;
                                 const UP = {
                                     Id
                                 }
                                 const resp_update = await Api.put('/carrinho_upload',  UP)
-                                console.log(resp_update.data);
+                                console.log(resp_update.data);*/
 
-                                const Estoque = iten.estoque;
+                                //decrementando o estoque apos efetuar a compra
+                                /*const Estoque = iten.estoque;
                                 const Decrement_estoque = parseInt(iten.estoque, 10) - parseInt(iten.quantidade);
                                 const up_doce = {
                                     Name,
@@ -142,13 +101,11 @@ function Carrinho(){
                                 };
                                 const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
                                 console.log(Up_Estoque_Doce);
-                                document.location.reload(true);
+                                document.location.reload(true);*/
 
                             } else {
                                 alert('Erro no servidor');
                             };
-                            
-                            /**/
                         };
                         const Cancelar = async () => {
                             const Id = iten.id;
@@ -361,7 +318,7 @@ function Carrinho(){
                     <br/>
                     <div id='Dev'>
                     <p>Develope By</p>
-                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511992650095'> Whatsapp</a><br/>
+                        <BsWhatsapp/> <a target='blank' href='https://api.whatsapp.com/send?phone=5511932223533'>{VM}</a><br/>
                         
                     </div>
                 </div>

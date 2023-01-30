@@ -18,8 +18,6 @@ const Carrinho = require('./src/controllers/carrinho');
 const Pedido = require('./src/controllers/pedido');
 //listagem de pedidos
 const List = require('./src/controllers/pedidos_list');
-const pedido = require('./src/controllers/pedido');
-const { Salgado } = require('./src/controllers/carrinho');
 const routes = express.Router();
 
 //routes#

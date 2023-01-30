@@ -191,3 +191,37 @@ ul li img {
         display: none;
     }
 }
+
+#Confirm_Header img {
+    margin-top: 15px;
+    width: 100px;
+    border-radius: 50%;
+}
+#Form_Confirm_Container {
+    margin-top: 40px;
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+    background-color: blue;
+}
+#Pedido_Confirm {
+    background-color: blueviolet;
+    width: 80%;
+    margin-left: 10%;
+}
+#Pedido_Confirm ul {
+    width: 60%;
+    margin-left: 20%;
+}
+#Pedido_Confirm form input {
+    width: 80%;
+    height: 35px;
+    margin-bottom: 30px;
+}
+#Buttons button {
+    width: 60%;
+    height: 35px;
+}
+#Confirmar_Pedido{
+    background-color: rgb(124, 138, 138);
+}

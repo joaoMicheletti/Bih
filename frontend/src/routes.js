@@ -8,7 +8,7 @@ import Register from './pages/register/index'; //registro de usuarios
 import Login from './pages/login/index'; // login de usuarios 
 import Carrinho from '../src/pages/loja/carrinho';
 import Exit from '../src/pages/loja/exit';
-
+import Confirm from '../src/pages/loja/confirm'; //pagina de confirmação de pedido
 
 //adm imports 
 import Cbia from './pages/bih_offcie/index';//logind to adm
@@ -29,6 +29,7 @@ class Rotas extends Component {
                     <Route path='login' element={<Login/>}/>
                     <Route path='register' element={<Register/>}/>
                     <Route path='carrinho' element={<Carrinho/>} />
+                    <Route path='confirm' element={<Confirm/>}/>
                     <Route path='exit' element={<Exit/>}/>
                     
                     <Route path='login_bia' element={<Cbia/>}/>
