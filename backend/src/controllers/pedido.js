@@ -3,8 +3,7 @@ const connection = require('../database/conection');
 
 module.exports = {
     async Create(request, response){
-        const {NameC, Iduser, Rua, Casa, Cep,  Name, Preço, Quantidade, Troco, Status} = request.body
-
+        const {np, NameC, Iduser, Rua, Casa, Cep,  Name, Preço, Quantidade, Troco, Status} = request.body
         const Data = {
             NameC,
             Iduser, 
@@ -16,9 +15,11 @@ module.exports = {
             Quantidade, 
             Troco,
             Status,
+            np,
         };
-        await connection('pedidos').insert(Data);
         console.log(Data);
+        await connection('pedidos').insert(Data);
+        
         return response.json('ola');
     },
 }

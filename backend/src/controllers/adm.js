@@ -11,10 +11,11 @@ module.exports = {
                 Pass
             })
         } else {
+            console.log('j C');
             return response.json('Usuario já cadastrado!!!')
         }
         
-       
+        console.log('C');
         return response.json('Cadastrado!!!');
     },
 

@@ -106,6 +106,7 @@ function Carrinho(){
                                 let Quantidade = iten.quantidade;
                                 let Preço = iten.preço;
                                 let Status = 'cozinha';
+                                let np = iten.id + 'D';
                                 const Data = {
                                     NameC,
                                     Iduser,
@@ -117,12 +118,13 @@ function Carrinho(){
                                     Preço,
                                     Troco,
                                     Status,
+                                    np,
                                 };
                                 console.log(Data);
 
                                 const response = await Api.post('/carrinho_pedido', Data);
                                 console.log(response.data);
-                                alert('O número do seu pedido é {'+ iten.id+'} consulte o estatus dele pelos canas de cominicação...');
+                                alert('O número do seu pedido é {'+ np+'} consulte o estatus dele pelos canas de cominicação...');
                                 
                                 let Id = iten.id;
                                 const UP = {
@@ -241,6 +243,7 @@ function Carrinho(){
                                     let Name = iten.name;
                                     let Quantidade = iten.quantidade;
                                     let Preço = iten.preço;
+                                    let np = iten.id + 'S';
                                     let Status = 'cozinha';
                                     const Data = {
                                         NameC,
@@ -253,12 +256,13 @@ function Carrinho(){
                                         Preço,
                                         Troco,
                                         Status,
+                                        np,
                                     };
                                     console.log(Data);
 
                                     const response = await Api.post('/carrinho_pedido', Data)
                                     console.log(response.data);
-                                    alert('O número do seu pedido é {'+ iten.id+'} consulte o estatus dele pelos canas de cominicação...');
+                                    alert('O número do seu pedido é {'+np+'} consulte o estatus dele pelos canas de cominicação...');
                                     
                                     let Id = iten.id;
                                     const UP = {

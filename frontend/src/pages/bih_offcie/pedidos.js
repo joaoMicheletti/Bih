@@ -55,7 +55,7 @@ function Pedidos(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <br/><p>Número do Pedido : {iten.id}</p><br/>
+                                    <br/><p>Pedido : {iten.np}</p><br/>
                                     <p>nome cliente: {iten.namec}</p><br/>
                                     <p>Produtos: {iten.name}</p><br/>
                                     <p>Quantidade: {iten.quantidade} </p><br/>
@@ -89,7 +89,7 @@ function Pedidos(){
                         return(
                             <ul key={iten.id}>
                                 <li>
-                                    <br/><p>Número do Pedido : {iten.id}</p><br/>
+                                    <br/><p>Número do Pedido : {iten.np}</p><br/>
                                     <p>nome cliente: {iten.namec}</p><br/>
                                     <p>Produtos: {iten.name}</p><br/>
                                     <p>Quantidade: {iten.quantidade} </p><br/>
@@ -99,7 +99,6 @@ function Pedidos(){
                                     <p>CEP: {iten.cep}</p><br/>
                                     <p>Rua : {iten.rua}</p><br/>
                                     <p>Casa Nº : {iten.casa}</p><br/>
-                                    <button id='BTN' onClick={Upload}>Enviar</button>
                                     
                                 </li>
                             </ul>
