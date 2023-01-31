@@ -28,7 +28,6 @@ function Carrinho(){
             };
         });
     }, []);
-    console.log(Today);
     const [Today_S, setToday_S] = useState([]);
     useEffect(() => { // chamando os pedidos  da categoria salgados;
         Api.post('/carrinho_index_s', OBJ)
@@ -39,9 +38,6 @@ function Carrinho(){
         });
 
     }, []);
-
-    console.log(Today_S);
-
     
 
     return(
@@ -79,6 +75,8 @@ function Carrinho(){
                                 //alert('Nosso estoque, Não atende essa quantidade!');
                                 
                             } else if(Tt.data === 'ok'){
+                                localStorage.setItem('prod_id', iten.id);
+                                console.log(localStorage.getItem('prod'));
                                 History('/confirm');
                                  // enviando pedido para a cozinha
                                 //const response = await Api.post('/carrinho_pedido');

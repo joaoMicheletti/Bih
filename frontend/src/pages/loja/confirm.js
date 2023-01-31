@@ -1,8 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from '../assets/Logo.jpg';
 import './style_loja.css';
 
 function Confirm(){
+    const History = useNavigate();
+
+    function Cancelar_Pedido(e){
+        e.preventDefault();
+        localStorage.removeItem('prod_id');
+        alert('Pedido cancelado, Você cera direcionado para a home page...');
+        History('/');
+    }
     return(
         <div id="Confirm_Container">
             <header id="Confirm_Header">
@@ -50,7 +59,7 @@ function Confirm(){
                         <p>Dinheiro</p>
                         <br/>
                         <p id="Warning">Caso Sejá (Dinheiro) envie-nos o valor que possui em mãos, 
-                        ara providenciarmos o seu troco, caso necessário </p>
+                        para providenciarmos o seu troco, caso necessário </p>
                         <br/>
                         <p id='Exemplo'>""Exemplo: Dinheiro 150""</p>
                         <br/>
@@ -59,7 +68,7 @@ function Confirm(){
                         <input type='text' placeholder="Cartão, Pix, Dinheiro 150"></input>
                         <br/>
                         <div id="Buttons">
-                            <button type="submit" >Solicitar Valor do frete</button>
+                            <button id="Solicitar" type="submit" >Solicitar Valor do frete</button>
                             <br/>
                             <br/>
                             <div id='Confirmar_Pedido'>
@@ -70,7 +79,10 @@ function Confirm(){
                     
                             </div>
                             <br/>
-                            <button type="submit" >Confirmar Pedido</button>
+                            <button id="Confirmar" type="submit" >Confirmar Pedido</button>
+                            <br/>
+                            <br/>
+                            <button id="Cancelar" type='submit'onClick={Cancelar_Pedido} >Cancelar Pedido</button>
                         </div>
                     </form>
                 </div>

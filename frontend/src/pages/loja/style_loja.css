@@ -218,9 +218,20 @@ ul li img {
     height: 35px;
     margin-bottom: 30px;
 }
+#Exemplo {
+    color: rgb(245, 6, 6);
+}
 #Buttons button {
+    cursor: pointer;
     width: 60%;
     height: 35px;
+    font-size: 18px;
+}
+#Confirmar {
+    background-color: rgb(81, 243, 81);
+}
+#Cancelar {
+    background-color: rgb(228, 15, 15);
 }
 #Confirmar_Pedido{
     background-color: rgb(124, 138, 138);
