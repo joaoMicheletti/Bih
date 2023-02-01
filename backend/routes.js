@@ -60,10 +60,12 @@ routes.post('/user_login', user.login_user); //create a session user // login
 // rotas do carrinho:
 routes.post('/carrinho', Carrinho.Doce);
 routes.post('/carrinho_index_d', Carrinho.Index_Doce);
+routes.post('/confirm_doce', Carrinho.Index_Doces_Confirm); // buscando pedido para confimação. 
 
 //salgado
 routes.post('/carrinho_s', Carrinho.Salgado);
 routes.post('/carrinho_index_s', Carrinho.Index_Salgado);
+
 routes.put('/carrinho_upload', Carrinho.Update_D);//update data do pedido finalizado Doce
 routes.put('/carrinho_upload_s', Carrinho.Update_S); //update data do pedido finalizado Salgado;
 routes.post('/estoque_s', Carrinho.Estoque_S); // consulta, ver se e possivel efetuar o pedido.

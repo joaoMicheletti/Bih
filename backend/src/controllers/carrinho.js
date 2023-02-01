@@ -1,3 +1,4 @@
+const { request } = require('express');
 const connection = require('../database/conection');
 module.exports = {
     async Doce(request, response){
@@ -13,6 +14,8 @@ module.exports = {
         };
         console.log(Data)
         await connection('carrinho_doce').insert(Data);
+        const RR = await connection('carrinho_doce').select('*');
+        console.log(RR);
         return response.json('adicionado ao carrinho!');
     },
     //listando Doces
@@ -26,12 +29,25 @@ module.exports = {
         const Ano = Data.getFullYear();
         const Full_date = Dia+'/'+Mes+'/'+Ano;
         const data = await connection('carrinho_doce')
-        .where('user', User_String).where('full_date', Full_date).select('*');
-        console.log(data);
+        .where('user', User_String)
+        .where('full_date', Full_date)
+        .select('*');
+
+        console.log(Data);
 
         return response.json(data);
+    },
+    //buscando pedido  do tipo Doce para a pagina confirm
+    async Index_Doces_Confirm(request, response){
+        const {Prod_id} = request.body;
+        console.log('confirm');
+        console.log(Prod_id);
+        const Response = await connection('carrinho_doce').where('id', Prod_id);
+        console.log(Response[0]);
+        return response.json(Response);
 
     },
+
     async Salgado (request, response){
         const {Estoque, Name, Preço, User, Quantidade, Img, Full_date} = request.body;
         const Data = {

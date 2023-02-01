@@ -83,6 +83,7 @@ function Loja(){
                     const Img = iten.img_doce;
                     const Status_Iten = 'carrinho';
                     const Estoque = iten.estoque
+                    const id = iten.id;
                     const Data = {
                         Name,
                         Preço,
@@ -91,7 +92,8 @@ function Loja(){
                         Img,
                         Estoque,
                         Full_date,
-                        Status_Iten
+                        Status_Iten,
+                        id,
                     };
                     
                     const Pedido = async () => {
@@ -110,7 +112,7 @@ function Loja(){
                             const response = await Api.post('/carrinho', Data);
                             alert(response.data);
                             // gambiara para zerar o stado da variavel setQuantidade;
-                            document.location.reload(true);   
+                            //document.location.reload(true);   
                         };
                         
                         

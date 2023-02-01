@@ -1,10 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import Api from '../../services/api';
 import Logo from '../assets/Logo.jpg';
 import './style_loja.css';
 
 function Confirm(){
+    const URL = 'http://localhost:3001/files/';
     const History = useNavigate();
+    const Prod_id = localStorage.getItem('prod_id');
+    const [Pedido_D, setPedido_D] = useState([]);
+    const Data_Pedido = {
+        Prod_id
+    }
+    useEffect(() => {
+        Api.post('/confirm_doce', Data_Pedido)
+        .then((Response) =>{
+            setPedido_D(Response.data);
+
+        }).catch(() =>{
+            alert('Erro interno');
+        })
+
+    }, []);
+    console.log(Pedido_D);
+
 
     function Cancelar_Pedido(e){
         e.preventDefault();
@@ -26,15 +45,27 @@ function Confirm(){
             <div id="Form_Confirm_Container">
                 <h1>Finalizar pedido</h1>
 
+                
+
                 <div id="Pedido_Confirm">
-                    <ul>
-                        <img src="" alt="Logo"/>
-                        <p>Produto: XXXX</p>
-                        <p>Description: xxxxx</p>
-                        <p>Quantidade: xxxxx</p>
-                        <p>preço: xxxxx</p>
-                        <hr/>
-                    </ul>
+
+                    {Pedido_D.map((iten, key) => {
+                        const Preço = iten.preço;
+                        const Quantidade = iten.quantidade;
+                        let Valot_T = parseFloat(Preço) * parseInt(Quantidade, 10);
+
+                        return(
+                            <ul>
+                                <img src={URL + iten.img} alt="Logo"/>
+                                <p>{iten.name}</p>
+                                <br/>
+                                <p>Quantidade: {iten.quantidade} Unidades.</p>
+                                <p>Valor dos itens: {Valot_T},00 R$ </p>
+                                <hr/>
+                            </ul>
+                        )
+                    })}
+                    
 
                     <form>
                         <p>Nome</p> 

@@ -14,6 +14,7 @@ function Carrinho(){
     const OBJ = {
         User
     };
+    console.log(OBJ);
     const VM = '< VM_Software />';
     
     useEffect(() => { // chamando os pedidos da categoria Doce;
@@ -28,6 +29,7 @@ function Carrinho(){
             };
         });
     }, []);
+    console.log(Today);
     const [Today_S, setToday_S] = useState([]);
     useEffect(() => { // chamando os pedidos  da categoria salgados;
         Api.post('/carrinho_index_s', OBJ)
@@ -71,23 +73,23 @@ function Carrinho(){
                             const Tt = await Api.post('estoque_d', Itens);
 
                             if (Tt.data === 'Nosso estoque, Não atende essa quantidade!'){
-                                //document.querySelector('#res_Tt').innerHTML = 'Nosso estoque, Não atende essa quantidade!' ;
-                                //alert('Nosso estoque, Não atende essa quantidade!');
+                                document.querySelector('#res_Tt').innerHTML = 'Nosso estoque não possuí mais está quantidade' ;
+                                alert('Nosso estoque não possuí mais está quantidade ');
                                 
                             } else if(Tt.data === 'ok'){
                                 localStorage.setItem('prod_id', iten.id);
-                                console.log(localStorage.getItem('prod'));
+                                console.log(localStorage.getItem('prod')+ 'ola');
                                 History('/confirm');
                                  // enviando pedido para a cozinha
                                 //const response = await Api.post('/carrinho_pedido');
 
-                                /* editando adata do iten para que nao sejá mais listado no carrinho
+                                 //editando adata do iten para que nao sejá mais listado no carrinho
                                 let Id = iten.id;
                                 const UP = {
                                     Id
                                 }
                                 const resp_update = await Api.put('/carrinho_upload',  UP)
-                                console.log(resp_update.data);*/
+                                console.log(resp_update.data);
 
                                 //decrementando o estoque apos efetuar a compra
                                 /*const Estoque = iten.estoque;
@@ -98,8 +100,8 @@ function Carrinho(){
                                     Decrement_estoque
                                 };
                                 const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
-                                console.log(Up_Estoque_Doce);
-                                document.location.reload(true);*/
+                                console.log(Up_Estoque_Doce);*/
+                                document.location.reload(true);
 
                             } else {
                                 alert('Erro no servidor');
