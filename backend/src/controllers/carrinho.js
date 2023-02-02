@@ -49,10 +49,10 @@ module.exports = {
     },
 
     async Index_Salgado_Confirm(request, response){
-        const {Prod_id} = request.body;
+        const {Prod_id_s} = request.body;
         console.log('confirm');
-        console.log(Prod_id);
-        const Response = await connection('carrinho_salgado').where('id', Prod_id);
+        console.log(Prod_id_s);
+        const Response = await connection('carrinho_salgado').where('id', Prod_id_s);
         console.log(Response[0]);
         return response.json(Response);
     },

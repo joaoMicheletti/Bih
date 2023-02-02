@@ -7,46 +7,54 @@ import './style_loja.css';
 function Confirm(){
     const URL = 'http://localhost:3001/files/';
     const History = useNavigate();
-    const Prod_id = localStorage.getItem('prod_id');
-    const [Pedido_D, setPedido_D] = useState([]);
-    const Data_Pedido = {
-        Prod_id
+    const Prod_id_s = localStorage.getItem('prod_id_s');
+    const [Pedido_S, setPedido_S] = useState([]);
+
+    const Data_Salgado = {
+        Prod_id_s
     };
+
     useEffect(() => {
-        Api.post('/confirm_doce', Data_Pedido)
+        Api.post('/confirm_salgado', Data_Salgado)
         .then((Response) =>{
-            setPedido_D(Response.data);
+            setPedido_S(Response.data);
 
         }).catch(() =>{
             alert('Erro interno');
         })
 
     }, []);
-    console.log(Pedido_D);
 
     function Comprar(e){
         e.preventDefault();
-
         //decrementando o estoque apos efetuar a compra
+
         /*const Estoque = iten.estoque;
+
         const Decrement_estoque = parseInt(iten.estoque, 10) - parseInt(iten.quantidade);
         const up_doce = {
             Name,
             Estoque,
             Decrement_estoque
-        };
-        const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
-       console.log(Up_Estoque_Doce);*/
+            };
+        const Up_Estoque_Doce = await Api.put('/estoque_s', up_doce);
+        console.log(Up_Estoque_Doce);
+        document.location.reload(true);*/
 
-       // enviando pedido para a cozinha
-       //const response = await Api.post('/carrinho_pedido');
+        // enviando pedido para a coxinha
+        /*const response = await Api.post('/carrinho_pedido', xxx)
+        console.log(response.data);
+        alert('O número do seu pedido é {'+np+'} consulte o estatus dele pelos canas de cominicação...');
+        */
+
+        
     };
 
 
     function Cancelar_Pedido(e){
         e.preventDefault();
-        localStorage.removeItem('prod_id');
-        alert('Pedido cancelado');
+        localStorage.removeItem('prod_id_s');
+        alert('Pedido cancelado...');
         History('/loja');
     }
     return(
@@ -67,7 +75,7 @@ function Confirm(){
 
                 <div id="Pedido_Confirm">
 
-                    {Pedido_D.map((iten, key) => {
+                    {Pedido_S.map((iten, key) => {
                         const Preço = iten.preço;
                         const Quantidade = iten.quantidade;
                         let Valot_T = parseFloat(Preço) * parseInt(Quantidade, 10);
@@ -83,6 +91,7 @@ function Confirm(){
                             </ul>
                         )
                     })}
+                    
 
                     <form>
                         <p>Nome</p> 

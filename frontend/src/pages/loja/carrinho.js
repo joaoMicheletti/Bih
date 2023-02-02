@@ -79,29 +79,15 @@ function Carrinho(){
                             } else if(Tt.data === 'ok'){
                                 localStorage.setItem('prod_id', iten.id);
                                 console.log(localStorage.getItem('prod')+ 'ola');
-                                History('/confirm');
-                                 // enviando pedido para a cozinha
-                                //const response = await Api.post('/carrinho_pedido');
-
-                                 //editando adata do iten para que nao sejá mais listado no carrinho
+                                                      
+                                //editando adata do iten para que nao sejá mais listado no carrinho
                                 let Id = iten.id;
                                 const UP = {
                                     Id
                                 }
                                 const resp_update = await Api.put('/carrinho_upload',  UP)
                                 console.log(resp_update.data);
-
-                                //decrementando o estoque apos efetuar a compra
-                                /*const Estoque = iten.estoque;
-                                const Decrement_estoque = parseInt(iten.estoque, 10) - parseInt(iten.quantidade);
-                                const up_doce = {
-                                    Name,
-                                    Estoque,
-                                    Decrement_estoque
-                                };
-                                const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
-                                console.log(Up_Estoque_Doce);*/
-                                document.location.reload(true);
+                                History('/confirm');
 
                             } else {
                                 alert('Erro no servidor');
@@ -168,39 +154,20 @@ function Carrinho(){
                                     document.querySelector('#res_Tt_salgados').innerHTML = 'Nosso estoque, Não atende essa quantidade!';
                                     alert('Nosso estoque, Não atende essa quantidade!');
                                 } else if(Tt.data === 'ok'){
-                                    localStorage.setItem('prod_id', iten.id);
-                                    console.log(localStorage.getItem('prod')+ 'ola');
-                                    History('/confirm');
-
-                                    console.log('Comprar.');
-                                    
-                                    // enviando pedido para a coxinha
-                                    /*const response = await Api.post('/carrinho_pedido', xxx)
-                                    console.log(response.data);
-                                    alert('O número do seu pedido é {'+np+'} consulte o estatus dele pelos canas de cominicação...');
-                                    */
-
+                                    localStorage.setItem('prod_id_s', iten.id);
+                                    console.log(localStorage.getItem('prod_id_s'));
+                                                             
                                     // atualizando a coluna Data para nao indexiar no carrinho
-                                    /*let Id = iten.id;
+                                    let Id = iten.id;
                                     const UP = {
                                         Id
                                     }
                                     const resp_update = await Api.put('/carrinho_upload_s',  UP)
-                                    console.log(resp_update.data);*/
+                                    console.log(resp_update.data);
 
-                                    //decrementando o estoque apos efetuar a compra
+                                    History('/confirm_s'); 
 
-                                    /*const Estoque = iten.estoque;
-
-                                    const Decrement_estoque = parseInt(iten.estoque, 10) - parseInt(iten.quantidade);
-                                    const up_doce = {
-                                        Name,
-                                        Estoque,
-                                        Decrement_estoque
-                                    };
-                                    const Up_Estoque_Doce = await Api.put('/estoque_s', up_doce);
-                                    console.log(Up_Estoque_Doce);
-                                    document.location.reload(true);*/
+                                    
                                 } else {
                                     alert('Erro no servidor');
                                 };
