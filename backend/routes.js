@@ -65,6 +65,7 @@ routes.post('/confirm_doce', Carrinho.Index_Doces_Confirm); // buscando pedido p
 //salgado
 routes.post('/carrinho_s', Carrinho.Salgado);
 routes.post('/carrinho_index_s', Carrinho.Index_Salgado);
+routes.post('/confirm_salgado', Carrinho.Index_Salgado_Confirm); // buscando pedido para confimação
 
 routes.put('/carrinho_upload', Carrinho.Update_D);//update data do pedido finalizado Doce
 routes.put('/carrinho_upload_s', Carrinho.Update_S); //update data do pedido finalizado Salgado;

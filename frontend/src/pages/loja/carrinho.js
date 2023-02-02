@@ -168,67 +168,29 @@ function Carrinho(){
                                     document.querySelector('#res_Tt_salgados').innerHTML = 'Nosso estoque, Não atende essa quantidade!';
                                     alert('Nosso estoque, Não atende essa quantidade!');
                                 } else if(Tt.data === 'ok'){
+                                    localStorage.setItem('prod_id', iten.id);
+                                    console.log(localStorage.getItem('prod')+ 'ola');
+                                    History('/confirm');
 
                                     console.log('Comprar.');
-                                    // Dados para  verificados para cobrr a tacha de entrega,
-                                    // e si atendemos essa região
-                                    // após a validação envir o pedido para ser preparado!... 
-                                    var NameC = prompt("Quao o nome de quem vai receber o pedido!");
-                                    while (NameC === ''){
-                                        NameC = prompt("Qual o nome de quem vai receber opedido ? : ");
-                                    };
-                                    var Rua = prompt("Digite o nome da Rua :" );
-                                    while(Rua === '') {
-                                        Rua = prompt("Digite o nome da rua : ");
-                                    };
-                                    var Casa = prompt('Digite o número da residencia :');
-                                    while(Casa === '') {
-                                        Casa = prompt('Digite o número da residenci :')
-                                    };
-                                    var Cep = prompt('Digite o CEP :');
-                                    while (Cep.length < 8){
-                                        Cep = prompt('Digite um CEP Valido:');
-                                    };
-                                    while (Cep.length > 8 ){
-                                        Cep = prompt('Digite um CEP Valido!');
-                                    };
-                                    var Troco = prompt('troco pra quanto ?');
-                                    while (Troco === ''){
-                                        Troco = prompt('Qual a forma de pagamento [Pix | Cartão | Dinheiro]');
-                                    }
-                                    const Iduser = localStorage.getItem('user');
-                                    let Name = iten.name;
-                                    let Quantidade = iten.quantidade;
-                                    let Preço = iten.preço;
-                                    let np = iten.id + 'S';
-                                    let Status = 'cozinha';
-                                    const Data = {
-                                        NameC,
-                                        Iduser,
-                                        Rua,
-                                        Casa,
-                                        Cep,
-                                        Name,
-                                        Quantidade,
-                                        Preço,
-                                        Troco,
-                                        Status,
-                                        np,
-                                    };
-                                    console.log(Data);
-
-                                    const response = await Api.post('/carrinho_pedido', Data)
+                                    
+                                    // enviando pedido para a coxinha
+                                    /*const response = await Api.post('/carrinho_pedido', xxx)
                                     console.log(response.data);
                                     alert('O número do seu pedido é {'+np+'} consulte o estatus dele pelos canas de cominicação...');
-                                    
-                                    let Id = iten.id;
+                                    */
+
+                                    // atualizando a coluna Data para nao indexiar no carrinho
+                                    /*let Id = iten.id;
                                     const UP = {
                                         Id
                                     }
                                     const resp_update = await Api.put('/carrinho_upload_s',  UP)
-                                    console.log(resp_update.data);
+                                    console.log(resp_update.data);*/
 
-                                    const Estoque = iten.estoque;
+                                    //decrementando o estoque apos efetuar a compra
+
+                                    /*const Estoque = iten.estoque;
 
                                     const Decrement_estoque = parseInt(iten.estoque, 10) - parseInt(iten.quantidade);
                                     const up_doce = {
@@ -238,7 +200,7 @@ function Carrinho(){
                                     };
                                     const Up_Estoque_Doce = await Api.put('/estoque_s', up_doce);
                                     console.log(Up_Estoque_Doce);
-                                    document.location.reload(true);
+                                    document.location.reload(true);*/
                                 } else {
                                     alert('Erro no servidor');
                                 };

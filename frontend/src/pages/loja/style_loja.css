@@ -210,8 +210,13 @@ ul li img {
     margin-left: 10%;
 }
 #Pedido_Confirm ul {
-    width: 60%;
-    margin-left: 20%;
+    width: 100%;
+    color: white;
+}
+#Pedido_Confirm ul img {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
 }
 #Pedido_Confirm form input {
     width: 80%;

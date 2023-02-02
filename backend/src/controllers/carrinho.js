@@ -48,6 +48,15 @@ module.exports = {
 
     },
 
+    async Index_Salgado_Confirm(request, response){
+        const {Prod_id} = request.body;
+        console.log('confirm');
+        console.log(Prod_id);
+        const Response = await connection('carrinho_salgado').where('id', Prod_id);
+        console.log(Response[0]);
+        return response.json(Response);
+    },
+
     async Salgado (request, response){
         const {Estoque, Name, Preço, User, Quantidade, Img, Full_date} = request.body;
         const Data = {

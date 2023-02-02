@@ -9,13 +9,30 @@ function Confirm(){
     const History = useNavigate();
     const Prod_id = localStorage.getItem('prod_id');
     const [Pedido_D, setPedido_D] = useState([]);
+    const [Pedido_S, setPedido_S] = useState([]);
     const Data_Pedido = {
         Prod_id
-    }
+    };
+
+    const Data_Salgado = {
+        Prod_id
+    };
     useEffect(() => {
         Api.post('/confirm_doce', Data_Pedido)
         .then((Response) =>{
             setPedido_D(Response.data);
+
+        }).catch(() =>{
+            alert('Erro interno');
+        })
+
+    }, []);
+    console.log(Pedido_D);
+
+    useEffect(() => {
+        Api.post('/confirm_salgado', Data_Salgado)
+        .then((Response) =>{
+            setPedido_S(Response.data);
 
         }).catch(() =>{
             alert('Erro interno');
@@ -50,6 +67,23 @@ function Confirm(){
                 <div id="Pedido_Confirm">
 
                     {Pedido_D.map((iten, key) => {
+                        const Preço = iten.preço;
+                        const Quantidade = iten.quantidade;
+                        let Valot_T = parseFloat(Preço) * parseInt(Quantidade, 10);
+
+                        return(
+                            <ul>
+                                <img src={URL + iten.img} alt="Logo"/>
+                                <p>{iten.name}</p>
+                                <br/>
+                                <p>Quantidade: {iten.quantidade} Unidades.</p>
+                                <p>Valor dos itens: {Valot_T},00 R$ </p>
+                                <hr/>
+                            </ul>
+                        )
+                    })}
+
+                    {Pedido_S.map((iten, key) => {
                         const Preço = iten.preço;
                         const Quantidade = iten.quantidade;
                         let Valot_T = parseFloat(Preço) * parseInt(Quantidade, 10);
