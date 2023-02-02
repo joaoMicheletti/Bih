@@ -192,8 +192,14 @@ ul li img {
     }
 }
 
+#Confirm_Header  {
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+}
+
 #Confirm_Header img {
-    margin-top: 15px;
+    margin-top: 30px;
     width: 100px;
     border-radius: 50%;
 }
@@ -202,7 +208,6 @@ ul li img {
     width: 70%;
     margin-left: 15%;
     text-align: center;
-    background-color: blue;
 }
 #Pedido_Confirm {
     background-color: blueviolet;
@@ -231,13 +236,22 @@ ul li img {
     width: 60%;
     height: 35px;
     font-size: 18px;
+    border: none;
+    border-radius: 20px;
 }
 #Confirmar {
-    background-color: rgb(81, 243, 81);
+    background-color: rgba(81, 243, 81, 0.842);
 }
 #Cancelar {
-    background-color: rgb(228, 15, 15);
+    background-color: rgb(224, 49, 49);
 }
 #Confirmar_Pedido{
     background-color: rgb(124, 138, 138);
+    border-radius: 20px;
+}
+@media(max-width: 768px) {
+    #Buttons button {
+        font-size: 10px;
+    }
+
 }

@@ -112,7 +112,7 @@ function Loja(){
                             const response = await Api.post('/carrinho', Data);
                             alert(response.data);
                             // gambiara para zerar o stado da variavel setQuantidade;
-                            //document.location.reload(true);   
+                            document.location.reload(true);   
                         };
                         
                         
