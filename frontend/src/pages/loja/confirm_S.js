@@ -24,9 +24,32 @@ function Confirm(){
         })
 
     }, []);
+    const [Name, setName] = useState();
+    const [Cidade, setCidade] = useState();
+    const [Endereco, setEndereco] = useState();
+    const [Cep, setCep] = useState();
+    const [Pagamento, setPagamento] = useState();
 
     function Comprar(e){
         e.preventDefault();
+        console.log(Name);
+        console.log(Cidade);
+        console.log(Endereco);
+        console.log(Cep);
+
+        if(Name === undefined){
+            alert('Preencha o campo Nome...')
+        } else if (Cidade === undefined){
+            alert('Preencha o campo "Cidade"...');
+        } else if(Endereco === undefined){
+            alert('Preencha o campo ""Endereço"...');
+        } else if(Cep === undefined){
+            alert('Preencha o campo Cep');
+        } else if(Cep.length < 8 || Cep.length > 8){
+            alert('Cep Invalido');
+        } else if(Pagamento === undefined) {
+            alert("Preencha o campo  de 'Pagamento'");
+        }
         //decrementando o estoque apos efetuar a compra
 
         /*const Estoque = iten.estoque;
@@ -45,11 +68,8 @@ function Confirm(){
         /*const response = await Api.post('/carrinho_pedido', xxx)
         console.log(response.data);
         alert('O número do seu pedido é {'+np+'} consulte o estatus dele pelos canas de cominicação...');
-        */
-
-        
+        */ 
     };
-
 
     function Cancelar_Pedido(e){
         e.preventDefault();
@@ -95,48 +115,99 @@ function Confirm(){
 
                     <form>
                         <p>Nome</p> 
-                            <input type='text' placeholder='Nome do cliente'></input>
+                            <input type='text' 
+                            placeholder='Nome do cliente'
+                            onChange={(e) => setName(e.target.value)}></input>
                         
                         <br/>
                         <p>Cidade</p>
-                        <input type='texte' placeholder="Cidade"></input>
+                        <input type='texte' 
+                        placeholder="Cidade"
+                        onChange={(e) => setCidade(e.target.value)}></input>
                         
                         <br/>
                         <p>Endereço</p> 
-                        <input type='text' placeholder="João pessoa n- 1533"></input>
+                        <input type='text' 
+                        placeholder="João pessoa n- 1533"
+                        onChange={(e) => setEndereco(e.target.value)}></input>
                         
                         <br/>
                         <p>Cep</p> 
-                        <input type='number' placeholder="CEP..."></input>
+                        <input type='number' 
+                        placeholder="CEP..."
+                        onChange={(e) => setCep(e.target.value)}></input>
                         
                         <br/>
-                        <p id="F_pagamento">Formas de pagamento.</p>
-                        <p>Cartão</p>
-                        <p>Pix</p>
-                        <p>Dinheiro</p>
-                        <br/>
-                        <p id="Warning">Caso Sejá (Dinheiro) envie-nos o valor que possui em mãos, 
-                        para providenciarmos o seu troco, caso necessário </p>
-                        <br/>
-                        <p id='Exemplo'>""Exemplo: Dinheiro 150""</p>
-                        <br/>
                         
-                        <p>Forma de Pagamento</p>
-                        <input type='text' placeholder="Cartão, Pix, Dinheiro 150"></input>
-                        <br/>
                         <div id="Buttons">
-                            <button id="Solicitar" type="submit" >Solicitar Valor do frete</button>
+
                             <br/>
                             <br/>
-                            <div id='Confirmar_Pedido'>
+                            {Pedido_S.map((elent, key) => {
+
+                                const Frete = (e) => {
+                                    e.preventDefault();
+
+                                    if(Name === undefined){
+                                        alert('Preencha o campo Nome...')
+                                    } else if (Cidade === undefined){
+                                        alert('Preencha o campo "Cidade"...');
+                                    } else if(Endereco === undefined){
+                                        alert('Preencha o campo ""Endereço"...');
+                                    } else if(Cep === undefined){
+                                        alert('Preencha o campo Cep');
+                                    } else if(Cep.length < 8 || Cep.length > 8){
+                                        alert('Cep Invalido');
+                                    };
+                                    document.querySelector("#Produto").innerHTML = `Valor do produto : ${elent.preço}R$`;
+                                    document.querySelector("#Quantidadee").innerHTML = `Quantidade : ${elent.quantidade}`;
+                                    document.querySelector("#Frete").innerHTML = `Valor do Frete : xxxx`;
+                                    document.querySelector("#Total").innerHTML = `Valor Total :`;
+                                };
+
+                                return(
+                                    <div key={elent.id} >
+                                        <button id="Solicitar" type="submit" onClick={Frete} >Solicitar Valor do frete</button>
+                                        <br/>
+                                        <div id='Confirmar_Pedido'>
+                                            <h4>Dados do pedido.</h4>
                     
-                                <p>Valor Do pedido : xxx</p>
-                                <p>Valor do Frete : xxx</p>
-                                <p> Valor Total = xxxxxxx</p>
-                    
-                            </div>
+                                            <p id="Produto"></p>
+                                            <br/>
+                                            <p id="Quantidadee"></p>
+                                            <br/>
+                                            <p id="Frete"></p>
+                                            <br/>
+                                            <p id="Total"></p>
+                                            <br/>
+                                
+                                        </div>
+
+                                    </div>
+                                    
+
+                                )
+                            })}
+                            
                             <br/>
-                            <button id="Confirmar" type="submit" >Confirmar Pedido</button>
+
+                            <p id="F_pagamento">Formas de pagamento.</p>
+                            <p>Cartão</p>
+                            <p>Pix</p>
+                            <p>Dinheiro</p>
+                            <br/>
+                            <p id="Warning">Caso Sejá (Dinheiro) envie-nos o valor que possui em mãos, 
+                            para providenciarmos o seu troco, caso necessário </p>
+                            <br/>
+                            <p id='Exemplo'>""Exemplo: Dinheiro 150""</p>
+                            <br/>
+                            
+                            <p>Forma de Pagamento</p>
+                            <input type='text' placeholder="Cartão, Pix, Dinheiro 150"></input>
+                            <br/>
+                                
+                            <br/>
+                            <button id="Confirmar" type="submit" onClick={Comprar} >Confirmar Pedido</button>
                             <br/>
                             <br/>
                             <button id="Cancelar" type='submit'onClick={Cancelar_Pedido} >Cancelar Pedido</button>
