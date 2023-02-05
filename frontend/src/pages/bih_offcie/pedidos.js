@@ -52,19 +52,25 @@ function Pedidos(){
                             alert('pedido sendo enviado!');
                             document.location.reload(true);
                         }
+                        const number = iten.iduser;
+                        const URL = 'https://api.whatsapp.com/send?phone=' + number;
                         return(
                             <ul key={iten.id}>
                                 <li>
                                     <br/><p>Pedido : {iten.np}</p><br/>
-                                    <p>nome cliente: {iten.namec}</p><br/>
                                     <p>Produtos: {iten.name}</p><br/>
                                     <p>Quantidade: {iten.quantidade} </p><br/>
                                     <p>Valor: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10) + 10},00 R$</p><br/>
                                     <p>Troco para/ : {iten.troco}R$</p><br/>
+                                    <p>nome cliente: {iten.namec}</p><br/>
                                     <p>ENDEREÇO</p><br/>
                                     <p>CEP: {iten.cep}</p><br/>
                                     <p>Rua : {iten.rua}</p><br/>
                                     <p>Casa Nº : {iten.casa}</p><br/>
+                                    <br/>
+                                    <a target='_blank' id='WP_USER'  href={URL}>Whatsapp</a>
+                                    <br/>
+                                    <br/>
                                     <button id='BTN' onClick={Upload}>Enviar</button>
                                     
                                 </li>
@@ -85,20 +91,27 @@ function Pedidos(){
                             const response = Api.put('/pedidos_upload', {data:Data})
                             alert('pedido sendo enviado!');
                             document.location.reload(true);
+                            console.log(response);
                         }
+                        const number = iten.iduser;
+                        const URL = 'https://api.whatsapp.com/send?phone=' + number;
                         return(
                             <ul key={iten.id}>
                                 <li>
                                     <br/><p>Número do Pedido : {iten.np}</p><br/>
-                                    <p>nome cliente: {iten.namec}</p><br/>
+                                    
                                     <p>Produtos: {iten.name}</p><br/>
                                     <p>Quantidade: {iten.quantidade} </p><br/>
                                     <p>Valor: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10) + 10},00 R$</p><br/>
                                     <p>Troco para/ : {iten.troco}R$</p><br/>
+                                    <p>nome cliente: {iten.namec}</p><br/>
                                     <p>ENDEREÇO</p><br/>
                                     <p>CEP: {iten.cep}</p><br/>
                                     <p>Rua : {iten.rua}</p><br/>
                                     <p>Casa Nº : {iten.casa}</p><br/>
+                                    <a target='_blank' id='WP_USER'  href={URL}>Whatsapp</a>
+                                    <br/>
+                                    <br/>
                                     
                                 </li>
                             </ul>
