@@ -25,6 +25,12 @@ function Register(){
         if(Data.Phone === ''){
             document.querySelector('#Result').innerHTML = 'Preencha o campo Celular!';
         
+        } else if(Data.Phone < 11){
+            document.querySelector("#Result").innerHTML = 'Número de Telefone Invalido';
+
+        } else if(Data.Phone > 11){
+            document.querySelector("#Result").innerHTML = 'Número de telefone invalido'; 
+
         } else if(Data.Pass === ''){
             document.querySelector('#Result').innerHTML = 'Preencha o campo Senha!';
 
