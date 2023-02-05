@@ -21,17 +21,18 @@ function Register(){
             Pass,
             Cpass
         };
+        console.log(Phone.length)
 
         if(Data.Phone === ''){
             document.querySelector('#Result').innerHTML = 'Preencha o campo Celular!';
         
-        } else if(Data.Phone < 11){
-            document.querySelector("#Result").innerHTML = 'Número de Telefone Invalido';
-
-        } else if(Data.Phone > 11){
-            document.querySelector("#Result").innerHTML = 'Número de telefone invalido'; 
-
-        } else if(Data.Pass === ''){
+        } else if(Phone.length > 11){
+            document.querySelector("#Result").innerHTML = "Número de Telefone Invalido";
+            console.log('> 11')
+        } else if(Phone.length < 11) {
+            document.querySelector("#Result").innerHTML = "Número de Telefone Invlido";
+            console.log('< 11');
+        }else if(Data.Pass === ''){
             document.querySelector('#Result').innerHTML = 'Preencha o campo Senha!';
 
         } else if(Data.Cpass === '') {
