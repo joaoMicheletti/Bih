@@ -259,3 +259,30 @@ ul li img {
     }
 
 }
+
+#IMG_Frete {
+    margin-left: 30px;
+    margin-top: 10px;
+    border-radius: 50%;
+    width: 150px;
+}
+#regiao {
+    text-align: center;
+}
+#Options {
+    text-align: center;
+    justify-content: space-around;
+    display: flex;
+    width: 80%;
+    margin-left: 10%;
+    background-color: brown;
+}
+#City {
+    text-align: center;
+    background-color: rgba(138, 29, 240, 0.582);
+    width: 200px;
+}
+#City img {
+    width: 100px;
+    border-radius: 50%;    
+}

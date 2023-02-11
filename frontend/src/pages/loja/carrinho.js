@@ -122,9 +122,7 @@ function Carrinho(){
                                     <p>{iten.name}</p>
                                     <br/>
                                     <p>quantidade : {iten.quantidade}</p><br/>
-                                    <p>Preço : {iten.preço}R$</p><br/>
-                                    <p>frete : 10,00R$</p><br/>
-                                    <p>TOTAL: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10) + 10 },00R$</p><br/>
+                                    <p>Preço :  { parseFloat(iten.preço, 10) * parseInt(iten.quantidade)},00R$</p><br/>
                                     <button onClick={Comprar} id='BTN_Carrinho' >Comprar</button>
                                     <button onClick={Cancelar} id='BTN_Carrinho' >Cancelar</button>
                                     
@@ -204,9 +202,7 @@ function Carrinho(){
                                         <p>{iten.name}</p>
                                         <br/>
                                         <p>quantidade : {iten.quantidade}</p><br/>
-                                        <p>Preço : {iten.preço}R$</p><br/>
-                                        <p>frete : 10,00R$</p><br/>
-                                        <p>TOTAL: {parseFloat(iten.preço, 10) * parseInt(iten.quantidade, 10) + 10},00 R$</p><br/>
+                                        <p>Preço : {parseFloat(iten.preço, 10) * parseInt(iten.quantidade)},00R$</p><br/>
                                         <button onClick={Comprar} id='BTN_Carrinho' >Comprar</button>
                                         <button onClick={Cancelar} id='BTN_Carrinho' >Cancelar</button>
                                         
