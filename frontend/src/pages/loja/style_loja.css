@@ -270,14 +270,15 @@ ul li img {
     text-align: center;
 }
 #Options {
-    text-align: center;
-    justify-content: space-around;
-    display: flex;
-    width: 80%;
+    height: auto;
+    max-width: 80%;
     margin-left: 10%;
-    background-color: brown;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 #City {
+    margin-top: 20px;
     text-align: center;
     background-color: rgba(138, 29, 240, 0.582);
     width: 200px;
