@@ -5,7 +5,11 @@ import Logo from '../assets/Logo.jpg';
 import './style_home.css';
 import Api from '../../services/api';
 
+
 function Home(){
+    
+        
+    
     const [itens, setItens] = useState([]);
     useEffect(() => {
         Api.get('/index_prop')
@@ -15,6 +19,7 @@ function Home(){
         })
         .catch(() => {
             console.log('erro')
+            
         })
     }, []);
     const VM = '< VM_Software />';

@@ -6,7 +6,7 @@ const api = axios.create({
 
 const api = axios.create({
     baseURL: 'http://localhost:3001',
-    timeout: 1000,
+    timeout: 6000,
     headers: {'Content-Type': 'application/json; charset=utf-8'}
   });
 

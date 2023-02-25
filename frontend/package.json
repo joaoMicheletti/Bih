@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.27.2",
+    "coordenadas-do-cep": "^1.2.0",
+    "get-route": "^1.0.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.4.0",

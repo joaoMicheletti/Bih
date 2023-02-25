@@ -18,6 +18,8 @@ const Carrinho = require('./src/controllers/carrinho');
 const Pedido = require('./src/controllers/pedido');
 //listagem de pedidos
 const List = require('./src/controllers/pedidos_list');
+//Calculando o frete com base na distância entre dois pontos em linha reta .
+const Frete = require('./src/controllers/frete.js'); 
 const routes = express.Router();
 
 //routes#
@@ -84,4 +86,7 @@ routes.get('/pedidos', List.Index);
 //função que separa os pedidos recebidos dos enviados.
 routes.put('/pedidos_upload', List.Upload_pedido);
 routes.get('/pedidos_vendidos', List.List_vendidos);
+
+// calcular frete;
+routes.post('/frete_calc', Frete.Index);
 module.exports = routes;

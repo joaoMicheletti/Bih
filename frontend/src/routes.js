@@ -10,8 +10,6 @@ import Carrinho from '../src/pages/loja/carrinho';
 import Exit from '../src/pages/loja/exit';
 import Confirm from '../src/pages/loja/confirm'; //pagina de confirmação de pedido do tipo doces
 import Confimr_s from '../src/pages/loja/confirm_S'; // confirmação de pedido do tipo salgados
-import Frete from '../src/pages/loja/frete'; //frete doces
-import Frete_s from '../src/pages/loja/frete_s'; // frete salgados;
 //adm imports 
 import Cbia from './pages/bih_offcie/index';//logind to adm
 import Doces from './pages/bih_offcie/painel_d'; //painel de doces
@@ -33,8 +31,6 @@ class Rotas extends Component {
                     <Route path='carrinho' element={<Carrinho/>} />
                     <Route path='confirm' element={<Confirm/>}/>
                     <Route path='/confirm_s' element={<Confimr_s/>}/>
-                    <Route path='/frete' element={<Frete/>}/>
-                    <Route path='/frete_s' element={<Frete_s/>}/>
                     <Route path='exit' element={<Exit/>}/>
                     
                     <Route path='login_bia' element={<Cbia/>}/>

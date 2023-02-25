@@ -133,7 +133,8 @@ function Confirm(){
 
                         <div id="Buttons">
                             {Pedido_D.map((elent, keyy) => {
-                                const Frete = (e) => {
+
+                                const Frete = async (e) => {
                                     e.preventDefault();
 
                                     if(Name === undefined){
@@ -147,10 +148,28 @@ function Confirm(){
                                     } else if(Cep.length < 8 || Cep.length > 8){
                                         alert('Cep Invalido');
                                     };
+
+                                    const Data = {
+                                        Cep,
+                                    };
+                                    async function Destance(){
+                                        await Api.post("/frete_calc", Data)
+                                        .then(Km => {
+                                            console.log(Km);
+                                        }) .catch(err => {
+                                            console.log(err);
+                                        })
+                                    }                        
+                                    
+                                    Destance();
+
+
+
                                     document.querySelector("#Produto").innerHTML = `Valor do produto : ${elent.preço}R$`;
                                     document.querySelector("#Quantidadee").innerHTML = `Quantidade : ${elent.quantidade}`;
-                                    document.querySelector("#Frete").innerHTML = `Valor do Frete : xxxx`;
-                                    document.querySelector("#Total").innerHTML = `Valor Total :`;
+                                    document.querySelector("#Frete").innerHTML = `Valor do Frete  `;
+                                    document.querySelector("#Total").innerHTML = '....';
+
                                 };
                                 return(
                                     <div keyy={elent.id}>
