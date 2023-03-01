@@ -9,6 +9,7 @@ function Confirm(){
     const History = useNavigate();
     const Prod_id = localStorage.getItem('prod_id');
     const [Pedido_D, setPedido_D] = useState([]);
+    
     const Data_Pedido = {
         Prod_id
     };
@@ -22,7 +23,6 @@ function Confirm(){
         })
 
     }, []);
-    console.log(Pedido_D)
     const [Name, setName] = useState();
     const [Cidade, setCidade] = useState();
     const [Endereco, setEndereco] = useState();
