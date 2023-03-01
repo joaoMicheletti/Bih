@@ -117,6 +117,7 @@ function Confirm(){
                                     };
                                     //buscando nobak a distancia em km e atibuindo para cada km o valor de 1,50$;
                                     async function Destance(){
+                                        document.querySelector("#Produto").innerHTML = `Aguarde estamos calculano o seu pedido!`;
                                         
                                         const Res = await Api.post("/frete_calc", Data)
                                         .then(Km => {
@@ -134,6 +135,7 @@ function Confirm(){
 
                                         }) .catch(err =>{
                                             alert("Erro interno. tente novamente mais tarde!");
+                                            document.querySelector("#Produto").innerHTML = `Erro interno. tente novamente mais tarde!!`;
                                             console.log('erro');
                                         })
                                     }                        
@@ -161,6 +163,12 @@ function Confirm(){
                                     console.log(Pagamento)
                                     console.log(Tot);
                                     console.log(Pedido_D);
+                                    const Cozinha = {
+                                        Pagamento,
+                                        Tot,
+                                        Pedido_D
+                                    };
+                                    console.log(Cozinha);
                             
                                     //decrementando o estoque apos efetuar a compra
                                     /*const Estoque = iten.estoque;
@@ -174,7 +182,7 @@ function Confirm(){
                                    console.log(Up_Estoque_Doce);*/
                             
                                    // enviando pedido para a cozinha
-                                   //const response = await Api.post('/carrinho_pedido');
+                                   //const response = await Api.post('/carrinho_pedido', Cozinha);
                                 };
                             
                             
@@ -193,7 +201,6 @@ function Confirm(){
                                 
                                         <p id="Produto"></p>
                                         <br/>
-                                        <p id="Await"></p>
                                         <p id="Quantidadee"></p>
                                         <br/>
                                         <h4 id="Erro"></h4>
