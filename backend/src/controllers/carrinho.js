@@ -33,7 +33,7 @@ module.exports = {
         .where('full_date', Full_date)
         .select('*');
 
-        console.log(Data);
+        console.log(data);
 
         return response.json(data);
     },

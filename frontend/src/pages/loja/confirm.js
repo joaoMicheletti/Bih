@@ -125,7 +125,7 @@ function Confirm(){
                                             console.log(frete);
                                             const preco = parseFloat(elent.preço);
                                             const quanti = parseFloat(elent.quantidade);
-                                            const Total = (preco + quanti) + frete * 1.50;
+                                            const Total = (preco * quanti) + frete * 1.50;
                                             setTot(Total);
                                             
                                             document.querySelector("#Produto").innerHTML = `Valor do produto : ${elent.preço}R$`;
@@ -160,29 +160,68 @@ function Confirm(){
                                     } else if(Pagamento === undefined) {
                                         alert('Preencha o campo Forma de Pagamneto');
                                     };
-                                    console.log(Pagamento)
-                                    console.log(Tot);
-                                    console.log(Pedido_D);
-                                    const Cozinha = {
-                                        Pagamento,
-                                        Tot,
-                                        Pedido_D
+
+                                    if(Tot === undefined){
+                                        alert('Você só pode confirmar o pedido Apos ele ser calculado...');
+                                        document.location.reload(true);
+                                    } else {
+
+                                        const Troco = Pagamento;
+                                        const Rua = Endereco;
+                                        const np = Pedido_D[0].id + "D";
+                                        const NameC = Name;
+                                        const Iduser = Pedido_D[0].user;
+                                        const Preço = Pedido_D[0].preço;
+                                        const Quantidade = Pedido_D[0].quantidade;
+                                        const Status = Pedido_D[0].status;
+
+
+                                        const Cozinha = {
+                                            NameC,
+                                            Iduser, 
+                                            Rua,    
+                                            Name, 
+                                            Preço, 
+                                            Quantidade, 
+                                            Troco,
+                                            Status,
+                                            np,
+                                            Cep,
+                                            Cidade,
+                                            Tot,
+                                        };
+                                        console.log(Cozinha);
+
+                                        // enviando pedido para a cozinha
+                                        const Pedido_Finalizado = async () => {
+                                            const response = await Api.post('/carrinho_pedido', )
+                                            console.log(response.data);
+                                            alert('O número do seu pedido é {'+np+'} consulte o estatus dele pelos canas de cominicação...');
+                                        };
+                                        Pedido_Finalizado();
+
+                                        
+
+                                        //decrementando o estoque apos efetuar a compra
+                                        const Decrement = async () => {
+                                            const Estoque = Pedido_D[0].estoque;
+                                            const Name = Pedido_D[0].name;
+                                            const Decrement_estoque = parseInt(Pedido_D[0].estoque, 10) - parseInt(Pedido_D[0].quantidade);
+                                            const up_doce = {
+                                                Name,
+                                                Estoque,
+                                                Decrement_estoque
+                                            };
+                                            const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
+                                            console.log(Up_Estoque_Doce);
+                                        };
+                                        
+                                        Decrement();
+
                                     };
-                                    console.log(Cozinha);
                             
-                                    //decrementando o estoque apos efetuar a compra
-                                    /*const Estoque = iten.estoque;
-                                    const Decrement_estoque = parseInt(iten.estoque, 10) - parseInt(iten.quantidade);
-                                    const up_doce = {
-                                        Name,
-                                        Estoque,
-                                        Decrement_estoque
-                                    };
-                                    const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
-                                   console.log(Up_Estoque_Doce);*/
-                            
-                                   // enviando pedido para a cozinha
-                                   //const response = await Api.post('/carrinho_pedido', Cozinha);
+                                    
+                                   
                                 };
                             
                             

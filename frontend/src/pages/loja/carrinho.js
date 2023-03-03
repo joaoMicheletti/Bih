@@ -16,11 +16,13 @@ function Carrinho(){
     };
     console.log(OBJ);
     const VM = '< VM_Software />';
+    console.log(Today);
     
     useEffect(() => { // chamando os pedidos da categoria Doce;
         Api.post('/carrinho_index_d', OBJ)
         .then((Response) => {
             setToday(Response.data);
+            console.log(Response);
         }).catch(() => {
             if(User === null){
                 alert("Acesso restrito");

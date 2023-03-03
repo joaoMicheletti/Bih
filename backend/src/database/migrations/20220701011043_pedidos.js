@@ -17,7 +17,7 @@ exports.up = function(knex) {
         table.string('namec').notNullable();
         table.string('iduser').notNullable();
         table.string('rua').notNullable();
-        table.string('casa').notNullable();
+        table.string('casa');
         table.string('cep').notNullable();
     });
   
