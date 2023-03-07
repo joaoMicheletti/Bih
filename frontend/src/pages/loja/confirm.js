@@ -173,13 +173,15 @@ function Confirm(){
                                         const Iduser = Pedido_D[0].user;
                                         const Preço = Pedido_D[0].preço;
                                         const Quantidade = Pedido_D[0].quantidade;
-                                        const Status = Pedido_D[0].status;
+                                        const Status = 'preventErro';
+                                        const Casa = Endereco;
 
 
                                         const Cozinha = {
                                             NameC,
                                             Iduser, 
-                                            Rua,    
+                                            Rua,
+                                            Casa,   
                                             Name, 
                                             Preço, 
                                             Quantidade, 
