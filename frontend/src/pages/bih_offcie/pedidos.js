@@ -33,9 +33,9 @@ function Pedidos(){
             <header id='Cabeçalho'>
 
                 <nav id='Menu'>
-                    <Link id='Lk' to="/p_salgados">P_Salgados : </Link>
+                    <Link id='Lk' to="/p_salgados">Painel_Salgados : </Link>
                     <Link id='LK' to="/p_cadastro_itens">Cadastrar</Link>
-                    <Link id='Lk' to="/p_doces">P_Doces : </Link>
+                    <Link id='Lk' to="/p_doces">Painel_Doces : </Link>
                 </nav>
             </header>
             <div id="Pedidos_Container">
@@ -51,6 +51,7 @@ function Pedidos(){
                             const response = Api.put('/pedidos_upload', {data:Data})
                             alert('pedido sendo enviado!');
                             document.location.reload(true);
+                            console.log(response);
                         }
                         const number = iten.iduser;
                         const URL = 'https://api.whatsapp.com/send?phone=' + number;
@@ -60,13 +61,12 @@ function Pedidos(){
                                     <br/><p>Pedido : {iten.np}</p><br/>
                                     <p>Produtos: {iten.name}</p><br/>
                                     <p>Quantidade: {iten.quantidade} </p><br/>
-                                    <p>Valor: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10) + 10},00 R$</p><br/>
+                                    <p>Valor: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10) },00 R$</p><br/>
                                     <p>Troco para/ : {iten.troco}R$</p><br/>
                                     <p>nome cliente: {iten.namec}</p><br/>
                                     <p>ENDEREÇO</p><br/>
                                     <p>CEP: {iten.cep}</p><br/>
                                     <p>Rua : {iten.rua}</p><br/>
-                                    <p>Casa Nº : {iten.casa}</p><br/>
                                     <br/>
                                     <a target='_blank' id='WP_USER'  href={URL}>Whatsapp</a>
                                     <br/>
@@ -83,16 +83,7 @@ function Pedidos(){
                 <div id="Pedidos_Enviados">
                     <h2>#Enviados</h2>
                     {Vendidos.map((iten, key) => {
-                        const Upload = async () =>{
-                            const ID = iten.id;
-                            const Data = {
-                                ID,
-                            };
-                            const response = Api.put('/pedidos_upload', {data:Data})
-                            alert('pedido sendo enviado!');
-                            document.location.reload(true);
-                            console.log(response);
-                        }
+                        
                         const number = iten.iduser;
                         const URL = 'https://api.whatsapp.com/send?phone=' + number;
                         return(
@@ -108,7 +99,6 @@ function Pedidos(){
                                     <p>ENDEREÇO</p><br/>
                                     <p>CEP: {iten.cep}</p><br/>
                                     <p>Rua : {iten.rua}</p><br/>
-                                    <p>Casa Nº : {iten.casa}</p><br/>
                                     <a target='_blank' id='WP_USER'  href={URL}>Whatsapp</a>
                                     <br/>
                                     <br/>

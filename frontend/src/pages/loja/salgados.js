@@ -8,6 +8,7 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Salgado(){
+    
     const VM = '< VM_Software />';
     const [Quantidade, setQuantidade] = useState('');
     const url =  'http://localhost:3001/files/';

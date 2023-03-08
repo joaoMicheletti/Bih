@@ -7,6 +7,7 @@ import './style_loja.css';
 //import Api from '../../services/api';
 
 function Exit(){
+    
     const VM = '< VM_Software />';
     const History = useNavigate();
     const Exit = () => {

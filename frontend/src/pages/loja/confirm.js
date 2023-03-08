@@ -121,7 +121,7 @@ function Confirm(){
                                         
                                         const Res = await Api.post("/frete_calc", Data)
                                         .then(Km => {
-                                            const frete = parseInt(Km.data);
+                                            const frete = parseInt(Km.data, 10);
                                             console.log(frete);
                                             const preco = parseFloat(elent.preço);
                                             const quanti = parseFloat(elent.quantidade);
@@ -132,8 +132,8 @@ function Confirm(){
                                             document.querySelector("#Quantidadee").innerHTML = `Quantidade = ${elent.quantidade}`;
                                             document.querySelector("#Frete").innerHTML = `Valor do Frete = ${parseFloat(frete * 1.50)} R$ `;
                                             document.querySelector("#Total").innerHTML = `TOTAL ==== ${parseFloat(Total)} R$`;
-
-                                        }) .catch(err =>{
+                                            console.log(Res);
+                                        }).catch(err =>{
                                             alert("Erro interno. tente novamente mais tarde!");
                                             document.querySelector("#Produto").innerHTML = `Erro interno. tente novamente mais tarde!!`;
                                             console.log('erro');
@@ -173,7 +173,7 @@ function Confirm(){
                                         const Iduser = Pedido_D[0].user;
                                         const Preço = Pedido_D[0].preço;
                                         const Quantidade = Pedido_D[0].quantidade;
-                                        const Status = 'preventErro';
+                                        const Status = 'cozinha';
                                         const Casa = Endereco;
 
 
@@ -196,9 +196,10 @@ function Confirm(){
 
                                         // enviando pedido para a cozinha
                                         const Pedido_Finalizado = async () => {
-                                            const response = await Api.post('/carrinho_pedido', )
+                                            const response = await Api.post('/carrinho_pedido', Cozinha)
                                             console.log(response.data);
-                                            alert('O número do seu pedido é {'+np+'} consulte o estatus dele pelos canas de cominicação...');
+                                            alert('O número do seu pedido é {'+np+'} consulte o status dele pelos canas de cominicação...');
+                                            localStorage.removeItem('prod_id');
                                         };
                                         Pedido_Finalizado();
 
@@ -208,7 +209,7 @@ function Confirm(){
                                         const Decrement = async () => {
                                             const Estoque = Pedido_D[0].estoque;
                                             const Name = Pedido_D[0].name;
-                                            const Decrement_estoque = parseInt(Pedido_D[0].estoque, 10) - parseInt(Pedido_D[0].quantidade);
+                                            const Decrement_estoque = parseInt(Pedido_D[0].estoque, 10) - parseInt(Pedido_D[0].quantidade, 10);
                                             const up_doce = {
                                                 Name,
                                                 Estoque,

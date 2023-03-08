@@ -286,9 +286,9 @@ function Painel_p(){
         <div className="Produtos_Container">
             <header>
                 <nav id='Cadastro_itens'>
-                    <Link id="Link" to='/p_salgados'>P_Salgados</Link>
-                    <Link id="Link" to='/p_doces' >P_Doces</Link>
-                    <Link to='/pedidos'>Pedidos</Link> 
+                    <Link id="Link" to='/p_salgados'>Painel_Salgados</Link>
+                    <Link id="Link" to='/p_doces' >Painle_Doces</Link>
+                    <Link to='/pedidos'>Pedidos_Recebidos</Link>
                 </nav>                
             </header>
             <div className="Forms_Container">

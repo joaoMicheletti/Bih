@@ -8,6 +8,7 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Loja(){
+    
     const VM = '< VM_Software />';
     const hystory = useNavigate();
     const [Quantidade, setQuantidade] = useState('');

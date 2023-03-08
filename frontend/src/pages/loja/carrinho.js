@@ -7,6 +7,7 @@ import './style_loja.css';
 import Api from '../../services/api';
 
 function Carrinho(){
+    
     const History = useNavigate();
     const URL = 'http://localhost:3001/files/';
     const [Today, setToday] = useState([]);
@@ -124,7 +125,7 @@ function Carrinho(){
                                     <p>{iten.name}</p>
                                     <br/>
                                     <p>quantidade : {iten.quantidade}</p><br/>
-                                    <p>Preço :  { parseFloat(iten.preço, 10) * parseInt(iten.quantidade)},00R$</p><br/>
+                                    <p>Preço :  { parseFloat(iten.preço, 10) * parseInt(iten.quantidade, 10)},00R$</p><br/>
                                     <button onClick={Comprar} id='BTN_Carrinho' >Comprar</button>
                                     <button onClick={Cancelar} id='BTN_Carrinho' >Cancelar</button>
                                     
@@ -204,7 +205,7 @@ function Carrinho(){
                                         <p>{iten.name}</p>
                                         <br/>
                                         <p>quantidade : {iten.quantidade}</p><br/>
-                                        <p>Preço : {parseFloat(iten.preço, 10) * parseInt(iten.quantidade)},00R$</p><br/>
+                                        <p>Preço : {parseFloat(iten.preço, 10) * parseInt(iten.quantidade, 10)},00R$</p><br/>
                                         <button onClick={Comprar} id='BTN_Carrinho' >Comprar</button>
                                         <button onClick={Cancelar} id='BTN_Carrinho' >Cancelar</button>
                                         

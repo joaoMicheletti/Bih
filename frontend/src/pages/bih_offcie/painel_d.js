@@ -36,9 +36,9 @@ function Painel_d(){
             <header className='Cabeçalho'>
                 <img className='Logo' src={Logo} alt='Logo'/>
                 <nav className='Menu'>
-                    <Link to='/p_salgados'>P_Salgados  </Link>
+                    <Link to='/p_salgados'>Painel_Salgados  </Link>
                     <Link to='/p_cadastro_itens'>Cadastrar  </Link>
-                    <Link to='/pedidos'>Pedidos</Link> 
+                    <Link id='LK' to="/pedidos_enviados">Pedidos_Enviados</Link>
                 </nav>
             </header>
 

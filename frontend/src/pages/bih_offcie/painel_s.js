@@ -42,9 +42,9 @@ function Painel_s(){
             <header className='Cabeçalho'>
                     <img className='Logo' id="Logo" src={Logo} alt="Logo"/>
                     <nav className='Menu'>
-                        <Link to='/p_doces'>P_Doces  </Link>
+                        <Link to='/p_doces'>Painel_Doces  </Link>
                         <Link  to="/p_cadastro_itens">Cadastrar  </Link>
-                        <Link to='/pedidos'>Pedidos</Link> 
+                        <Link to='/pedidos'>Pedidos_Recebidos</Link>
                     </nav>
                 </header> 
                 
