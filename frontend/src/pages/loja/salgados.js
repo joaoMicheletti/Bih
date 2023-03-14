@@ -105,6 +105,9 @@ function Salgado(){
                             } else if(Quantidade === ''){
                                 alert('Defina a quantidade!');
     
+                            } else if(Quantidade < 0){
+                                alert("Defina um valor Valido!");
+    
                             } else if(Quantidade > parseInt(iten.estoque, 10)) {
                                 document.querySelector('#Estoque_alert').innerHTML = 'Quantidade superior do estoque!';
                             } else {
