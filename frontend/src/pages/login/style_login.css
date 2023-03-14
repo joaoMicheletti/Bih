@@ -90,3 +90,8 @@ h4 {
     }
 
 }
+@media(max-width: 400px){
+    #Form {
+        margin-left: 10%;
+    }
+}

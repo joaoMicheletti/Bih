@@ -71,7 +71,7 @@ h4 {
 }
 @media(max-width: 700px){
     .Form {
-        margin-left: -20px;
+        margin-left: -40px;
     }
     .Bolo_Img {
         display: none;

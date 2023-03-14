@@ -50,7 +50,7 @@ function Carrinho(){
             <header className='Cabeçalho'>
                 <img className='Logo' src={Logo} alt="Logo"/>
                 <nav className='Menu'>
-                    <Link  to="/" >Home</Link>
+                    
                     <Link to='/loja'>Doces</Link>
                     <Link to="/salgados">Salgados</Link>
                     <Link to='/exit'><ImExit/></Link>
@@ -58,7 +58,7 @@ function Carrinho(){
             </header>
 
             <div id='Carrinho_Container'>
-                <h3>Doces</h3>
+                <h3 id='D'>Doces</h3>
                 <p id='res_Tt'></p>
                 <div id='Pedidos_hoje'>
 

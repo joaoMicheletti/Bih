@@ -74,6 +74,7 @@ body {
     border-color: transparent; 
     font-size: 15px;
     color: white;
+    margin-bottom: 60px;
 }
 .Conteudo .Txt_Box button:hover {
     background-color: rgba(225, 34, 101, 0.815);;
