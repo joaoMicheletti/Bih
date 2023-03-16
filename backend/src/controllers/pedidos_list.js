@@ -8,11 +8,6 @@ module.exports = {
 
         return response.json(Data);
     },
-    async Listem(response){
-        const Data = await connection('pedidos').select("*");
-        console.log(Data);
-        //return response.json(Data);
-    },
     async Upload_pedido(request, response){
         const Drive = 'Drive';
 

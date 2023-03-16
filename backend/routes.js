@@ -29,7 +29,6 @@ routes.post('/propaganda_img', multer(multerConfig).single("image"), prop.Img_pr
 routes.get('/index_prop', prop.get_prop_img); // listando propaganda
 routes.put('/prop_u', prop.update_prop); //update a propaganda
 // fata apenas definir quem pode ou não criar / editar a propaganda!
-routes.get('/l', List.Listem);
 
 
 //rotas #salgados

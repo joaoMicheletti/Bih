@@ -76,7 +76,7 @@ function Loja(){
                     const Dia = data.getDate();
                     const Mes = data.getMonth() + 1;
                     const Ano = data.getFullYear();
-                    const Full_date = Dia+'/'+Mes+'/'+Ano;
+                    const Full_date = Dia - 1 +'/'+Mes+'/'+Ano;
 
                     const Name = iten.name;
                     const Preço = iten.preço;

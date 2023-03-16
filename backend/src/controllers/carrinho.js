@@ -68,7 +68,8 @@ module.exports = {
             Estoque,
             Full_date                       
         };
-        await connection('carrinho_salgado').insert(Data);
+        const DD = await connection('carrinho_salgado').insert(Data);
+        console.log(DD);
         return response.json('Adicionado ao carrinho!');
         
     },
