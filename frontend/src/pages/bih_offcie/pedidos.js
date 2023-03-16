@@ -59,7 +59,7 @@ function Pedidos(){
                             <ul key={iten.id}>
                                 <li>
                                     <br/><p>Pedido : {iten.np}</p><br/>
-                                    <p>Produtos: {iten.name}</p><br/>
+                                    <p>Produtos: {iten.name_p}</p><br/>
                                     <p>Quantidade: {iten.quantidade} </p><br/>
                                     <p>Valor: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10) },00 R$</p><br/>
                                     <p>Troco para/ : {iten.troco}R$</p><br/>
@@ -91,9 +91,9 @@ function Pedidos(){
                                 <li>
                                     <br/><p>Número do Pedido : {iten.np}</p><br/>
                                     
-                                    <p>Produtos: {iten.name}</p><br/>
+                                    <p>Produtos: {iten.name_p}</p><br/>
                                     <p>Quantidade: {iten.quantidade} </p><br/>
-                                    <p>Valor: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10) + 10},00 R$</p><br/>
+                                    <p>Valor: {parseInt(iten.preço, 10) * parseInt(iten.quantidade, 10)},00 R$</p><br/>
                                     <p>Troco para/ : {iten.troco}R$</p><br/>
                                     <p>nome cliente: {iten.namec}</p><br/>
                                     <p>ENDEREÇO</p><br/>

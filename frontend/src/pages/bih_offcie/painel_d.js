@@ -38,7 +38,7 @@ function Painel_d(){
                 <nav className='Menu'>
                     <Link to='/p_salgados'>Painel_Salgados  </Link>
                     <Link to='/p_cadastro_itens'>Cadastrar  </Link>
-                    <Link id='LK' to="/pedidos_enviados">Pedidos_Enviados</Link>
+                    <Link id='LK' to="/pedidos">Pedidos_Enviados</Link>
                 </nav>
             </header>
 

@@ -55,6 +55,7 @@ function Confirm(){
                         const Quantidade = iten.quantidade;
                         let Valot_T = parseFloat(Preço) * parseInt(Quantidade, 10);
                         
+                        
 
                         return(
                             <ul>
@@ -180,13 +181,14 @@ function Confirm(){
                                         const Quantidade = Pedido_S[0].quantidade;
                                         const Status = 'cozinha';
                                         const Casa = Endereco;
+                                        const Name_p = Pedido_S[0].name;
 
                                         const Cozinha = {
                                             NameC,
                                             Iduser, 
-                                            Rua,   //endereço 
-                                            Casa,
-                                            Name, 
+                                            Rua,
+                                            Casa,   
+                                            Name_p, 
                                             Preço, 
                                             Quantidade, 
                                             Troco,
@@ -204,6 +206,8 @@ function Confirm(){
                                             console.log(response.data);
                                             alert('O número do seu pedido é {'+np+'} consulte o estatus dele pelos canas de cominicação...');
                                             localStorage.removeItem('prod_id_s');
+                                            History("/");
+
                                         };
                                         Pedido_Finalizado();
                                         

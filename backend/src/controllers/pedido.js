@@ -3,14 +3,14 @@ const connection = require('../database/conection');
 
 module.exports = {
     async Create(request, response){
-        const {np, NameC, Iduser, Rua, Casa, Cep,  Name, Preço, Quantidade, Troco, Status} = request.body
+        const {np, NameC, Iduser, Rua, Casa, Cep,  Name_p, Preço, Quantidade, Troco, Status} = request.body
         const Data = {
             NameC,
             Iduser, 
             Rua, 
             Casa, 
             Cep,  
-            Name, 
+            Name_p, 
             Preço, 
             Quantidade, 
             Troco,

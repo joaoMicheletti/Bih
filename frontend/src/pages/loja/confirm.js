@@ -175,14 +175,14 @@ function Confirm(){
                                         const Quantidade = Pedido_D[0].quantidade;
                                         const Status = 'cozinha';
                                         const Casa = Endereco;
-
+                                        const Name_p = Pedido_D[0].name;
 
                                         const Cozinha = {
                                             NameC,
                                             Iduser, 
                                             Rua,
                                             Casa,   
-                                            Name, 
+                                            Name_p, 
                                             Preço, 
                                             Quantidade, 
                                             Troco,
@@ -200,6 +200,7 @@ function Confirm(){
                                             console.log(response.data);
                                             alert('O número do seu pedido é {'+np+'} consulte o status dele pelos canas de cominicação...');
                                             localStorage.removeItem('prod_id');
+                                            History("/");
                                         };
                                         Pedido_Finalizado();
 

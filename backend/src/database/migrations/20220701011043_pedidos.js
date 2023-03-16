@@ -6,7 +6,7 @@ exports.up = function(knex) {
     return knex.schema.createTable('pedidos', function(table){
             // info produtos
         table.increments();
-        table.string('name').notNullable();
+        table.string('name_p').notNullable();
         table.string('quantidade').nullable();
         table.string('preço').notNullable();
         table.string('troco').notNullable();
