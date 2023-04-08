@@ -237,6 +237,9 @@ function Confirm(){
                                 }
                                 return(
                                     <div keyy={elent.id}>
+                                    	<button id="Retirada" type="submit"  > Solicitar Retirada</button>
+                                    	<br/>
+                                    	<br/>
                                         <button id="Solicitar" type="submit" onClick={Frete} >Solicitar Valor do frete</button>
                                         <br/>
                                         <br/>
