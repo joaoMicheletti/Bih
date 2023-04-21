@@ -16,8 +16,8 @@ import Doces from './pages/bih_offcie/painel_d'; //painel de doces
 import Cadastro from './pages/bih_offcie/painel_p'; //painel de cadastro
 import SSalgados from  './pages/bih_offcie/painel_s'; //painel de salgados
 import Pedidos from './pages/bih_offcie/pedidos'; //painel de pedidos
-
-
+//page of erro (404);
+import NotFound from './pages/404/notfound';
 class Rotas extends Component {
     render() {
         return(
@@ -40,7 +40,7 @@ class Rotas extends Component {
                     <Route path='pedidos' element={<Pedidos/>} />
 
 
-                    <Route path='*' element={<h1>Pagina não encontrada retorne!</h1>}/>
+                    <Route path='*' element={<NotFound/>}/>
 
                     
                 </Routes>

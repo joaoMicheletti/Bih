@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#Logo_img {
+    border-radius: 50%;
+    width: 420px;
+}
+#Content {
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+    background-color: blue;
+}
+
+#lk {
+    margin-top: 100px;
+}
+
+#Code {
+    font-size: 500px;
+}
+
+#Sorry {
+    font-size: 60px;
+}
