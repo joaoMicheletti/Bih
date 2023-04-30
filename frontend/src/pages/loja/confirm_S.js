@@ -244,9 +244,52 @@ function Confirm(){
                                     alert('Pedido cancelado...');
                                     History('/loja');
                                 };
+                                //função para retirar o pedido na loja,
+                                async function Retirada(e){
+                                    e.preventDefault();
+                                    const Troco = 'retirada';
+                                    const Rua = "retirada";
+                                    const np = Pedido_S[0].id + "S";
+                                    const NameC = Name;
+                                    const Iduser = Pedido_S[0].user;
+                                    const Preço = Pedido_S[0].preço;
+                                    const Quantidade = Pedido_S[0].quantidade;
+                                    const Status = 'cozinha';
+                                    const Casa = "retirada";
+                                    const Name_p = Pedido_S[0].name;
+                                    
+                                    if (NameC === undefined){
+                                        alert('Informe Qual o nome de quem vai retirar o pedido: ');
+                                    } else{
+                                        
+                                        const DataRetirada = {
+                                            NameC, //nome do cliente a retiar o pedido !
+                                            Iduser, 
+                                            Rua,
+                                            Casa,   
+                                            Name_p, 
+                                            Preço, 
+                                            Quantidade, 
+                                            Troco,
+                                            Status,
+                                            np,
+                                            Cep: "retirada",
+                                            Cidade: "retirada",
+                                            Tot: "retirada"
+                                        };
+                                        console.log(DataRetirada);
+
+                                        const response = await Api.post('/carrinho_pedido', DataRetirada)
+                                            console.log(response.data);
+                                            alert('O número do seu pedido é {'+np+'} consulte o status dele pelos canas de cominicação...');
+                                            localStorage.removeItem('prod_id');
+                                            History("/");
+
+                                    };                                    
+                                };
                                 return(
                                     <div keyy={elent.id}>
-                                    	<button id="Retirada" type="submit"  > Solicitar Retirada</button>
+                                    	<button id="Retirada" type="submit" onClick={Retirada}  > Solicitar Retirada</button>
                                     	<br/>
                                     	<br/>
                                         <button id="Solicitar" type="submit" onClick={Frete} >Solicitar Valor do frete</button>
