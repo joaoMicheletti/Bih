@@ -18,7 +18,7 @@ function NotFound(){
 
                 <p id='Sorry'>Sorry, page notfound!</p>
                 <p id='Return' >Return to Home</p> 
-                <Link id='Linkk'  to='/loja'>Click Here</Link>
+                <Link id='Linkk'  to='/'>Click Here</Link>
                 
 
             </div>
