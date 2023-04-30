@@ -53,14 +53,21 @@ body {
 }
 
 .Conteudo .Img_Box img {
-    margin-left: 10%;
+    margin-left: 9%;
     width: 90%;
     margin-bottom: 50px;
 }
 .Conteudo .Txt_Box {
-    margin-top: 50px;
+    margin-right: 8px;
+    margin-top: 80px;
     font-size: 19px;
     width: 80%;
+}
+@media(max-width: 450px) {
+    .Conteudo .Txt_Box  {
+        font-size: 6px;
+    }
+    
 }
 
 .Conteudo .Txt_Box .Btn {
