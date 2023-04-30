@@ -76,6 +76,12 @@ body {
     color: white;
     margin-bottom: 60px;
 }
+@media(max-width: 450px) {
+    .Conteudo .Txt_Box .Btn {
+        width: 80px;
+    }
+    
+}
 .Conteudo .Txt_Box button:hover {
     background-color: rgba(225, 34, 101, 0.815);;
 }
