@@ -272,8 +272,23 @@ function Confirm(){
                                             alert('O número do seu pedido é {'+np+'} consulte o status dele pelos canas de cominicação...');
                                             localStorage.removeItem('prod_id');
                                             History("/");
-
-                                    };                                    
+                                    };
+                                    //decrementando o estoque apos efetuar a compra
+                                    const Decrement = async () => {
+                                        const Estoque = Pedido_D[0].estoque;
+                                        const Name = Pedido_D[0].name;
+                                        const Decrement_estoque = parseInt(Pedido_D[0].estoque, 10) - parseInt(Pedido_D[0].quantidade, 10);
+                                        const up_doce = {
+                                            Name,
+                                            Estoque,
+                                            Decrement_estoque
+                                        };
+                                        const Up_Estoque_Doce = await Api.put('/estoque_d', up_doce);
+                                        console.log(Up_Estoque_Doce);
+                                    };
+                                    
+                                    Decrement();
+                                    
                                 };
 
                                 return(
