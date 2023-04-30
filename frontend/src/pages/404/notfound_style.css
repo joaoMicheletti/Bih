@@ -4,18 +4,14 @@
     box-sizing: border-box;
 }
 #Logo_img {
+    margin-top: 70px;
     border-radius: 50%;
-    width: 420px;
+    width: 300px;
 }
 #Content {
     text-align: center;
     width: 80%;
     margin-left: 10%;
-    background-color: blue;
-}
-
-#lk {
-    margin-top: 100px;
 }
 
 #Code {
@@ -23,5 +19,10 @@
 }
 
 #Sorry {
+    margin-top: 40px;
     font-size: 60px;
+    margin-bottom: 30px;
+}
+#Return {
+    margin-bottom: 10px;
 }
