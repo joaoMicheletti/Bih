@@ -46,29 +46,26 @@ function Salgado(){
                 </nav>
             </header>
         
-            <div className='Prop_Loja'>
+            <div className='Conteudo_Prop'>
+                
                 {Prop.map((iten, key) => {
                     
                     return(
                         <div key={iten.id} className='Propaganda'>
 
                             <div className='Img_Propaganda'>
-                                <img src={url + iten.img_propaganda} alt="prop"/>
+                                <img src={url + iten.img_propaganda} alt="prop"/>                                
                             </div>
-                            
-                            <div   className='Txt_Propaganda'>
 
+                            <div  className='Txt_Propaganda'>
                                 <p>{iten.Texto}</p>
-
+                                
                             </div>
                         </div>
 
                     )
-
                 })}
-                
-
-            </div>
+        </div>
             
             <h3><br/>Salgados</h3>
 

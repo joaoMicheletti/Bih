@@ -39,12 +39,15 @@
     font-size: 25px;
 }
 .Conteudo_Prop {
+    margin-left: 10%;
     justify-content: center;
-    width: 100%;
+    width: 80%;
     height: auto;
     margin-top: 100px;
 }
 .Propaganda {
+    width: 80%;
+    margin-left: 10%;
    display: flex;
    height: auto;
    margin-bottom: 50px;
@@ -53,7 +56,8 @@
     margin-left: 10px;
 }
 .Txt_Propaganda {
-    margin-left: 10px;
+    margin-left: 100px;
+    margin-top: 40px;
     color: white;
 }
 
