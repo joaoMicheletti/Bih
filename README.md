@@ -20,10 +20,13 @@
  </p> 
  ### iniciando os dois serviços.
  <p>
+     
     @INICIANDO O SERVIÇO FONTEND
     #> cd backend && npm start 
     # o fontend roda na porta padrao de aplicaçoẽs React = 3000. 
-
+ </p>
+ <p>
+     
     @INICIANDO O SERVIÇO BACKEND
     #> cd backend && npm start 
     # o backend roda na porta = 3001.
