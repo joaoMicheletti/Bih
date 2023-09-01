@@ -23,7 +23,7 @@
      
     @INICIANDO O SERVIÇO FONTEND
     #> cd backend && npm start 
-    # o fontend roda na porta padrao de aplicaçoẽs React = 3000. 
+    # o fontend roda na porta padrão de aplicaçoẽs React = 3000. 
  </p>
  <p>
      
