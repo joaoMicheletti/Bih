@@ -32,37 +32,37 @@
  # Página Home da aplicação :
  <p>
  atravez desta página o usuário tem acesso a propaganda que por sua ves pode seralterada pela loja tanto otxt e a img. </p>
- <img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+ <img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/home.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
 # Página de registro de usuários
 <p>
  é por está página que novos usuários efetuam o seu cadastro na plataforma. 
 </p>
-<img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+<img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/registrar.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
 # Página de login de usuários 
 <p>
 por está página que os usuários efetuam o login.</p>
-<img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+<img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/login.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
  # Páginas dam loja com suas duas categorias Doce | Salgado.
  <p>
   aqui os usuários conseguem ver os produtos a venda atraves da sua categoria OBS: uma página para cada categoria. 
  </p> 
- <img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
- <img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+ <img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/doce.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+ <img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/salgado.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
  # Página do carrinho do usuário.
  <p>
  atraves desta pagina que os usuários deciden  finalizam os seus pedidos.
  </p>
- <img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+ <img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/carrinho.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
 # Página de Finalizar o pedido.
 <p>
  atraves desta pagina que os usuários finalizam os seus pedidos.
  </p>
-<img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+<img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/finalizar.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
 
 # do lado da loja temos as seguintes páginas.
@@ -71,16 +71,15 @@ por está página que os usuários efetuam o login.</p>
 <p>
  # aqui o adm da lija faz login para ter acesso e contro da logo.
 </p>
-<img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/
-computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+<img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/admlogin.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
 # Página de painel
 <p>
     #pagina onde a adm cadastra seus produtos e propaganda da loja.
 </p> 
-<img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+<img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/admcadstro.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
 # Página onde o adm tem acesso a lista de pedidos recebidos e enviados.
-<img src="https://raw.githubusercontent.com/MicaelliMedeiros/micaellimedeiros/master/image/computer-illustration.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
+<img src="https://github.com/joaoMicheletti/Bih/blob/main/frontend/src/pages/assets/admvendido.png" min-width="400px" max-width="400px" width="400px"  alt="Computador iuriCode">
 
 
